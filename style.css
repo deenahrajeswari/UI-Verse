@@ -471,6 +471,263 @@ nav a:hover {
   border-radius: 5px;
 }
 
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:#fff;
+  display:flex;
+  min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+  width:250px;
+  background:#111827;
+  padding:25px 20px;
+  position:fixed;
+  left:0;
+  top:0;
+  bottom:0;
+  border-right:1px solid rgba(255,255,255,0.1);
+  transition:0.3s;
+  z-index:1000;
+}
+
+.sidebar h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-size:28px;
+  color:#38bdf8;
+}
+
+.sidebar ul{
+  list-style:none;
+}
+
+.sidebar ul li{
+  margin-bottom:14px;
+}
+
+.sidebar ul li a{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+  color:#d1d5db;
+  padding:14px;
+  border-radius:12px;
+  transition:0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar .active a{
+  background:#1e293b;
+  color:#38bdf8;
+}
+
+.sidebar ul li i{
+  font-size:18px;
+}
+
+/* Menu Button */
+
+.menu-toggle{
+  display:none;
+  position:fixed;
+  top:20px;
+  left:20px;
+  z-index:1200;
+  background:#1e293b;
+  color:#fff;
+  padding:12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* Main Page */
+
+.badges-page{
+  margin-left:250px;
+  width:100%;
+  padding:40px;
+}
+
+.page-header{
+  margin-bottom:40px;
+}
+
+.page-header h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.page-header p{
+  color:#94a3b8;
+  font-size:16px;
+}
+
+/* Sections */
+
+.badge-section{
+  margin-bottom:50px;
+}
+
+.badge-section h2{
+  margin-bottom:25px;
+  font-size:28px;
+  color:#38bdf8;
+}
+
+/* Badge Grid */
+
+.badge-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+/* Card */
+
+.badge{
+  background:#111827;
+  border-radius:22px;
+  padding:25px;
+  text-align:center;
+  transition:0.3s;
+  border:1px solid rgba(255,255,255,0.08);
+  position:relative;
+  overflow:hidden;
+}
+
+.badge:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.35);
+}
+
+.badge-img{
+  width:110px;
+  height:110px;
+  margin:auto;
+  margin-bottom:20px;
+  border-radius:50%;
+  overflow:hidden;
+  border:4px solid #38bdf8;
+}
+
+.badge-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.badge h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+
+.badge p{
+  color:#cbd5e1;
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:18px;
+}
+
+/* Status */
+
+.badge-status{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:600;
+}
+
+.success{
+  background:#052e16;
+  color:#4ade80;
+}
+
+.locked-status{
+  background:#3f3f46;
+  color:#d4d4d8;
+}
+
+/* Progress */
+
+.progress-wrapper{
+  margin-top:10px;
+}
+
+progress{
+  width:100%;
+  height:12px;
+  border:none;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+progress::-webkit-progress-bar{
+  background:#1e293b;
+}
+
+progress::-webkit-progress-value{
+  background:#38bdf8;
+  border-radius:20px;
+}
+
+.progress-wrapper span{
+  display:block;
+  margin-top:10px;
+  color:#38bdf8;
+  font-weight:600;
+}
+
+/* Locked */
+
+.locked{
+  opacity:0.7;
+  filter:grayscale(0.5);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .sidebar{
+    left:-260px;
+  }
+
+  .sidebar.show{
+    left:0;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .badges-page{
+    margin-left:0;
+    padding:90px 20px 30px;
+  }
+
+  .page-header h1{
+    font-size:32px;
+  }
+
+}
+
 .toggle-btn {
   position: fixed;
   top: 10px;
