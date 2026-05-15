@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; connect-src 'self' https:; img-src 'self' data: https:; font-src 'self' data: https:; script-src 'self' https: 'unsafe-hashes'; script-src-attr 'unsafe-hashes'; style-src 'self' https: 'unsafe-hashes'; style-src-attr 'unsafe-hashes'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>NeoCode Editor</title>
@@ -22,6 +23,11 @@
   <link rel="stylesheet" href="code.css">
 </head>
 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Editor UI</title>
+  <link rel="stylesheet" href="code.css">
+</head>
 <body>
 
   <div class="editor-container">
@@ -209,6 +215,43 @@
         </div>
 
       </div>
+    <aside class="sidebar">
+
+      <h2>Files</h2>
+
+      <ul>
+
+        <li class="active-file">index.html</li>
+        <li>style.css</li>
+        <li>script.js</li>
+
+      </ul>
+
+    </aside>
+
+    <div class="editor-section">
+
+      <div class="editor-header">
+
+        <span>index.html</span>
+
+        <button id="runBtn">
+          Run
+        </button>
+
+      </div>
+
+      <textarea id="codeArea">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Code Editor</title>
+</head>
+<body>
+  <h1>Hello World</h1>
+</body>
+</html>
+      </textarea>
 
     </div>
 

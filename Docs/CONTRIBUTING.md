@@ -145,6 +145,66 @@ We aim to keep things smooth and transparent:
 - Keep UI responsive
 - Follow folder structure
 
+## ♿ Accessibility Checklist (WCAG 2.2 Baseline)
+
+- Keep `lang` on the root `<html>` element.
+- Provide accessible names for icon-only buttons/links (`aria-label` or visible text).
+- Ensure form controls are labelled (`label for`, `aria-label`, or `aria-labelledby`).
+- Include meaningful `alt` text for informative images.
+- Verify keyboard navigation works for all clickable controls.
+- Keep at least one main landmark (`<main>` or `role="main"`).
+
+Run local checks before opening a PR:
+
+```bash
+npm install
+npm run audit:a11y
+```
+
+## 🔎 Component Registry & Search
+
+This project uses a metadata-driven component registry to power search and routing. When adding new components, update `data/components.json` with a new entry (id, title, path, tags, aliases, description).
+
+Example entry:
+
+```json
+{
+  "id": "my-component",
+  "title": "My Component",
+  "path": "my-component.html",
+  "tags": ["forms","components"],
+  "aliases": ["mycomponent","mc"],
+  "description": "Short description"
+}
+```
+
+The search feature (`js/features/search.js`) will use `js/core/components-registry.js` at runtime to resolve search queries to pages. Adding entries to `data/components.json` makes components discoverable without editing JS code.
+
+## 🔐 Security Baseline
+
+We added a small runtime security module that injects a pragmatic CSP, migrates simple inline handlers to event listeners, and warns about third-party assets missing `integrity` attributes. See [SECURITY.md](../docs/SECURITY.md) for details and guidance for contributors.
+
+## 📸 Visual Regression Testing (Playwright)
+
+When you update UI/CSS, verify visuals with:
+
+```bash
+npm run test:visual
+```
+
+If changes are intentional, update baselines:
+
+```bash
+npm run test:visual:update
+```
+
+Then commit the updated snapshots. See [VISUAL_TESTING.md](../docs/VISUAL_TESTING.md) for full guide.
+
+Tests cover:
+- Desktop + Mobile breakpoints
+- Light + Dark modes
+- 22+ component scenarios
+
 ![Line](https://user-images.githubusercontent.com/85225156/171937799-8fc9e255-9889-4642-9c92-6df85fb86e82.gif)
 
 ## How To Contribute
@@ -153,6 +213,7 @@ We aim to keep things smooth and transparent:
 - Take a look at the existing [Issues](https://github.com/Tushar-sonawane06/UI-Verse/issues). 
 - Fork the Repo & create a branch for any issue that you are working on and commit your work.
 - At first raise an issue in which you want to work
+- Use the GitHub issue template for bug reports or feature requests so maintainers can triage them consistently.
 - Then after assigning only then work on that issue & make a PR 
 - Create a [**Pull Request**](https://github.com/Tushar-sonawane06/UI-Verse/pulls), which will be promptly reviewed and given suggestions for improvements by the community.
 - **REMINDER: Don't raise more than 2 `Issue` at a time**
