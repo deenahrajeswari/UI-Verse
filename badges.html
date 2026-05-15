@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Badges Page</title>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; connect-src 'self' https:; img-src 'self' data: https:; font-src 'self' data: https:; script-src 'self' https: 'unsafe-hashes' sha256-4idOpfcVGcf1JIcDr6s5pmLauAMO9auB0wLw0b1hd9Y= sha256-EhZb9eCYZjdj8g1XUkWjS5kjAJ0k/lKMbMN+ZN6m09Q= sha256-XriXHWKMwk2T+JOvuAt7cij0Iacl5D/SqRKl7ZgDNZ4=; script-src-attr 'unsafe-hashes' sha256-4idOpfcVGcf1JIcDr6s5pmLauAMO9auB0wLw0b1hd9Y= sha256-EhZb9eCYZjdj8g1XUkWjS5kjAJ0k/lKMbMN+ZN6m09Q= sha256-XriXHWKMwk2T+JOvuAt7cij0Iacl5D/SqRKl7ZgDNZ4=; style-src 'self' https: 'unsafe-hashes'; style-src-attr 'unsafe-hashes'">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,8 +40,77 @@
   <script src="js/features/url-state-integration.js"></script>
   <script src="js/bootstrap.js"></script>
 </head>
+
 <body>
 
+  <!-- Mobile Menu -->
+  <i class="fa-solid fa-bars menu-toggle" id="menuToggle"></i>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <h2>UIverse</h2>
+
+    <ul>
+      <li>
+        <a href="profile.html">
+          <i class="fa-regular fa-circle-user"></i>
+          <p>Profile</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="index.html">
+          <i class="fa-solid fa-house"></i>
+          <p>Home</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="button.html">
+          <i class="fa-solid fa-mobile-button"></i>
+          <p>Buttons</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="navbar.html">
+          <i class="fa-solid fa-bars"></i>
+          <p>Navbar</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="contact.html">
+          <i class="fa-regular fa-user"></i>
+          <p>Contact Us</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="forms.html">
+          <i class="fa-brands fa-wpforms"></i>
+          <p>Forms</p>
+        </a>
+      </li>
+
+      <li class="active">
+        <a href="badges.html">
+          <i class="fa-solid fa-award"></i>
+          <p>Badges</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="about.html">
+          <i class="fa-solid fa-circle-info"></i>
+          <p>About</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="settings.html">
+          <i class="fa-solid fa-gear"></i>
+          <p>Settings</p>
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
@@ -139,6 +220,17 @@
   </div>
 </header>
 
+  <!-- Main Content -->
+  <main class="badges-page">
+
+    <div class="page-header">
+      <h1>🏆 My Badges</h1>
+      <p>Track your achievements and contribution progress</p>
+    </div>
+
+    <!-- Earned -->
+    <section class="badge-section">
+      <h2>Earned Badges</h2>
 <section class="badges-page">
   <h1><i class="fa-solid fa-trophy"></i> My Badges</h1>
 
@@ -157,12 +249,15 @@
       <p>Contributed to 10 PRs</p>
     </div>
 
-  </div>
+      <div class="badge-container">
 
-  <!-- In Progress -->
-  <h2 class="prog-1">In Progress</h2>
-  <div class="badge-container">
+        <div class="badge earned">
+          <div class="badge-img">
+            <img src="badge1.jpg" alt="First PR Badge">
+          </div>
 
+          <h3>First PR</h3>
+          <p>Completed your first pull request</p>
     <div class="badge progress">
       <picture><source type="image/avif" srcset="generated-images/time/time-320.avif 320w, generated-images/time/time-480.avif 480w, generated-images/time/time-512.avif 512w" sizes="(max-width: 768px) 96px, 160px"><source type="image/webp" srcset="generated-images/time/time-320.webp 320w, generated-images/time/time-480.webp 480w, generated-images/time/time-512.webp 512w" sizes="(max-width: 768px) 96px, 160px"><img src="generated-images/time/time-optimized-512.png" alt="Top Contributor badge with progress indicator" sizes="(max-width: 768px) 96px, 160px" loading="lazy" decoding="async" width="512" height="512"></picture>
       <h3>Top Contributor</h3>
@@ -170,8 +265,78 @@
       <progress value="14" max="50"></progress>
     </div>
 
-  </div>
+          <span class="badge-status success">
+            <i class="fa-solid fa-circle-check"></i>
+            Unlocked
+          </span>
+        </div>
 
+        <div class="badge earned">
+          <div class="badge-img">
+            <img src="badge2.jpg" alt="Contributor Badge">
+          </div>
+
+          <h3>Contributor</h3>
+          <p>Contributed to 10 pull requests</p>
+
+          <span class="badge-status success">
+            <i class="fa-solid fa-circle-check"></i>
+            Unlocked
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Progress -->
+    <section class="badge-section">
+      <h2>In Progress</h2>
+
+      <div class="badge-container">
+
+        <div class="badge progress-card">
+
+          <div class="badge-img">
+            <img src="time.png" alt="Progress Badge">
+          </div>
+
+          <h3>Top Contributor</h3>
+          <p>14 / 50 PRs completed</p>
+
+          <div class="progress-wrapper">
+            <progress value="14" max="50"></progress>
+            <span>28%</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Locked -->
+    <section class="badge-section">
+      <h2>Locked Badges</h2>
+
+      <div class="badge-container">
+
+        <div class="badge locked">
+
+          <div class="badge-img">
+            <img src="lock.jpg" alt="Locked Badge">
+          </div>
+
+          <h3>Elite Hacker</h3>
+          <p>Complete 100 PRs to unlock</p>
+
+          <span class="badge-status locked-status">
+            <i class="fa-solid fa-lock"></i>
+            Locked
+          </span>
+
+        </div>
+
+      </div>
+    </section>
   <!-- Earned Badges -->
 <h2>✨ Earned Badges</h2>
 <div class="badge-container">
@@ -289,10 +454,20 @@
       <p>Complete 100 PRs</p>
     </div>
 
-  </div>
+  </main>
 
-</section>
+  <!-- JS -->
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const sidebar = document.getElementById("sidebar");
 
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("show");
+    });
+  </script>
+
+</body>
+</html>
   <!-- UIverse Modular Scripts -->
   <script src="js/core/utils.js"></script>
   <script src="js/features/toast.js"></script>
