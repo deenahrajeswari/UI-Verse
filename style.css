@@ -508,6 +508,7 @@ body.dark-mode .hero-left p {
   background: #b4c2e5;
   padding: 20px;
   border-radius: 16px;
+}
 .component-card {
   /* background: #b4c2e5; */
   padding: 20px;
@@ -684,6 +685,7 @@ body {
   margin-left: 240px;
   padding: 40px;
   width: 100%;
+}
 .nav-btn button:hover {
   background: #0b1a3e;
 }
