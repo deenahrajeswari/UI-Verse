@@ -50,12 +50,22 @@
     drawer.classList.add("open");
     backdrop.classList.add("active");
     drawer.setAttribute("aria-hidden", "false");
+    drawer.setAttribute("role", "dialog");
+    drawer.setAttribute("aria-modal", "true");
+    if (window.FocusTrap) {
+      window.FocusTrap.activate(drawer);
+    }
   }
 
   function closeDrawer() {
     drawer.classList.remove("open");
     backdrop.classList.remove("active");
     drawer.setAttribute("aria-hidden", "true");
+    drawer.removeAttribute("role");
+    drawer.removeAttribute("aria-modal");
+    if (window.FocusTrap) {
+      window.FocusTrap.deactivate();
+    }
   }
 
   function setValueLabel(name, value) {
