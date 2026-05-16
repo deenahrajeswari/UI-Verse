@@ -246,21 +246,8 @@
     else headerActions.appendChild(exportBtn);
   }
 
-  function injectPlaygroundButtons() {
-    document.querySelectorAll(".component-card .actions").forEach((actions) => {
-      if (actions.querySelector(".playground-open-btn")) return;
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "playground-open-btn";
-      btn.textContent = "Playground";
-      actions.appendChild(btn);
-      btn.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        openFromCard(actions.closest(".component-card"));
-      });
-    });
-  }
+  // Initial button injection (now also handled by MutationObserver)
+  document.querySelectorAll('.component-card').forEach(injectButtonToCard);
 
   controls.forEach((input) => {
     input.addEventListener("input", () => {
@@ -280,7 +267,47 @@
 
   function init() {
     injectPlaygroundButtons();
+    observeDynamicComponents();
     closeDrawer();
+  }
+
+  function observeDynamicComponents() {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            if (node.classList?.contains('component-card')) {
+              injectButtonToCard(node);
+            } else if (node.querySelector) {
+              node.querySelectorAll('.component-card').forEach(injectButtonToCard);
+            }
+          }
+        });
+      });
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    
+    console.log('[Playground] MutationObserver active for dynamic components');
+  }
+
+  function injectButtonToCard(card) {
+    const actions = card.querySelector('.actions');
+    if (!actions || actions.querySelector('.playground-open-btn')) return;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'playground-open-btn';
+    btn.textContent = 'Playground';
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openFromCard(card);
+    });
+    actions.appendChild(btn);
   }
 
   if (document.readyState === "loading") {
