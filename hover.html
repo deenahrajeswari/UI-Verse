@@ -191,7 +191,158 @@
       </div>
     </div>
 
+    <!-- 6. MAGNETIC BUTTON -->
+    <div class="hover-card">
+      <div class="hover-info">
+        <h2>Magnetic Button</h2>
+        <p>A button that physically attracts to your cursor.</p>
+      </div>
+      <div class="component-preview" id="preview-6">
+        <button class="magnetic-btn" id="magneticBtn">
+          <span class="btn-text">Magnetic</span>
+        </button>
+        <script>
+          // Magnetic interaction logic
+          const magBtn = document.getElementById('magneticBtn');
+          magBtn.addEventListener('mousemove', (e) => {
+            const rect = magBtn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            magBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            magBtn.querySelector('.btn-text').style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+          });
+          magBtn.addEventListener('mouseleave', () => {
+            magBtn.style.transform = 'translate(0px, 0px)';
+            magBtn.querySelector('.btn-text').style.transform = 'translate(0px, 0px)';
+          });
+        </script>
+      </div>
+      <div class="card-actions">
+        <button class="copy-btn" data-target="preview-6">
+          <i class="fa-regular fa-copy"></i> <span>Copy Code</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 7. GLITCH TEXT EFFECT -->
+    <div class="hover-card">
+      <div class="hover-info">
+        <h2>Glitch Text Effect</h2>
+        <p>Cyberpunk style text glitch on hover.</p>
+      </div>
+      <div class="component-preview" id="preview-7">
+        <h3 class="glitch-text" data-text="CYBERPUNK">CYBERPUNK</h3>
+      </div>
+      <div class="card-actions">
+        <button class="copy-btn" data-target="preview-7">
+          <i class="fa-regular fa-copy"></i> <span>Copy Code</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 8. NEUMORPHIC INSET HOVER -->
+    <div class="hover-card">
+      <div class="hover-info">
+        <h2>Neumorphic Inset</h2>
+        <p>Soft UI element that presses inwards.</p>
+      </div>
+      <div class="component-preview" id="preview-8">
+        <div class="neumorphic-btn">
+          <i class="fa-solid fa-power-off"></i>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="copy-btn" data-target="preview-8">
+          <i class="fa-regular fa-copy"></i> <span>Copy Code</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 9. IMAGE ZOOM OVERLAY -->
+    <div class="hover-card">
+      <div class="hover-info">
+        <h2>Image Zoom Overlay</h2>
+        <p>Image scales up while an overlay slides in.</p>
+      </div>
+      <div class="component-preview" id="preview-9">
+        <div class="img-zoom-card">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Abstract Art">
+          <div class="img-overlay">
+            <h3>Abstract Art</h3>
+            <p>View Gallery &rarr;</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="copy-btn" data-target="preview-9">
+          <i class="fa-regular fa-copy"></i> <span>Copy Code</span>
+        </button>
+      </div>
+    </div>
+
   </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <i class="fa-solid fa-hexagon-nodes"></i>
+          <span>UIverse</span>
+        </div>
+        <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="button.html">Buttons</a></li>
+          <li><a href="navbar.html">Navbars</a></li>
+          <li><a href="cards.html">Cards</a></li>
+          <li><a href="inputs.html">Inputs</a></li>
+          <li><a href="forms.html">Forms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Contribute</a></li>
+          <li><a href="#">GitHub Repo</a></li>
+          <li><a href="#">Community</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">License</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <p>Get notified when new components drop.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="your@email.com" />
+          <button type="button">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2026 UIverse. Made with <i class="fa-solid fa-heart heart"></i> for developers worldwide.</p>
+    </div>
+  </footer>
+
 </main>
 
 <script>

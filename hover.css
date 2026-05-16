@@ -421,13 +421,310 @@ body{
   box-shadow: 0 20px 25px -5px rgba(168, 85, 247, 0.4), 0 10px 10px -5px rgba(168, 85, 247, 0.2);
 }
 
+/* 6. Magnetic Button */
+.magnetic-btn {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.magnetic-btn .btn-text {
+  display: inline-block;
+  transition: transform 0.1s ease-out;
+}
+
+/* 7. Glitch Text Effect */
+.glitch-text {
+  font-size: 48px;
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  color: #fff;
+  position: relative;
+}
+.glitch-text::before, .glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.hover-card:hover .glitch-text::before {
+  opacity: 1;
+  color: #0ff;
+  z-index: -1;
+  animation: glitch-anim-1 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+.hover-card:hover .glitch-text::after {
+  opacity: 1;
+  color: #f0f;
+  z-index: -2;
+  animation: glitch-anim-2 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite reverse;
+}
+@keyframes glitch-anim-1 {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+@keyframes glitch-anim-2 {
+  0% { transform: translate(0) }
+  20% { transform: translate(2px, -2px) }
+  40% { transform: translate(2px, 2px) }
+  60% { transform: translate(-2px, -2px) }
+  80% { transform: translate(-2px, 2px) }
+  100% { transform: translate(0) }
+}
+
+/* 8. Neumorphic Inset Hover */
+.neumorphic-btn {
+  width: 80px;
+  height: 80px;
+  background: #1e293b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #94a3b8;
+  box-shadow: 8px 8px 16px rgba(0,0,0,0.5), -8px -8px 16px rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.neumorphic-btn:hover {
+  box-shadow: inset 8px 8px 16px rgba(0,0,0,0.5), inset -8px -8px 16px rgba(255,255,255,0.05);
+  color: #10b981;
+}
+
+/* 9. Image Zoom Overlay */
+.img-zoom-card {
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.img-zoom-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.img-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.img-overlay h3 {
+  font-size: 20px;
+  color: #fff;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+.img-overlay p {
+  font-size: 14px;
+  color: #3b82f6;
+  margin-top: 8px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease 0.1s;
+}
+.hover-card:hover .img-zoom-card img {
+  transform: scale(1.1);
+}
+.hover-card:hover .img-overlay {
+  opacity: 1;
+}
+.hover-card:hover .img-overlay h3,
+.hover-card:hover .img-overlay p {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   FOOTER (Copied from Error Pages)
+========================================================= */
+.site-footer {
+  margin-top: 60px; /* Push below the grid */
+  background: #0f1115;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 60px 40px 20px;
+  margin-left: -42px; 
+  margin-right: -42px;
+  margin-bottom: -42px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-logo i {
+  color: #eb6835;
+  font-size: 24px;
+}
+.footer-logo span {
+  font-family: "Syne", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #eb6835;
+}
+.footer-brand p {
+  color: #8b949e;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 250px;
+}
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+.footer-socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b949e;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.footer-socials a:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.footer-links h4 {
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-links a {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+.footer-links a:hover {
+  color: #eb6835;
+}
+
+.footer-newsletter h4 {
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.footer-newsletter p {
+  color: #8b949e;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+.newsletter-form input {
+  flex: 1;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.newsletter-form input:focus {
+  border-color: #eb6835;
+}
+.newsletter-form button {
+  background: #eb6835;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.newsletter-form button:hover {
+  background: #d95a2b;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 20px;
+  text-align: center;
+}
+.footer-bottom p {
+  color: #6a7a94;
+  font-size: 13px;
+}
+.footer-bottom .heart {
+  color: #ef4444;
+}
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
+@media(max-width:1200px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 @media(max-width:992px){
   .main-home{ margin-left: 0; }
   .sidebar{ display: none; }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 @media(max-width:768px){
   .hover-grid { grid-template-columns: 1fr; }
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
 }
