@@ -24,7 +24,10 @@
     "quality": "npm run lint:html && npm run lint:css && npm run lint:js && npm run link-check && npm run audit:a11y && npm run test:visual",
     "test:e2e:accessibility": "playwright test tests/visual/accessibility --project=chromium-desktop --reporter=list",
     "perf": "node scripts/perf-budgets.js",
-    "perf:ci": "node scripts/perf-budgets.js"
+    "perf:ci": "node scripts/perf-budgets.js",
+    "perf:monitor": "node scripts/performance-monitor.js",
+    "perf:check": "node scripts/performance-monitor.js && echo '✅ Performance check completed'",
+    "perf:dashboard": "npm run perf:monitor && echo '📊 Open performance-dashboard.html in your browser'"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.0.0",
