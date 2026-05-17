@@ -118,121 +118,7 @@
   font-weight: 600;
   border: 1px solid rgba(255,255,255,0.3);
 }
-/* ============================================================
-   SIDEBAR
-   ============================================================ */
-.sidebar {
-  width: var(--sidebar-w);
-  height: 100vh;
-  background: linear-gradient(160deg, #141428 0%, #1c1c35 100%);
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1050;
-  border-right: 1px solid rgba(255,255,255,0.05);
-  transition: transform var(--transition);
-}
 
-.sidebar-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 22px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.brand-icon {
-  font-size: 24px;
-  color: var(--accent);
-}
-
-.brand-text {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 20px;
-  color: #fff;
-  letter-spacing: -0.5px;
-}
-
-.sidebar-nav {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px 12px;
-}
-
-.sidebar-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sidebar-nav li a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 11px 14px;
-  color: #8a9bc0;
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  font-size: 14px;
-  font-weight: 500;
-  transition: all var(--transition);
-}
-
-.sidebar-nav li a i {
-  width: 18px;
-  text-align: center;
-  font-size: 15px;
-}
-
-.sidebar-nav li a:hover {
-  background: rgba(255,255,255,0.07);
-  color: #fff;
-  transform: translateX(3px);
-}
-
-.sidebar-nav li.active a {
-  background: linear-gradient(90deg, rgba(235,104,53,0.2) 0%, rgba(235,104,53,0.05) 100%);
-  color: var(--accent);
-  border-left: 3px solid var(--accent);
-}
-
-.sidebar-footer {
-  padding: 20px 24px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex;
-  gap: 16px;
-}
-
-.sidebar-footer a {
-  color: #6a7a94;
-  font-size: 16px;
-  transition: color var(--transition);
-}
-
-.sidebar-footer a:hover {
-  color: var(--accent);
-}
-
-/* Sidebar backdrop (mobile) */
-.sidebar-backdrop {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 1040;
-  backdrop-filter: blur(2px);
-}
-
-.sidebar-backdrop.visible {
-  display: block;
-}
 /* ============================================================
    FILTER BAR
    ============================================================ */
@@ -286,7 +172,7 @@
    ============================================================ */
 .navbar-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 20px;
 }
 
@@ -304,6 +190,27 @@
   transition: all var(--transition);
   opacity: 0;
   transform: translateY(16px);
+  animation: cardFadeIn 0.5s ease forwards;
+}
+
+.component-card:nth-child(1) { animation-delay: 0.05s; }
+.component-card:nth-child(2) { animation-delay: 0.1s; }
+.component-card:nth-child(3) { animation-delay: 0.15s; }
+.component-card:nth-child(4) { animation-delay: 0.2s; }
+.component-card:nth-child(5) { animation-delay: 0.25s; }
+.component-card:nth-child(6) { animation-delay: 0.3s; }
+.component-card:nth-child(7) { animation-delay: 0.35s; }
+.component-card:nth-child(8) { animation-delay: 0.4s; }
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .component-card.in-view {
@@ -431,8 +338,6 @@
   justify-content: space-between;
   border-radius: 8px;
   padding: 11px 16px;
-  flex-wrap: wrap;
-  gap: 8px;
 }
 
 .dnav-brand {
@@ -631,163 +536,15 @@ body.dark-mode .demo-nav-split { background: #1e1e24; border-color: #2a2a30; }
   .filter-search { margin-left: 0; width: 100%; }
   .filter-search input { width: 100%; }
   .navbar-grid { grid-template-columns: 1fr; }
-   .page-hero { flex-direction: column; padding: 32px 24px; }
-  .page-hero-right { display: none; }
-  .filter-search { margin-left: 0; width: 100%; }
-  .filter-search input { width: 100%; }
-  .navbar-grid { grid-template-columns: 1fr; }
-
-  /* ADD: preview box ko clip mat karo */
-  .nav-card-preview { overflow: visible; }
 }
 
 @media (max-width: 480px) {
-  /* Filter bar */
   .filter-bar { flex-direction: column; align-items: stretch; }
   .filter-btn { text-align: center; }
-  .filter-search { margin-left: 0; width: 100%; }
-  .filter-search input { width: 100%; }
-
-  
-
-  /* Cards */
-  .component-card { padding: 16px; }
-  .nav-card-preview {
-    padding: 8px;
-    width: 100%;
-    overflow: visible;   /* hidden hata do */
-  }
-
-  /* Page text */
-  .page-title { font-size: 24px; }
-  .page-desc  { font-size: 13px; }
-
-  /* ---- Demo navbars: stack vertically ---- */
-  .demo-nav-simple,
-  .demo-nav-center,
-  .demo-nav-btn,
-  .demo-nav-dark,
-  .demo-nav-glass,
-  .demo-nav-search,
-  .demo-nav-split,
-  .demo-nav-gradient {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 10px 12px;
-  }
-
-  /* Brand full width */
-  .dnav-brand,
-  .dnav-center-brand { width: 100%; margin-bottom: 2px; }
-
-  /* Links wrap karo, hide mat karo */
-  .dnav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    width: 100%;
-  }
-
-  /* Buttons stack */
-  .dnav-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    width: 100%;
-  }
-
-  /* Search bar full width */
-  .dnav-search-group {
-    display: flex;   /* visible karo */
-    flex: 1 1 100%;
-    width: 100%;
-  }
-
-  .dnav-primary-link {
-    display: inline-block;  /* visible karo */
-    margin-top: 4px;
-  }
-
-  /* Glass button & white button show karo */
-  .dnav-glass-btn,
-  .dnav-white-btn {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Meta links (split navbar) */
-  .dnav-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    width: 100%;
-  }
-
-  /* Centered nav */
-  .demo-nav-center {
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .component-card { padding: 16px; }
-  .nav-card-preview { padding: 10px; }
-  
-  .page-title { font-size: 24px; }
-  .page-desc { font-size: 13px; }
-  .dnav-links {
-  width: 100%;
-  justify-content: flex-start;
-}
-
-.dnav-brand {
-  width: 100%;
-  margin-bottom: 8px;
-}
-
-.demo-nav-simple,
-.demo-nav-btn,
-.demo-nav-dark,
-.demo-nav-glass,
-.demo-nav-search,
-.demo-nav-split,
-.demo-nav-gradient {
-  width: 100%;
-  overflow: hidden;
-}
-
- 
-  .dnav-links {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-  .dnav-actions,
-  .dnav-meta,
-  .dnav-glass-btn,
-  .dnav-white-btn,
-  .dnav-search-group,
-  .dnav-primary-link { display: none; }
-
-  
-  .demo-nav-simple,
-  .demo-nav-btn,
-  .demo-nav-dark,
-  .demo-nav-glass,
-  .demo-nav-search,
-  .demo-nav-split,
-  .demo-nav-gradient {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
   .dnav-links { display: none; }
 }
 /* =========================================================
    MOBILE BOTTOM NAVBAR
-========================================================= */
 
 .mobile-preview {
 
@@ -895,7 +652,6 @@ body.dark-mode .demo-nav-split { background: #1e1e24; border-color: #2a2a30; }
 
 /* =========================================================
    MINIMAL STICKY NAVBAR
-========================================================= */
 
 .sticky-preview {
 
@@ -1005,7 +761,6 @@ body.dark-mode .demo-nav-split { background: #1e1e24; border-color: #2a2a30; }
 
 /* =========================================================
    DARK MODE
-========================================================= */
 
 body.dark-mode .demo-mobile-nav,
 body.dark-mode .demo-sticky-nav {
@@ -1028,7 +783,6 @@ body.dark-mode .sticky-brand {
 
 /* =========================================================
    RESPONSIVE
-========================================================= */
 
 @media (max-width: 768px) {
 
@@ -1049,7 +803,6 @@ body.dark-mode .sticky-brand {
 }
 /* =========================================================
    COMMAND PALETTE NAVBAR
-========================================================= */
 
 .command-preview {
 
@@ -1092,7 +845,6 @@ body.dark-mode .sticky-brand {
 
 /* =========================================================
    COMMAND BUTTON
-========================================================= */
 
 .command-palette-btn {
 
@@ -1161,7 +913,6 @@ body.dark-mode .sticky-brand {
 
 /* =========================================================
    ACTIONS
-========================================================= */
 
 .command-actions {
 
@@ -1195,7 +946,6 @@ body.dark-mode .sticky-brand {
 
 /* =========================================================
    CATEGORY TABS
-========================================================= */
 
 .tabs-preview {
 
@@ -1272,7 +1022,6 @@ body.dark-mode .sticky-brand {
 
 /* =========================================================
    DARK MODE
-========================================================= */
 
 body.dark-mode .demo-command-nav,
 body.dark-mode .demo-tabs-nav {
@@ -1326,7 +1075,6 @@ body.dark-mode .tab-link {
 
 /* =========================================================
    RESPONSIVE
-========================================================= */
 
 @media (max-width: 768px) {
 
@@ -1345,7 +1093,6 @@ body.dark-mode .tab-link {
 }
 /* =========================================================
    PROFILE DROPDOWN NAVBAR
-========================================================= */
 
 .demo-profile-nav {
 
@@ -1466,7 +1213,6 @@ body.dark-mode .tab-link {
 
 /* =========================================================
    COMMUNITY NAVBAR
-========================================================= */
 
 .demo-community-nav {
 
@@ -1562,7 +1308,6 @@ body.dark-mode .tab-link {
 
 /* =========================================================
    PARTICLE NAVBAR
-========================================================= */
 
 .particle-preview {
 
@@ -1636,7 +1381,6 @@ body.dark-mode .tab-link {
 
 /* =========================================================
    PARTICLES
-========================================================= */
 
 .particles span {
 
@@ -1718,7 +1462,6 @@ body.dark-mode .tab-link {
 
 /* =========================================================
    DARK MODE
-========================================================= */
 
 body.dark-mode .demo-profile-nav,
 body.dark-mode .demo-community-nav {
@@ -1749,7 +1492,6 @@ body.dark-mode .community-brand {
 
 /* =========================================================
    RESPONSIVE
-========================================================= */
 
 @media (max-width: 768px) {
 
@@ -1769,7 +1511,6 @@ body.dark-mode .community-brand {
 }
 /* =========================================================
    MACOS DOCK NAVBAR
-========================================================= */
 
 .dock-preview {
 
@@ -1852,7 +1593,6 @@ body.dark-mode .community-brand {
 
 /* =========================================================
    MEGA MENU NAVBAR
-========================================================= */
 
 .mega-preview {
 
@@ -1917,7 +1657,6 @@ body.dark-mode .community-brand {
 
 /* =========================================================
    DROPDOWN
-========================================================= */
 
 .mega-item {
 
@@ -1998,7 +1737,6 @@ body.dark-mode .community-brand {
 
 /* =========================================================
    BUTTON
-========================================================= */
 
 .mega-btn {
 
@@ -2027,7 +1765,6 @@ body.dark-mode .community-brand {
 
 /* =========================================================
    DARK MODE
-========================================================= */
 
 body.dark-mode .demo-dock-nav,
 body.dark-mode .demo-mega-nav {
@@ -2067,7 +1804,6 @@ body.dark-mode .mega-column a {
 
 /* =========================================================
    RESPONSIVE
-========================================================= */
 
 @media (max-width: 992px) {
 
@@ -2110,7 +1846,6 @@ body.dark-mode .mega-column a {
 }
 /* =========================================================
    TRANSPARENT HERO NAVBAR
-========================================================= */
 
 .hero-nav-preview {
 
@@ -2200,7 +1935,6 @@ body.dark-mode .mega-column a {
 
 /* =========================================================
    DASHBOARD NAVBAR
-========================================================= */
 
 .dashboard-preview {
 
@@ -2325,7 +2059,6 @@ body.dark-mode .mega-column a {
 
 /* =========================================================
    DARK MODE
-========================================================= */
 
 body.dark-mode .demo-dashboard-nav {
 
@@ -2351,7 +2084,6 @@ body.dark-mode .dashboard-search input {
 
 /* =========================================================
    RESPONSIVE
-========================================================= */
 
 @media (max-width: 768px) {
 
@@ -2379,7 +2111,6 @@ body.dark-mode .dashboard-search input {
 
 /* =========================================================
    SAAS NAVBAR
-========================================================= */
 
 .demo-saas-nav{
   display:flex;
@@ -2427,7 +2158,6 @@ body.dark-mode .dashboard-search input {
 
 /* =========================================================
    ECOMMERCE NAVBAR
-========================================================= */
 
 .demo-ecommerce-nav{
   display:flex;
@@ -2477,7 +2207,6 @@ body.dark-mode .dashboard-search input {
 
 /* =========================================================
    AI NAVBAR
-========================================================= */
 
 .demo-ai-nav{
   display:flex;
@@ -2525,7 +2254,6 @@ body.dark-mode .dashboard-search input {
 
 /* =========================================================
    SOCIAL NAVBAR
-========================================================= */
 
 .demo-social-nav{
   display:flex;
@@ -2569,7 +2297,6 @@ body.dark-mode .dashboard-search input {
 
 /* =========================================================
    DEV TOOL NAVBAR
-========================================================= */
 
 .demo-dev-nav{
   display:flex;
