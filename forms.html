@@ -264,14 +264,14 @@
   </button>
   <div class="logo">UIverse</div>
   <div class="search-bar">
-    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input type="text" placeholder="Search components..." />
+    <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+    <input type="text" placeholder="Search components..." aria-label="Search components" />
     <kbd class="search-kbd">⌘K</kbd>
   </div>
   <div class="nav-right">
-    <button class="nav-btn outline-nav-btn"><i class="fa-solid fa-plus"></i> Add Component</button>
-    <button class="nav-btn primary-nav-btn"><i class="fa-solid fa-bookmark"></i> My Collection</button>
-    <button id="darkModeToggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+    <button class="nav-btn outline-nav-btn" aria-label="Add new component"><i class="fa-solid fa-plus"></i> Add Component</button>
+    <button class="nav-btn primary-nav-btn" aria-label="View my collection"><i class="fa-solid fa-bookmark"></i> My Collection</button>
+    <button id="darkModeToggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
   </div>
 </header>
 
@@ -322,8 +322,8 @@
         </div>
       </div>
       <div class="actions">
-        <button class="action-btn view-btn" onclick="toggleCode('fc1', this)"><i class="fa-solid fa-code"></i> View Code</button>
-        <button class="action-btn copy-btn" onclick="copyCode('fc1', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+        <button class="action-btn view-btn" onclick="toggleCode('fc1', this)" aria-label="View code for Login Form"><i class="fa-solid fa-code"></i> View Code</button>
+        <button class="action-btn copy-btn" onclick="copyCode('fc1', this)" aria-label="Copy code for Login Form"><i class="fa-solid fa-copy"></i> Copy</button>
       </div>
       <pre id="fc1" class="code-block"><code>&lt;div class="form-card"&gt;
   &lt;h3&gt;Welcome back&lt;/h3&gt;
@@ -486,8 +486,8 @@
 </main>
 
 <!-- Scroll to Top -->
-<button id="scrollTopBtn" onclick="scrollToTop()">
-  <i class="fa-solid fa-chevron-up"></i>
+<button id="scrollTopBtn" onclick="scrollToTop()" aria-label="Scroll to top">
+  <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
 </button>
 
 <!-- FOOTER -->

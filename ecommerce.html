@@ -248,6 +248,12 @@
           <span>Contact Us</span>
         </a>
       </li>
+      <li>
+        <a href="charts.html">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Charts</span>
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -410,8 +416,188 @@
           </div>
         </div>
       </div>
+      </div>
+    </div>
+
+    <!-- 6. WISHLIST PRODUCT CARD -->
+    <div class="ecom-card">
+      <div class="ecom-info">
+        <h2>Wishlist Product Card</h2>
+        <p>An elegant, premium wishlist card with stock indicators.</p>
+      </div>
+      <div class="component-preview" id="preview-6">
+        <div class="wishlist-card">
+          <div class="wc-image-wrap">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop" alt="Smart Watch">
+            <button class="wc-remove-btn" title="Remove from Wishlist" onclick="this.querySelector('i').classList.toggle('fa-regular'); this.querySelector('i').classList.toggle('fa-solid');"><i class="fa-solid fa-heart"></i></button>
+            <span class="wc-stock-badge"><span class="dot"></span> In Stock</span>
+          </div>
+          <div class="wc-details">
+            <div class="wc-category">Wearables</div>
+            <div class="wc-title">Minimalist Chronograph Watch</div>
+            <div class="wc-price-row">
+              <span class="wc-price">$189.00</span>
+              <span class="wc-old-price">$249.00</span>
+            </div>
+            <button class="wc-add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Move to Cart</button>
+          </div>
+        </div>
+      </div>
       <div class="card-actions">
-        <button class="copy-btn" data-target="preview-4">
+        <button class="copy-btn" data-target="preview-6">
+          <i class="fa-regular fa-copy"></i> <span>Copy Code</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 7. ORDER TRACKING CARD -->
+    <div class="ecom-card">
+      <div class="ecom-info">
+        <h2>Order Tracking Status Card</h2>
+        <p>A visual progress tracker for user orders.</p>
+      </div>
+      <div class="component-preview" id="preview-7">
+        <div class="tracking-card">
+          <div class="tc-header">
+            <div class="tc-order-info">
+              <span class="tc-label">Order ID</span>
+              <span class="tc-value">#UI-872951</span>
+            </div>
+            <span class="tc-status-badge">In Transit</span>
+          </div>
+          <div class="tc-delivery-estimate">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div>
+              <div class="tc-est-label">Estimated Delivery</div>
+              <div class="tc-est-date">Thursday, May 21 by 8:00 PM</div>
+            </div>
+          </div>
+          <div class="tc-stepper">
+            <div class="tc-step completed">
+              <div class="tc-step-icon"><i class="fa-solid fa-check"></i></div>
+              <div class="tc-step-content">
+                <div class="tc-step-title">Order Placed</div>
+                <div class="tc-step-desc">May 15, 10:30 AM</div>
+              </div>
+            </div>
+            <div class="tc-step completed">
+              <div class="tc-step-icon"><i class="fa-solid fa-check"></i></div>
+              <div class="tc-step-content">
+                <div class="tc-step-title">Shipped</div>
+                <div class="tc-step-desc">May 16, 04:15 PM</div>
+              </div>
+            </div>
+            <div class="tc-step active">
+              <div class="tc-step-icon"><i class="fa-solid fa-truck"></i></div>
+              <div class="tc-step-content">
+                <div class="tc-step-title">In Transit</div>
+                <div class="tc-step-desc">En route to sorting facility</div>
+              </div>
+            </div>
+            <div class="tc-step pending">
+              <div class="tc-step-icon"><i class="fa-solid fa-house-chimney"></i></div>
+              <div class="tc-step-content">
+                <div class="tc-step-title">Out for Delivery</div>
+                <div class="tc-step-desc">Pending arrival at local hub</div>
+              </div>
+            </div>
+          </div>
+          <div class="tc-footer">
+            <div class="tc-carrier-info">
+              <div class="tc-carrier-name">FedEx Express</div>
+              <div class="tc-tracking-num">Tracking: <span>783920184920</span></div>
+            </div>
+            <button class="tc-action-btn" onclick="navigator.clipboard.writeText('783920184920'); alert('Tracking number copied!')"><i class="fa-regular fa-copy"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="copy-btn" data-target="preview-7">
+          <i class="fa-regular fa-copy"></i> <span>Copy Code</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 8. CUSTOMER REVIEW & RATING COMPONENT -->
+    <div class="ecom-card">
+      <div class="ecom-info">
+        <h2>Customer Review Component</h2>
+        <p>Interactive rating summary and featured feedback.</p>
+      </div>
+      <div class="component-preview" id="preview-8">
+        <div class="review-component">
+          <div class="rc-overview-row">
+            <div class="rc-summary">
+              <div class="rc-big-number">4.8</div>
+              <div class="rc-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <div class="rc-count">1,248 Ratings</div>
+            </div>
+            <div class="rc-bars">
+              <div class="rc-bar-row">
+                <span class="rc-bar-label">5 <i class="fa-solid fa-star"></i></span>
+                <div class="rc-progress-wrap"><div class="rc-progress-bar" style="width: 78%;"></div></div>
+                <span class="rc-bar-pct">78%</span>
+              </div>
+              <div class="rc-bar-row">
+                <span class="rc-bar-label">4 <i class="fa-solid fa-star"></i></span>
+                <div class="rc-progress-wrap"><div class="rc-progress-bar" style="width: 14%;"></div></div>
+                <span class="rc-bar-pct">14%</span>
+              </div>
+              <div class="rc-bar-row">
+                <span class="rc-bar-label">3 <i class="fa-solid fa-star"></i></span>
+                <div class="rc-progress-wrap"><div class="rc-progress-bar" style="width: 5%;"></div></div>
+                <span class="rc-bar-pct">5%</span>
+              </div>
+              <div class="rc-bar-row">
+                <span class="rc-bar-label">2 <i class="fa-solid fa-star"></i></span>
+                <div class="rc-progress-wrap"><div class="rc-progress-bar" style="width: 2%;"></div></div>
+                <span class="rc-bar-pct">2%</span>
+              </div>
+              <div class="rc-bar-row">
+                <span class="rc-bar-label">1 <i class="fa-solid fa-star"></i></span>
+                <div class="rc-progress-wrap"><div class="rc-progress-bar" style="width: 1%;"></div></div>
+                <span class="rc-bar-pct">1%</span>
+              </div>
+            </div>
+          </div>
+          <hr class="rc-divider">
+          <div class="rc-featured-review">
+            <div class="rc-review-header">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jessica" alt="Jessica M." class="rc-avatar">
+              <div class="rc-reviewer-details">
+                <div class="rc-reviewer-name">Jessica M. <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span></div>
+                <div class="rc-review-meta">
+                  <span class="rc-review-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </span>
+                  <span class="rc-review-date">2 days ago</span>
+                </div>
+              </div>
+            </div>
+            <div class="rc-review-title">Absolutely blown away by the quality!</div>
+            <p class="rc-review-text">This exceeds all my expectations. The sound isolation is incredible, and the battery lasts for days. Best investment I've made this year. Highly recommend to everyone!</p>
+            <div class="rc-review-footer">
+              <span class="rc-helpful-text">Was this review helpful?</span>
+              <div class="rc-helpful-actions">
+                <button class="rc-helpful-btn active" onclick="this.classList.toggle('active')"><i class="fa-regular fa-thumbs-up"></i> <span>Yes (42)</span></button>
+                <button class="rc-helpful-btn" onclick="this.classList.toggle('active')"><i class="fa-regular fa-thumbs-down"></i> <span>No (2)</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="copy-btn" data-target="preview-8">
           <i class="fa-regular fa-copy"></i> <span>Copy Code</span>
         </button>
       </div>
@@ -450,6 +636,126 @@
         </button>
       </div>
     </div>
+  </section>
+
+  <!-- WIDE E-COMMERCE COMPONENTS -->
+  <section class="ecom-grid wide">
+
+    <!-- 9. PRODUCT COMPARISON TABLE -->
+    <div class="ecom-card">
+      <div class="ecom-info">
+        <h2>Product Comparison Table</h2>
+        <p>A detailed comparison matrix for side-by-side product evaluation.</p>
+      </div>
+      <div class="component-preview" id="preview-9" style="padding: 20px 10px; min-height: auto; border: none; background: transparent;">
+        <div class="comparison-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Features</th>
+                <th>
+                  <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1000&auto=format&fit=crop" alt="Model X">
+                  <div class="comp-name">AeroPhone Pro</div>
+                  <div class="comp-price">$999</div>
+                </th>
+                <th class="highlighted">
+                  <span class="table-badge">Best Value</span>
+                  <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=1000&auto=format&fit=crop" alt="Model Y">
+                  <div class="comp-name">AeroPhone Ultra</div>
+                  <div class="comp-price">$1,199</div>
+                </th>
+                <th>
+                  <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?q=80&w=1000&auto=format&fit=crop" alt="Model Z">
+                  <div class="comp-name">AeroPhone Lite</div>
+                  <div class="comp-price">$699</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="feature-title">Display</td>
+                <td>6.1" OLED, 120Hz</td>
+                <td class="highlighted-cell">6.7" Super OLED, 120Hz</td>
+                <td>6.1" LCD, 60Hz</td>
+              </tr>
+              <tr>
+                <td class="feature-title">Processor</td>
+                <td>A15 Bionic Chip</td>
+                <td class="highlighted-cell">A16 Bionic Pro Chip</td>
+                <td>A14 Bionic Chip</td>
+              </tr>
+              <tr>
+                <td class="feature-title">Main Camera</td>
+                <td>Dual 12MP System</td>
+                <td class="highlighted-cell">Triple 48MP Pro System</td>
+                <td>Single 12MP System</td>
+              </tr>
+              <tr>
+                <td class="feature-title">Battery Life</td>
+                <td>Up to 20 hours</td>
+                <td class="highlighted-cell">Up to 29 hours</td>
+                <td>Up to 17 hours</td>
+              </tr>
+              <tr>
+                <td class="feature-title">Storage</td>
+                <td>128GB / 256GB</td>
+                <td class="highlighted-cell">256GB / 512GB / 1TB</td>
+                <td>64GB / 128GB</td>
+              </tr>
+              <tr class="action-row">
+                <td></td>
+                <td><button class="comp-buy-btn">Choose Pro</button></td>
+                <td class="highlighted-cell"><button class="comp-buy-btn primary">Choose Ultra</button></td>
+                <td><button class="comp-buy-btn">Choose Lite</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="copy-btn" data-target="preview-9">
+          <i class="fa-regular fa-copy"></i> <span>Copy Code</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 10. DISCOUNT COUPON BANNER -->
+    <div class="ecom-card">
+      <div class="ecom-info">
+        <h2>Discount Coupon Banner</h2>
+        <p>A perforated ticket-style promotional coupon banner.</p>
+      </div>
+      <div class="component-preview" id="preview-10" style="padding: 0; min-height: auto; border: none; background: transparent;">
+        <div class="coupon-banner">
+          <div class="coupon-left">
+            <div class="coupon-badge">Special Offer</div>
+            <h2 class="coupon-discount">30% OFF</h2>
+            <p class="coupon-validity">Valid until May 31</p>
+          </div>
+          <div class="coupon-divider">
+            <div class="coupon-cut top"></div>
+            <div class="coupon-line"></div>
+            <div class="coupon-cut bottom"></div>
+          </div>
+          <div class="coupon-right">
+            <h3 class="coupon-title">Summer Kickoff Sale</h3>
+            <p class="coupon-desc">Get an extra 30% off all modern collection items. Use the code below at checkout.</p>
+            <div class="coupon-code-wrap">
+              <span class="coupon-code">SUMMER30</span>
+              <button class="coupon-copy-btn" onclick="navigator.clipboard.writeText('SUMMER30'); alert('Coupon code SUMMER30 copied!')">
+                <i class="fa-regular fa-copy"></i> <span>Copy</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="copy-btn" data-target="preview-10">
+          <i class="fa-regular fa-copy"></i> <span>Copy Code</span>
+        </button>
+      </div>
+    </div>
+
   </section>
 
   <!-- ================= FOOTER ================= -->
