@@ -578,3 +578,506 @@ body{
 .sidebar-backdrop.visible {
   display: block;
 }
+
+/* =========================================================
+   NEW 3D PREMIUM FLIP CARD COMPONENTS
+========================================================= */
+
+/* Common 3D Flip Mechanics */
+.glass-flip-card,
+.product-flip-card,
+.team-flip-card,
+.pricing-flip-card,
+.neon-flip-card {
+  width: 170px;
+  height: 200px;
+  perspective: 1200px;
+}
+
+.glass-flip-inner,
+.product-flip-inner,
+.team-flip-inner,
+.pricing-flip-inner,
+.neon-flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-flip-card:hover .glass-flip-inner,
+.product-flip-card:hover .product-flip-inner,
+.team-flip-card:hover .team-flip-inner,
+.pricing-flip-card:hover .pricing-flip-inner,
+.neon-flip-card:hover .neon-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.glass-flip-front, .glass-flip-back,
+.product-flip-front, .product-flip-back,
+.team-flip-front, .team-flip-back,
+.pricing-flip-front, .pricing-flip-back,
+.neon-flip-front, .neon-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+}
+
+.glass-flip-back,
+.product-flip-back,
+.team-flip-back,
+.pricing-flip-back,
+.neon-flip-back {
+  transform: rotateY(180deg);
+}
+
+/* 5. Glassmorphism Flip Card Styles */
+.glass-flip-front {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  color: white;
+}
+.glass-flip-front .glass-avatar {
+  font-size: 32px;
+  color: #60a5fa;
+  margin-bottom: 10px;
+}
+.glass-flip-front h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.glass-flip-front p {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 0;
+}
+.glass-flip-back {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  color: white;
+}
+.glass-flip-back h5 {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+.glass-flip-back .access-badge {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.glass-flip-back .back-links {
+  display: flex;
+  gap: 10px;
+}
+.glass-flip-back .back-links a {
+  color: #cbd5e1;
+  font-size: 14px;
+  transition: transform 0.3s, color 0.3s;
+}
+.glass-flip-back .back-links a:hover {
+  color: white;
+  transform: scale(1.15);
+}
+
+/* 6. Product Showcase Flip Card Styles */
+.product-flip-front {
+  background: linear-gradient(135deg, #1e1b4b, #311042);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+  color: white;
+}
+.product-flip-front .product-icon {
+  font-size: 38px;
+  color: #ec4899;
+  margin-bottom: 12px;
+  animation: floatPulse 3s infinite ease-in-out;
+}
+.product-flip-front h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.product-flip-front .product-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: #38bdf8;
+}
+.product-flip-back {
+  background: #0f172a;
+  border: 1px solid rgba(236, 72, 153, 0.2);
+  color: white;
+  justify-content: space-between;
+}
+.product-flip-back h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+.product-flip-back ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+  text-align: left;
+}
+.product-flip-back ul li {
+  font-size: 10px;
+  color: #cbd5e1;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.product-flip-back ul li::before {
+  content: "✔";
+  color: #ec4899;
+  font-size: 8px;
+}
+.product-flip-back .buy-btn {
+  background: #ec4899;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 14px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+}
+.product-flip-back .buy-btn:hover {
+  background: #db2777;
+  transform: translateY(-1px);
+}
+
+/* 7. Team Member Flip Card Styles */
+.team-flip-front {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: white;
+}
+.team-flip-front .team-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #818cf8;
+  margin-bottom: 12px;
+}
+.team-flip-front h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.team-flip-front p {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 0;
+}
+.team-flip-back {
+  background: #111827;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: white;
+}
+.team-flip-back h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+.team-flip-back .skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.team-flip-back .skill-tags span {
+  font-size: 9px;
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.team-flip-back .bio-snippet {
+  font-size: 10px;
+  color: #cbd5e1;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* 8. Pricing Plan Flip Card Styles */
+.pricing-flip-front {
+  background: linear-gradient(135deg, #0d1527, #070a13);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  color: white;
+  justify-content: space-between;
+}
+.pricing-flip-front .plan-badge {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: rgba(249, 115, 22, 0.15);
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  padding: 2px 10px;
+  border-radius: 99px;
+}
+.pricing-flip-front h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: auto;
+}
+.pricing-flip-front .plan-price {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: auto;
+  margin-top: 4px;
+}
+.pricing-flip-back {
+  background: #0d1527;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  color: white;
+  justify-content: space-between;
+}
+.pricing-flip-back h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+.pricing-flip-back ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+  text-align: left;
+}
+.pricing-flip-back ul li {
+  font-size: 9px;
+  color: #cbd5e1;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pricing-flip-back ul li::before {
+  content: "✦";
+  color: #f97316;
+  font-size: 8px;
+}
+.pricing-flip-back .upgrade-btn {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 14px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+}
+.pricing-flip-back .upgrade-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
+}
+
+/* 9. Neon Glow 3D Flip Card Styles */
+.neon-flip-front {
+  background: #030712;
+  border: 1px solid #10b981;
+  color: white;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+}
+.neon-flip-front .neon-icon {
+  font-size: 34px;
+  color: #10b981;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.4));
+  animation: glowPulse 2s infinite ease-in-out;
+}
+.neon-flip-front h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.neon-flip-front .neon-tag {
+  font-size: 9px;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.neon-flip-back {
+  background: #030712;
+  border: 1px solid #10b981;
+  color: white;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+  justify-content: space-between;
+}
+.neon-flip-back h5 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+.neon-flip-back .diagnostics {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 10px 0;
+}
+.neon-flip-back .diagnostics span {
+  font-size: 10px;
+  color: #10b981;
+  font-weight: 600;
+}
+.neon-flip-back .neon-action {
+  background: transparent;
+  border: 1px solid #10b981;
+  border-radius: 8px;
+  color: #10b981;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 14px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+}
+.neon-flip-back .neon-action:hover {
+  background: #10b981;
+  color: black;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+/* Animations */
+@keyframes floatPulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.03);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.6));
+  }
+} 
+/* =========================================================
+   HERO SECTION ENHANCED 3D FLIP CARD
+========================================================= */
+
+.hero-flip-container {
+  width: 180px;
+  height: 240px;
+  perspective: 1200px;
+}
+
+.hero-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.hero-flip-container:hover .hero-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.hero-flip-front,
+.hero-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.hero-flip-front {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  color: #e2e8f0;
+}
+
+.hero-flip-back {
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  color: #e2e8f0;
+  transform: rotateY(180deg);
+}
+
+.mini-profile-info {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.mini-profile-info strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.mini-profile-info span {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.flip-hint {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Ensure hero preview scales nicely on mobile */
+@media(max-width:768px) {
+  .hero-flip-container {
+    width: 140px;
+    height: 200px;
+  }
+}
+
