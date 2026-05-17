@@ -316,3 +316,9 @@ body.dark-mode .footer-preview {
   }
 
 }
+
+.footer-socials a{
+  position: relative;
+  z-index: 9999;
+  pointer-events: auto;
+}
