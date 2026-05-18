@@ -808,6 +808,30 @@
 
 <div class="playground-backdrop" id="playgroundBackdrop"></div>
 
+<script type="application/json" id="playgroundSchema">
+{
+  "title": "Card Playground",
+  "targetMode": "card",
+  "controls": [
+    { "key": "size", "label": "Width", "type": "range", "min": 220, "max": 420, "step": 4, "value": 260, "unit": "px" },
+    { "key": "radius", "label": "Radius", "type": "range", "min": 0, "max": 40, "step": 1, "value": 16, "unit": "px" },
+    { "key": "color", "label": "Color", "type": "color", "value": "#eb6835" },
+    {
+      "key": "variant",
+      "label": "Variant",
+      "type": "select",
+      "value": "elevated",
+      "options": [
+        { "label": "Elevated", "value": "elevated" },
+        { "label": "Flat", "value": "flat" },
+        { "label": "Outline", "value": "outline" },
+        { "label": "Glass", "value": "glass" }
+      ]
+    }
+  ]
+}
+</script>
+
 <script src="script.js"></script>
 <script>
   /* ---------- Dark Mode ---------- */

@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="button.css">
+  <link rel="stylesheet" href="playground.css">
   <title>Buttons — UIverse</title>
 
   <script src="js/core/components-registry.js"></script>
@@ -815,6 +816,29 @@
   document.querySelectorAll('.component-card').forEach(el => observer.observe(el));
 </script>
 
+<script type="application/json" id="playgroundSchema">
+{
+  "title": "Button Playground",
+  "targetMode": "button",
+  "controls": [
+    { "key": "size", "label": "Size", "type": "range", "min": 96, "max": 320, "step": 2, "value": 160, "unit": "px" },
+    { "key": "radius", "label": "Radius", "type": "range", "min": 0, "max": 36, "step": 1, "value": 12, "unit": "px" },
+    { "key": "color", "label": "Color", "type": "color", "value": "#eb6835" },
+    {
+      "key": "variant",
+      "label": "Variant",
+      "type": "select",
+      "value": "solid",
+      "options": [
+        { "label": "Solid", "value": "solid" },
+        { "label": "Outline", "value": "outline" },
+        { "label": "Ghost", "value": "ghost" },
+        { "label": "Gradient", "value": "gradient" }
+      ]
+    }
+  ]
+}
+</script>
 <script src="playground.js"></script>
 <script>
 window.addToCollectionFromCard = function(button, name) {

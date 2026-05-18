@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="input.css">
+  <link rel="stylesheet" href="playground.css">
 </head>
 <body data-playground-type="input">
 <!-- ================= SIDEBAR ================= -->
@@ -678,5 +679,29 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.component-card').forEach(el => observer.observe(el));
 </script>
+<script type="application/json" id="playgroundSchema">
+{
+  "title": "Input Playground",
+  "targetMode": "input",
+  "controls": [
+    { "key": "size", "label": "Width", "type": "range", "min": 180, "max": 420, "step": 4, "value": 260, "unit": "px" },
+    { "key": "radius", "label": "Radius", "type": "range", "min": 0, "max": 32, "step": 1, "value": 10, "unit": "px" },
+    { "key": "color", "label": "Color", "type": "color", "value": "#eb6835" },
+    {
+      "key": "variant",
+      "label": "Variant",
+      "type": "select",
+      "value": "outline",
+      "options": [
+        { "label": "Outline", "value": "outline" },
+        { "label": "Filled", "value": "filled" },
+        { "label": "Soft", "value": "soft" },
+        { "label": "Glass", "value": "glass" }
+      ]
+    }
+  ]
+}
+</script>
+<script src="playground.js"></script>
 </body>
 </html>
