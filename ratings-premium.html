@@ -334,6 +334,231 @@
 &lt;/div&gt;</code></pre>
     </div>
 
+    <!-- 6. GLASSMORPHISM RATING CARD -->
+    <div class="component-card" data-category="cards">
+      <div class="card-preview">
+        <div class="card-interactive-area full-width">
+          <div class="glassmorphism-rating-card" id="glassCard">
+            <div class="glass-card-header">
+              <span class="glass-card-title">Experience Rating</span>
+              <span class="glass-card-badge">PRO</span>
+            </div>
+            <div class="glass-stars-row" id="glassStars">
+              <i class="fa-solid fa-star" data-rating="1" onclick="setGlassRating(1)"></i>
+              <i class="fa-solid fa-star" data-rating="2" onclick="setGlassRating(2)"></i>
+              <i class="fa-solid fa-star" data-rating="3" onclick="setGlassRating(3)"></i>
+              <i class="fa-solid fa-star" data-rating="4" onclick="setGlassRating(4)"></i>
+              <i class="fa-solid fa-star" data-rating="5" onclick="setGlassRating(5)"></i>
+            </div>
+            <div class="glass-rating-feedback" id="glassLabel">Tap to Rate Card</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="card-top">
+          <h3>Glassmorphism Rating</h3>
+          <span>Dashboard Cards</span>
+        </div>
+        <p>A frosted glass-panel card that shifts its backing glow, border clarity, and backdrop opacity based on user star selections.</p>
+        <div class="card-actions">
+          <button onclick="toggleCode('codeGCard', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button onclick="copyCode('codeGCard', this)"><i class="fa-solid fa-copy"></i> Copy HTML</button>
+        </div>
+      </div>
+      <pre class="code-block" id="codeGCard" style="display:none;"><code>&lt;div class="glassmorphism-rating-card"&gt;
+  &lt;div class="glass-card-header"&gt;
+    &lt;span class="glass-card-title"&gt;Experience Rating&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="glass-stars-row"&gt;
+    &lt;i class="fa-solid fa-star"&gt;&lt;/i&gt;
+    &lt;i class="fa-solid fa-star"&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div class="glass-rating-feedback"&gt;Excellent&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <!-- 7. SWIPE GESTURE RATING SYSTEM -->
+    <div class="component-card" data-category="stars">
+      <div class="card-preview">
+        <div class="card-interactive-area full-width">
+          <div class="swipe-gesture-rating">
+            <div class="gesture-emoji-container" id="gestureEmoji">😐</div>
+            <div class="gesture-track-wrapper">
+              <input type="range" min="1" max="5" step="1" value="3" class="gesture-slider" id="gestureRange" oninput="updateGestureRating(this.value)">
+              <div class="gesture-stars-fill" id="gestureStars">
+                <i class="fa-solid fa-star active"></i>
+                <i class="fa-solid fa-star active"></i>
+                <i class="fa-solid fa-star active"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <span class="gesture-value-label" id="gestureLabel">Neutral — 3.0 / 5.0</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="card-top">
+          <h3>Swipe Gesture Rating</h3>
+          <span>Star Ratings</span>
+        </div>
+        <p>A mobile-optimized swipe tracking bar that scales and morphs expressive emojis and fills overlay stars in real time.</p>
+        <div class="card-actions">
+          <button onclick="toggleCode('codeSwipe', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button onclick="copyCode('codeSwipe', this)"><i class="fa-solid fa-copy"></i> Copy HTML</button>
+        </div>
+      </div>
+      <pre class="code-block" id="codeSwipe" style="display:none;"><code>&lt;div class="swipe-gesture-rating"&gt;
+  &lt;div class="gesture-emoji-container"&gt;😐&lt;/div&gt;
+  &lt;input type="range" min="1" max="5" value="3" class="gesture-slider"&gt;
+  &lt;span class="gesture-value-label"&gt;3.0 / 5.0&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <!-- 8. ANIMATED REACTION METER -->
+    <div class="component-card" data-category="emojis">
+      <div class="card-preview">
+        <div class="card-interactive-area full-width">
+          <div class="animated-reaction-meter">
+            <div class="reaction-display-box" id="reactionDisplay">
+              <div class="reaction-avatar" id="reactionAvatar">😐</div>
+              <div class="reaction-glowing-ring"></div>
+            </div>
+            <div class="reaction-selectors">
+              <button class="reaction-btn" onclick="triggerReaction(1, '😠', 'angry')">😠</button>
+              <button class="reaction-btn" onclick="triggerReaction(2, '😢', 'sad')">😢</button>
+              <button class="reaction-btn active" onclick="triggerReaction(3, '😐', 'neutral')">😐</button>
+              <button class="reaction-btn" onclick="triggerReaction(4, '🙂', 'happy')">🙂</button>
+              <button class="reaction-btn" onclick="triggerReaction(5, '😍', 'excited')">😍</button>
+            </div>
+            <span class="reaction-status-text" id="reactionLabel">It's Okay!</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="card-top">
+          <h3>Reaction Meter</h3>
+          <span>Emoji Selectors</span>
+        </div>
+        <p>An interactive animated avatar block playing custom squash, shake, and float keyframes based on selection.</p>
+        <div class="card-actions">
+          <button onclick="toggleCode('codeReaction', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button onclick="copyCode('codeReaction', this)"><i class="fa-solid fa-copy"></i> Copy HTML</button>
+        </div>
+      </div>
+      <pre class="code-block" id="codeReaction" style="display:none;"><code>&lt;div class="animated-reaction-meter"&gt;
+  &lt;div class="reaction-display-box"&gt;
+    &lt;div class="reaction-avatar"&gt;😐&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="reaction-selectors"&gt;
+    &lt;button&gt;😠&lt;/button&gt;
+    &lt;button&gt;😐&lt;/button&gt;
+    &lt;button&gt;😍&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <!-- 9. MULTI-CRITERIA REVIEW PANEL -->
+    <div class="component-card" data-category="cards">
+      <div class="card-preview">
+        <div class="card-interactive-area full-width">
+          <div class="multi-criteria-panel">
+            <div class="criteria-overall">
+              <span class="overall-label">Composite Rating</span>
+              <span class="overall-score" id="compositeScore">4.0</span>
+            </div>
+            <div class="criteria-rows">
+              <div class="criteria-row" data-criteria="design">
+                <span class="criteria-name">Design</span>
+                <div class="criteria-stars" id="cStarsDesign">
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('design', 1)"></i>
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('design', 2)"></i>
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('design', 3)"></i>
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('design', 4)"></i>
+                  <i class="fa-solid fa-star" onclick="setCriteriaVal('design', 5)"></i>
+                </div>
+              </div>
+              <div class="criteria-row" data-criteria="perf">
+                <span class="criteria-name">Performance</span>
+                <div class="criteria-stars" id="cStarsPerf">
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('perf', 1)"></i>
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('perf', 2)"></i>
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('perf', 3)"></i>
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('perf', 4)"></i>
+                  <i class="fa-solid fa-star" onclick="setCriteriaVal('perf', 5)"></i>
+                </div>
+              </div>
+              <div class="criteria-row" data-criteria="usability">
+                <span class="criteria-name">Usability</span>
+                <div class="criteria-stars" id="cStarsUsability">
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('usability', 1)"></i>
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('usability', 2)"></i>
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('usability', 3)"></i>
+                  <i class="fa-solid fa-star active" onclick="setCriteriaVal('usability', 4)"></i>
+                  <i class="fa-solid fa-star" onclick="setCriteriaVal('usability', 5)"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="card-top">
+          <h3>Multi-Criteria Panel</h3>
+          <span>Dashboard Cards</span>
+        </div>
+        <p>An advanced review board allowing split ratings across criteria, real-time recalculating composite weights.</p>
+        <div class="card-actions">
+          <button onclick="toggleCode('codeMulti', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button onclick="copyCode('codeMulti', this)"><i class="fa-solid fa-copy"></i> Copy HTML</button>
+        </div>
+      </div>
+      <pre class="code-block" id="codeMulti" style="display:none;"><code>&lt;div class="multi-criteria-panel"&gt;
+  &lt;div class="criteria-overall"&gt;
+    &lt;span class="overall-score"&gt;4.0&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="criteria-row"&gt;
+    &lt;span&gt;Design&lt;/span&gt;
+    &lt;div class="criteria-stars"&gt;&lt;i class="fa-solid fa-star active"&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <!-- 10. NEON PULSE STAR RATING -->
+    <div class="component-card" data-category="stars">
+      <div class="card-preview">
+        <div class="card-interactive-area full-width">
+          <div class="neon-pulse-star-rating">
+            <div class="neon-stars-row" id="neonStars">
+              <span class="neon-star-wrapper" onclick="triggerNeonPulse(1)"><i class="fa-regular fa-star" data-neon="1"></i></span>
+              <span class="neon-star-wrapper" onclick="triggerNeonPulse(2)"><i class="fa-regular fa-star" data-neon="2"></i></span>
+              <span class="neon-star-wrapper" onclick="triggerNeonPulse(3)"><i class="fa-regular fa-star" data-neon="3"></i></span>
+              <span class="neon-star-wrapper" onclick="triggerNeonPulse(4)"><i class="fa-regular fa-star" data-neon="4"></i></span>
+              <span class="neon-star-wrapper" onclick="triggerNeonPulse(5)"><i class="fa-regular fa-star" data-neon="5"></i></span>
+            </div>
+            <span class="neon-descriptor" id="neonLabel">Pulse Selected Star</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="card-top">
+          <h3>Neon Pulse Star Rating</h3>
+          <span>Star Ratings</span>
+        </div>
+        <p>A cyberpunk neon outliner that pulses on select and pops glowing pure CSS particles outwards around clicked nodes.</p>
+        <div class="card-actions">
+          <button onclick="toggleCode('codeNeon', this)"><i class="fa-solid fa-code"></i> View Code</button>
+          <button onclick="copyCode('codeNeon', this)"><i class="fa-solid fa-copy"></i> Copy HTML</button>
+        </div>
+      </div>
+      <pre class="code-block" id="codeNeon" style="display:none;"><code>&lt;div class="neon-pulse-star-rating"&gt;
+  &lt;div class="neon-stars-row"&gt;
+    &lt;span class="neon-star-wrapper"&gt;&lt;i class="fa-regular fa-star"&gt;&lt;/i&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;span class="neon-descriptor"&gt;Good&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
   </div>
 
   <!-- PREMIUM GLASSMORPHISM FOOTER -->
@@ -575,6 +800,8 @@
     board.style.background = `radial-gradient(circle at ${idx * 20}% 50%, rgba(245, 158, 11, 0.25) 0%, transparent 60%)`;
   }
 
+  // Handle hover select
+  let hoverSelectVal = 0;
   function setHoverSelect(idx) {
     hoverSelectVal = idx;
     const stars = document.querySelectorAll('#hoverStars i');
@@ -611,6 +838,178 @@
     board.style.opacity = '0';
   });
 
+  // 6. Glassmorphism Rating Card
+  let glassRatingVal = 0;
+  function setGlassRating(val) {
+    glassRatingVal = val;
+    const card = document.getElementById('glassCard');
+    const stars = document.querySelectorAll('#glassStars i');
+    const label = document.getElementById('glassLabel');
+    
+    stars.forEach((star, idx) => {
+      if (idx < val) {
+        star.className = 'fa-solid fa-star active';
+      } else {
+        star.className = 'fa-solid fa-star';
+      }
+    });
+
+    label.innerText = descLabels[val] || 'Tap to Rate Card';
+    label.style.color = '#ff7a3d';
+    
+    // Shift card glow & border colors depending on rating
+    card.style.background = `rgba(18, 22, 38, ${0.4 + (val * 0.08)})`;
+    card.style.borderColor = `rgba(245, 158, 11, ${0.05 + (val * 0.06)})`;
+    card.style.boxShadow = `0 20px 40px rgba(0, 0, 0, 0.35), 0 0 30px rgba(245, 158, 11, ${val * 0.04})`;
+  }
+
+  // 7. Swipe Gesture Rating System
+  let gestureRatingVal = 3;
+  const gestureEmojis = {
+    1: "😠",
+    2: "😢",
+    3: "😐",
+    4: "🙂",
+    5: "😍"
+  };
+  const gestureStatus = {
+    1: "Terrible",
+    2: "Dissatisfied",
+    3: "Neutral",
+    4: "Satisfied",
+    5: "Excellent"
+  };
+  function updateGestureRating(val) {
+    gestureRatingVal = parseInt(val);
+    const emojiContainer = document.getElementById('gestureEmoji');
+    const starsFill = document.querySelectorAll('#gestureStars i');
+    const label = document.getElementById('gestureLabel');
+
+    // Update active emoji with transition effect
+    emojiContainer.innerText = gestureEmojis[gestureRatingVal];
+    emojiContainer.style.transform = 'scale(1.2) rotate(5deg)';
+    setTimeout(() => {
+      emojiContainer.style.transform = '';
+    }, 150);
+
+    // Update active star count
+    starsFill.forEach((star, idx) => {
+      if (idx < gestureRatingVal) {
+        star.className = 'fa-solid fa-star active';
+      } else {
+        star.className = 'fa-solid fa-star';
+      }
+    });
+
+    label.innerText = `${gestureStatus[gestureRatingVal]} — ${val}.0 / 5.0`;
+  }
+
+  // 8. Animated Reaction Meter
+  let activeReactionVal = 3;
+  const reactionText = {
+    1: "Angry!",
+    2: "Sigh... Sad",
+    3: "It's Okay!",
+    4: "Happy!",
+    5: "Loving It!"
+  };
+  function triggerReaction(val, emoji, mood) {
+    activeReactionVal = val;
+    const avatar = document.getElementById('reactionAvatar');
+    const label = document.getElementById('reactionLabel');
+    const buttons = document.querySelectorAll('.reaction-btn');
+
+    // Update active buttons
+    buttons.forEach((btn, idx) => {
+      btn.classList.toggle('active', (idx + 1) === val);
+    });
+
+    // Update avatar and trigger animations
+    avatar.innerText = emoji;
+    avatar.className = `reaction-avatar mood-${mood}`;
+    
+    label.innerText = reactionText[val];
+  }
+
+  // 9. Multi-Criteria Review Panel
+  let criteriaVals = {
+    design: 4,
+    perf: 4,
+    usability: 4
+  };
+  function setCriteriaVal(criteria, val) {
+    criteriaVals[criteria] = val;
+    const starsRow = document.querySelectorAll(`#cStars${criteria.charAt(0).toUpperCase() + criteria.slice(1)} i`);
+    
+    starsRow.forEach((star, idx) => {
+      if (idx < val) {
+        star.className = 'fa-solid fa-star active';
+      } else {
+        star.className = 'fa-solid fa-star';
+      }
+    });
+
+    // Recalculate overall composite rating
+    const avg = (criteriaVals.design + criteriaVals.perf + criteriaVals.usability) / 3;
+    const scoreBlock = document.getElementById('compositeScore');
+    scoreBlock.innerText = avg.toFixed(1);
+    
+    // Animate overall block briefly
+    scoreBlock.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+      scoreBlock.style.transform = '';
+    }, 150);
+  }
+
+  // 10. Neon Pulse Star Rating
+  let neonRatingVal = 0;
+  function triggerNeonPulse(val) {
+    neonRatingVal = val;
+    const stars = document.querySelectorAll('#neonStars i');
+    const label = document.getElementById('neonLabel');
+
+    stars.forEach((star, idx) => {
+      const currentIdx = idx + 1;
+      const starWrapper = star.parentNode;
+      
+      if (currentIdx <= val) {
+        star.className = 'fa-solid fa-star active';
+        starWrapper.classList.add('active');
+        
+        // Dynamic explosion particle pops
+        if (currentIdx === val) {
+          createNeonExplosion(starWrapper);
+        }
+      } else {
+        star.className = 'fa-regular fa-star';
+        starWrapper.classList.remove('active');
+      }
+    });
+
+    label.innerText = descLabels[val] || 'Pulse Selected Star';
+  }
+
+  function createNeonExplosion(container) {
+    for (let i = 0; i < 8; i++) {
+      const particle = document.createElement('span');
+      particle.className = 'neon-particle';
+      const angle = (i / 8) * 2 * Math.PI;
+      const velocity = 35 + Math.random() * 20;
+      const x = Math.cos(angle) * velocity;
+      const y = Math.sin(angle) * velocity;
+      
+      particle.style.setProperty('--x', `${x}px`);
+      particle.style.setProperty('--y', `${y}px`);
+      particle.style.background = i % 2 === 0 ? '#00f0ff' : '#7b61ff';
+      
+      container.appendChild(particle);
+      
+      setTimeout(() => {
+        particle.remove();
+      }, 700);
+    }
+  }
+
   // Global Max Ratings Action
   function rateAllFive() {
     setClassicRating(5);
@@ -625,6 +1024,16 @@
 
     // Hover UI Max
     setHoverSelect(5);
+
+    // V2 elements max
+    setGlassRating(5);
+    updateGestureRating(5);
+    document.getElementById('gestureRange').value = 5;
+    triggerReaction(5, '😍', 'excited');
+    setCriteriaVal('design', 5);
+    setCriteriaVal('perf', 5);
+    setCriteriaVal('usability', 5);
+    triggerNeonPulse(5);
   }
 
   // Global Reset
@@ -656,6 +1065,26 @@
     setHoverSelect(0);
     const hoverStars = document.querySelectorAll('#hoverStars i');
     hoverStars.forEach(s => s.className = 'fa-solid fa-star');
+
+    // Reset V2 elements
+    setGlassRating(0);
+    const glassCard = document.getElementById('glassCard');
+    glassCard.style.background = '';
+    glassCard.style.borderColor = '';
+    glassCard.style.boxShadow = '';
+    document.getElementById('glassLabel').innerText = 'Tap to Rate Card';
+    document.getElementById('glassLabel').style.color = '';
+
+    updateGestureRating(3);
+    document.getElementById('gestureRange').value = 3;
+
+    triggerReaction(3, '😐', 'neutral');
+
+    setCriteriaVal('design', 4);
+    setCriteriaVal('perf', 4);
+    setCriteriaVal('usability', 4);
+
+    triggerNeonPulse(0);
   }
 
   // Filter category

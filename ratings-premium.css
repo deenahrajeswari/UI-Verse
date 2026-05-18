@@ -822,6 +822,461 @@ body {
   z-index: 1;
 }
 
+/* =========================================================
+   6. GLASSMORPHISM RATING CARD CSS
+========================================================= */
+.glassmorphism-rating-card {
+  background: rgba(18, 22, 38, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 24px;
+  width: 280px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.glass-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.glass-card-badge {
+  font-size: 9px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(255, 122, 61, 0.15);
+  color: var(--color-orange);
+  border: 1px solid rgba(255, 122, 61, 0.25);
+}
+
+.glass-stars-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 28px;
+  color: #1e293b;
+  cursor: pointer;
+}
+
+.glass-stars-row i {
+  transition: var(--transition-spring);
+}
+
+.glass-stars-row i:hover {
+  transform: scale(1.22);
+}
+
+.glass-stars-row i.active {
+  color: var(--color-gold);
+  text-shadow: 0 0 15px var(--color-gold-glow);
+}
+
+.glass-rating-feedback {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  transition: var(--transition-smooth);
+}
+
+
+/* =========================================================
+   7. SWIPE GESTURE RATING SYSTEM CSS
+========================================================= */
+.swipe-gesture-rating {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  padding: 24px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  backdrop-filter: blur(12px);
+}
+
+.gesture-emoji-container {
+  font-size: 54px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-spring);
+}
+
+.gesture-track-wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gesture-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.gesture-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--color-purple);
+  box-shadow: 0 0 10px var(--color-purple-glow);
+  cursor: pointer;
+  transition: var(--transition-spring);
+}
+
+.gesture-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background: var(--color-purple);
+  border-color: #fff;
+}
+
+.gesture-stars-fill {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 18px;
+  color: #1e293b;
+  pointer-events: none;
+}
+
+.gesture-stars-fill i.active {
+  color: var(--color-gold);
+  text-shadow: 0 0 8px var(--color-gold-glow);
+}
+
+.gesture-value-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+
+/* =========================================================
+   8. ANIMATED REACTION METER CSS
+========================================================= */
+.animated-reaction-meter {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  padding: 24px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.reaction-display-box {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.reaction-avatar {
+  font-size: 46px;
+  z-index: 2;
+  transition: var(--transition-spring);
+}
+
+.reaction-avatar.mood-angry {
+  animation: moodSquashAngry 0.8s infinite ease-in-out;
+}
+
+.reaction-avatar.mood-sad {
+  animation: moodSighSad 1.8s infinite ease-in-out;
+}
+
+.reaction-avatar.mood-neutral {
+  animation: moodBreathing 2.5s infinite ease-in-out;
+}
+
+.reaction-avatar.mood-happy {
+  animation: moodBounceHappy 0.6s infinite ease-in-out alternate;
+}
+
+.reaction-avatar.mood-excited {
+  animation: moodSpinExcited 1s infinite linear;
+}
+
+.reaction-glowing-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-top-color: var(--color-purple);
+  border-bottom-color: var(--color-success);
+  border-radius: 50%;
+  animation: ringSpin 4s infinite linear;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.reaction-selectors {
+  display: flex;
+  gap: 8px;
+}
+
+.reaction-btn {
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-spring);
+}
+
+.reaction-btn:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.reaction-btn.active {
+  transform: scale(1.22);
+  background: rgba(123, 97, 255, 0.2);
+  border-color: var(--color-purple);
+  box-shadow: 0 0 15px var(--color-purple-glow);
+}
+
+.reaction-status-text {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@keyframes moodSquashAngry {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.1, 0.9) translateY(4px) rotate(4deg); }
+}
+
+@keyframes moodSighSad {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 1; }
+  50% { transform: scale(0.9, 1.05) translateY(-2px); opacity: 0.8; }
+}
+
+@keyframes moodBreathing {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes moodBounceHappy {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-8px) scale(1.05); }
+}
+
+@keyframes moodSpinExcited {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(10deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes ringSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* =========================================================
+   9. MULTI-CRITERIA REVIEW PANEL CSS
+========================================================= */
+.multi-criteria-panel {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 24px;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.criteria-overall {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.overall-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.overall-score {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  transition: transform 0.15s ease-in-out;
+}
+
+.criteria-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.criteria-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.criteria-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.criteria-stars {
+  display: flex;
+  gap: 6px;
+  font-size: 16px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.criteria-stars i {
+  transition: var(--transition-spring);
+}
+
+.criteria-stars i:hover {
+  transform: scale(1.2);
+}
+
+.criteria-stars i.active {
+  color: var(--color-gold);
+  text-shadow: 0 0 10px var(--color-gold-glow);
+}
+
+
+/* =========================================================
+   10. NEON PULSE STAR RATING CSS
+========================================================= */
+.neon-pulse-star-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.neon-stars-row {
+  display: flex;
+  gap: 14px;
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.06);
+}
+
+.neon-star-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.neon-stars-row i {
+  transition: var(--transition-spring);
+  color: #1e293b;
+  stroke: #475569;
+  stroke-width: 1px;
+}
+
+.neon-star-wrapper:hover i {
+  transform: scale(1.15) rotate(5deg);
+  color: rgba(0, 240, 255, 0.1);
+}
+
+.neon-star-wrapper.active i {
+  color: #00f0ff;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.6), 0 0 5px #00f0ff;
+  transform: scale(1.2) rotate(0deg);
+  animation: neonStarBreath 2s infinite ease-in-out alternate;
+}
+
+.neon-descriptor {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* EXPLOSION PARTICLES */
+.neon-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: explodeParticle 0.7s cubic-bezier(0.1, 0.8, 0.1, 1) forwards;
+  z-index: 10;
+}
+
+@keyframes neonStarBreath {
+  0% { text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); }
+  100% { text-shadow: 0 0 20px rgba(0, 240, 255, 0.9), 0 0 8px #7b61ff; }
+}
+
+@keyframes explodeParticle {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
+
 
 /* =========================================================
    PREMIUM GLASSMORPHISM FOOTER CSS
