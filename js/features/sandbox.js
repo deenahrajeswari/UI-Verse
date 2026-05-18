@@ -6,7 +6,220 @@
 const Sandbox = {
   _state: {
     initialized: false,
-    overlayByFrame: new WeakMap()
+    overlayByFrame: new WeakMap(),
+    previewSlots: new Set(),
+    previewObserver: null,
+    mutationObserver: null,
+    initStartedAt: 0,
+    loadedPreviewCount: 0
+  },
+
+  _injectSandboxStyles() {
+    if (document.getElementById('uiverse-sandbox-style')) return;
+
+    const style = document.createElement('style');
+    style.id = 'uiverse-sandbox-style';
+    style.textContent = `
+      .sandbox-preview-slot {
+        position: relative;
+        width: 100%;
+        min-height: 164px;
+        border: 1px solid #e8ebf2;
+        border-radius: 10px;
+        overflow: hidden;
+        background: linear-gradient(180deg, rgba(248, 250, 252, 0.94), rgba(241, 245, 249, 0.88));
+      }
+
+      .sandbox-preview-slot.is-loading {
+        isolation: isolate;
+      }
+
+      .sandbox-skeleton {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        align-content: center;
+        gap: 12px;
+        padding: 18px;
+        background:
+          linear-gradient(90deg, rgba(148, 163, 184, 0.12), rgba(148, 163, 184, 0.06), rgba(148, 163, 184, 0.12)),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.92));
+        animation: sandboxPulse 1.5s ease-in-out infinite;
+      }
+
+      .sandbox-skeleton-line {
+        height: 12px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(148, 163, 184, 0.18), rgba(148, 163, 184, 0.34), rgba(148, 163, 184, 0.18));
+        background-size: 200% 100%;
+      }
+
+      .sandbox-skeleton-line.short {
+        width: 48%;
+      }
+
+      .sandbox-skeleton-line.medium {
+        width: 72%;
+      }
+
+      .sandbox-skeleton-line.long {
+        width: 92%;
+      }
+
+      .sandbox-skeleton-chip-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .sandbox-skeleton-chip {
+        width: 72px;
+        height: 26px;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.16);
+      }
+
+      .sandbox-preview-load-label {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        z-index: 2;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.82);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .sandbox-preview-frame {
+        width: 100%;
+        min-height: 160px;
+        border: 0;
+        display: block;
+        background: transparent;
+      }
+
+      @keyframes sandboxPulse {
+        0%, 100% { opacity: 0.72; }
+        50% { opacity: 1; }
+      }
+    `;
+    document.head.appendChild(style);
+  },
+
+  _createPreviewSkeleton() {
+    const skeleton = document.createElement('div');
+    skeleton.className = 'sandbox-skeleton';
+    skeleton.innerHTML = `
+      <div class="sandbox-skeleton-line long"></div>
+      <div class="sandbox-skeleton-line medium"></div>
+      <div class="sandbox-skeleton-chip-row">
+        <span class="sandbox-skeleton-chip"></span>
+        <span class="sandbox-skeleton-chip"></span>
+        <span class="sandbox-skeleton-chip"></span>
+      </div>
+      <div class="sandbox-skeleton-line short"></div>
+    `;
+    return skeleton;
+  },
+
+  _cleanupSlot(slot) {
+    if (!slot || slot.cleanedUp) return;
+
+    slot.cleanedUp = true;
+
+    if (slot.io) {
+      try { slot.io.unobserve(slot.placeholder); } catch (error) {}
+    }
+
+    if (slot.frameObserver) {
+      try { slot.frameObserver.disconnect(); } catch (error) {}
+    }
+
+    if (slot.placeholder && slot.placeholder.parentNode) {
+      slot.placeholder.remove();
+    }
+
+    if (slot.iframe && slot.iframe.parentNode) {
+      slot.iframe.remove();
+    }
+
+    if (slot.textarea && slot.textarea.parentNode) {
+      slot.textarea.remove();
+    }
+
+    if (slot.removeExistingCodeBlock && typeof slot.removeExistingCodeBlock === 'function') {
+      slot.removeExistingCodeBlock();
+    }
+
+    this._state.previewSlots.delete(slot);
+  },
+
+  _ensurePreviewObservers() {
+    if (!this._state.previewObserver && 'IntersectionObserver' in window) {
+      this._state.previewObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const slot = entry.target && entry.target.__sandboxSlot;
+          if (!slot || slot.loaded || slot.cleanedUp) return;
+          this._mountPreview(slot);
+        });
+      }, {
+        rootMargin: '240px 0px',
+        threshold: 0.01
+      });
+    }
+
+    if (!this._state.mutationObserver && 'MutationObserver' in window) {
+      this._state.mutationObserver = new MutationObserver(() => {
+        this._state.previewSlots.forEach((slot) => {
+          if (!slot.card.isConnected) {
+            this._cleanupSlot(slot);
+          }
+        });
+      });
+
+      this._state.mutationObserver.observe(document.body, { childList: true, subtree: true });
+    }
+  },
+
+  _mountPreview(slot) {
+    if (!slot || slot.loaded || slot.cleanedUp) return;
+
+    const start = performance.now();
+    slot.loaded = true;
+    this._state.loadedPreviewCount += 1;
+
+    const iframe = document.createElement('iframe');
+    iframe.className = 'sandbox-preview-frame';
+    iframe.setAttribute('sandbox', 'allow-scripts');
+    iframe.setAttribute('title', 'Live component preview');
+    iframe.loading = 'lazy';
+
+    iframe.addEventListener('load', () => {
+      this._updatePreviewAccessibilityOverlay(iframe);
+      if (slot.skeleton && slot.skeleton.parentNode) {
+        slot.skeleton.remove();
+      }
+      if (slot.loadLabel && slot.loadLabel.parentNode) {
+        slot.loadLabel.remove();
+      }
+
+      const elapsed = Math.round(performance.now() - start);
+      console.info(`[Sandbox] Loaded preview #${slot.index + 1} in ${elapsed}ms`);
+    }, { once: true });
+
+    slot.iframe = iframe;
+    slot.placeholder.appendChild(iframe);
+    iframe.srcdoc = slot.htmlContent;
+
+    if (this._state.previewObserver) {
+      try {
+        this._state.previewObserver.unobserve(slot.placeholder);
+      } catch (error) {}
+    }
   },
 
   _getThemeTokens(doc) {
@@ -436,6 +649,11 @@ const Sandbox = {
     const componentCards = document.querySelectorAll(".component-card");
     if (componentCards.length === 0) return;
 
+    this._state.initStartedAt = performance.now();
+    this._state.loadedPreviewCount = 0;
+    this._injectSandboxStyles();
+    this._ensurePreviewObservers();
+
     componentCards.forEach((card, index) => {
       const h3 = card.querySelector("h3");
       const actions = card.querySelector(".actions");
@@ -459,21 +677,6 @@ const Sandbox = {
         : previewNodes.map((n) => n.outerHTML || n.textContent).join("\n").trim();
 
       previewNodes.forEach((node) => node.remove());
-
-      // Create iframe preview
-      const iframe = document.createElement("iframe");
-      iframe.style.width = "100%";
-      iframe.style.minHeight = "160px";
-      iframe.style.border = "1px solid #e8ebf2";
-      iframe.style.borderRadius = "8px";
-      iframe.style.background = "transparent";
-      iframe.setAttribute("sandbox", "allow-scripts");
-      iframe.setAttribute("title", "Live component preview");
-      iframe.loading = "lazy";
-
-      iframe.addEventListener('load', () => {
-        this._updatePreviewAccessibilityOverlay(iframe);
-      });
 
       // Create editable textarea
       const textarea = document.createElement("textarea");
@@ -500,8 +703,20 @@ const Sandbox = {
       textarea.style.boxSizing = "border-box";
       textarea.style.resize = "vertical";
 
+      const placeholder = document.createElement('div');
+      placeholder.className = 'sandbox-preview-slot is-loading';
+      placeholder.setAttribute('aria-busy', 'true');
+
+      const skeleton = this._createPreviewSkeleton();
+      const loadLabel = document.createElement('div');
+      loadLabel.className = 'sandbox-preview-load-label';
+      loadLabel.textContent = 'Loading preview...';
+
+      placeholder.appendChild(skeleton);
+      placeholder.appendChild(loadLabel);
+
       const renderIframe = (htmlContent) => {
-        iframe.srcdoc = `
+        slot.htmlContent = `
           <!DOCTYPE html>
           <html>
           <head>
@@ -651,27 +866,64 @@ const Sandbox = {
           </html>`;
       };
 
+      const slot = {
+        index,
+        card,
+        placeholder,
+        skeleton,
+        loadLabel,
+        iframe: null,
+        textarea,
+        htmlContent: '',
+        io: this._state.previewObserver,
+        loaded: false,
+        cleanedUp: false,
+        removeExistingCodeBlock: null
+      };
+
+      placeholder.__sandboxSlot = slot;
+      slot.removeExistingCodeBlock = () => {
+        if (existingCodeBlock) {
+          existingCodeBlock.replaceWith(textarea);
+        } else if (actions) {
+          actions.after(textarea);
+        }
+      };
+
       renderIframe(initialHTML);
 
       // Debounced live update
       let timeout;
       textarea.addEventListener("input", (e) => {
         clearTimeout(timeout);
-        timeout = setTimeout(() => renderIframe(e.target.value), 300);
+        timeout = setTimeout(() => {
+          renderIframe(e.target.value);
+          if (slot.loaded && slot.iframe) {
+            slot.iframe.srcdoc = slot.htmlContent;
+          }
+        }, 300);
       });
 
       if (h3) {
-        h3.after(iframe);
+        h3.after(placeholder);
       } else {
-        card.insertBefore(iframe, card.firstChild);
+        card.insertBefore(placeholder, card.firstChild);
       }
 
-      if (existingCodeBlock) {
-        existingCodeBlock.replaceWith(textarea);
-      } else if (actions) {
-        actions.after(textarea);
+      slot.htmlContent = slot.htmlContent || '';
+      this._state.previewSlots.add(slot);
+
+      if (this._state.previewObserver) {
+        this._state.previewObserver.observe(placeholder);
+      } else {
+        this._mountPreview(slot);
       }
+
+      slot.removeExistingCodeBlock();
     });
+
+    const initElapsed = Math.round(performance.now() - this._state.initStartedAt);
+    console.info(`[Sandbox] Initialized ${componentCards.length} preview slot(s) in ${initElapsed}ms; eager loaded ${this._state.loadedPreviewCount}.`);
 
     this._state.initialized = true;
   }
