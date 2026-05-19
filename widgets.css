@@ -434,11 +434,613 @@ body{
   transform: translateY(-3px);
 }
 
+/* ============================================================
+   V2 CONTENT LAYOUT
+   ============================================================ */
+.main-content {
+  margin-left: var(--sidebar-w);
+  margin-top: var(--navbar-h);
+  padding: 40px 40px 0;
+  min-height: calc(100vh - var(--navbar-h));
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 24px 20px 0;
+    gap: 30px;
+  }
+}
+
+/* =========================================================
+   6. SYSTEM HEALTH MONITOR WIDGET
+   ========================================================= */
+.system-monitor-widget {
+  background: #0b0f19;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.system-monitor-widget:hover {
+  transform: translateY(-4px);
+  border-color: #06b6d4;
+  box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+}
+
+.monitor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding-bottom: 12px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  background: #10b981;
+  border-radius: 50%;
+  position: relative;
+}
+
+.status-dot.pulsing::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 1px solid #10b981;
+  animation: pulse-ring 1.8s infinite ease-in-out;
+  opacity: 0;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.6); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.status-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.uptime {
+  font-size: 11px;
+  color: #64748b;
+  font-family: monospace;
+}
+
+.monitor-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.metric-circle-wrap {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.metric-svg {
+  transform: rotate(-90deg);
+}
+
+.metric-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+.metric-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: #06b6d4;
+  font-family: monospace;
+}
+
+.metric-lbl {
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.metric-stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.metric-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.metric-bar-bg {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.metric-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+.metric-bar-fill.ram {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+}
+
+.metric-bar-fill.disk {
+  background: linear-gradient(90deg, #ec4899, #a855f7);
+}
+
+/* =========================================================
+   7. SPRINT KANBAN TICKET WIDGET
+   ========================================================= */
+.kanban-ticket-widget {
+  background: #151b2d;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.kanban-ticket-widget:hover {
+  transform: translateY(-4px);
+  border-color: #6366f1;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ticket-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
+.ticket-tag.priority-high {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.ticket-id {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.ticket-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 6px;
+}
+
+.ticket-desc {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.ticket-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 12px;
+}
+
+.ticket-checklist {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.ticket-checklist i {
+  color: #6366f1;
+}
+
+.ticket-progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.ticket-progress-fill {
+  height: 100%;
+  background: #6366f1;
+  border-radius: 2px;
+}
+
+.ticket-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-assignees {
+  display: flex;
+  align-items: center;
+}
+
+.ticket-assignees .avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #151b2d;
+  margin-left: -8px;
+}
+
+.ticket-assignees .avatar:first-child {
+  margin-left: 0;
+}
+
+.avatar-count {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #1f293d;
+  border: 2px solid #151b2d;
+  margin-left: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #cbd5e1;
+}
+
+.ticket-status-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.ticket-status-badge.in-progress {
+  background: rgba(99, 102, 241, 0.1);
+  color: #a5b4fc;
+}
+
+/* =========================================================
+   8. INTERACTIVE SQL CONSOLE WIDGET
+   ========================================================= */
+.sql-console-widget {
+  background: #0a0d16;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: border-color 0.3s ease;
+}
+
+.sql-console-widget:hover {
+  border-color: #f59e0b;
+}
+
+.console-header {
+  background: #111422;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.console-tab {
+  font-size: 12px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: monospace;
+}
+
+.console-tab.active {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.run-query-btn {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #fbbf24;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.run-query-btn:hover {
+  background: #f59e0b;
+  color: #000;
+}
+
+.run-query-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.console-editor {
+  padding: 16px;
+  background: #070910;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.console-editor pre {
+  margin: 0;
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  color: #e2e8f0;
+}
+
+.sql-keyword { color: #f43f5e; font-weight: 600; }
+.sql-number { color: #38bdf8; }
+
+.console-result {
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  font-family: monospace;
+  color: #94a3b8;
+  text-align: left;
+}
+
+.result-table th, .result-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.result-table th {
+  background: #0e111c;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.result-table tr:hover td {
+  background: rgba(255,255,255,0.02);
+  color: #fff;
+}
+
+/* =========================================================
+   9. TECH STACK GRID WIDGET
+   ========================================================= */
+.tech-stack-widget {
+  background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.tech-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-item:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--glow-color);
+}
+
+.tech-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.tech-details h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.project-badge {
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.tech-item:hover .project-badge {
+  color: #fff;
+}
+
+/* =========================================================
+   10. API TRAFFIC LOG STREAM WIDGET
+   ========================================================= */
+.api-log-widget {
+  background: #090b11;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: border-color 0.3s ease;
+}
+
+.api-log-widget:hover {
+  border-color: #10b981;
+}
+
+.api-log-header {
+  background: #0f121d;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.log-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.log-pulse {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: beacon 1.4s infinite alternate;
+}
+
+@keyframes beacon {
+  from { opacity: 0.4; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1.1); }
+}
+
+.log-rows {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.log-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 11px;
+  transition: background 0.2s;
+}
+
+.log-row:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.log-row .method {
+  font-weight: 800;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.log-row .method.get { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.log-row .method.post { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.log-row .method.put { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.log-row .method.delete { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+
+.log-row .path {
+  flex: 1;
+  color: #cbd5e1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.log-row .status {
+  font-weight: 700;
+}
+
+.log-row .status.status-200, .log-row .status.status-201, .log-row .status.status-204 {
+  color: #34d399;
+}
+
+.log-row .status.status-500 {
+  color: #f87171;
+}
+
+.log-row .time {
+  color: #64748b;
+  min-width: 45px;
+  text-align: right;
+}
+
 /* =========================================================
    RESPONSIVE
-========================================================= */
+   ========================================================= */
 @media(max-width:992px){
-  .main-home{ margin-left: 0; }
   .sidebar{ display: none; }
 }
 @media(max-width:768px){
