@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
 
   <!-- Viewport -->
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
-  />
+  >
 
   <!-- SEO -->
   <meta
     name="description"
     content="Contact UIverse — Modern reusable UI components built with HTML, CSS, and JavaScript."
-  />
+  >
 
   <meta
     name="keywords"
     content="UI components, HTML, CSS, JavaScript, UIverse, frontend"
-  />
+  >
 
   <meta
     name="theme-color"
     content="#0f172a"
-  />
+  >
 
   <!-- Improved CSP -->
   <meta
@@ -57,7 +57,7 @@
       form-action 'self';
       upgrade-insecure-requests;
     "
-  />
+  >
 
   <title>Contact — UIverse</title>
 
@@ -65,33 +65,31 @@
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
-  />
+  >
 
   <link
     rel="preconnect"
     href="https://fonts.gstatic.com"
     crossorigin
-  />
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
+  >
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="home.css" />
-  <link rel="stylesheet" href="contact.css" />
- 
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
-  <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="shared-sidebar.css">
+  <link rel="stylesheet" href="shared-page.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
@@ -104,17 +102,8 @@
 >
 
   <div class="sidebar-brand">
-
-    <span class="brand-icon">
-      <i class="fa-solid fa-cube"></i>
-    </span>
-
-    <span class="brand-text">
-      UIverse
-    </span>
-
     <span class="brand-icon">⬡</span>
-    <span class="brand-text">UIverse</span>
+    <span class="brand-text">UIverse <span class="brand-badge">V2</span></span>
   </div>
 
   <!-- Navigation -->
@@ -255,7 +244,7 @@
       <li>
         <a href="files.html">
           <i class="fa-solid fa-file-arrow-up"></i>
-          <span>Drag & Drop</span>
+          <span>Drag &amp; Drop</span>
         </a>
       </li>
       <li>
@@ -466,12 +455,6 @@
 
 </aside>
 
-<!-- Sidebar Backdrop -->
-<div
-  class="sidebar-backdrop"
-  id="sidebarBackdrop"
-></div>
-
 <!-- ================= SIDEBAR BACKDROP ================= -->
 <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 <!-- ================= NAVBAR ================= -->
@@ -503,7 +486,7 @@
       type="search"
       placeholder="Search components..."
       aria-label="Search Components"
-    />
+    >
 
     <kbd class="search-kbd">
       ⌘K
@@ -547,66 +530,25 @@
 </header>
 
 <!-- ================= MAIN ================= -->
-<main class="main-home">
+<div class="main-content">
 
   <!-- HERO -->
-  <section class="contact-hero">
-
-    <div class="breadcrumb">
-
-      <a href="index.html">
-        Home
-      </a>
-
-      <i class="fa-solid fa-chevron-right"></i>
-
-      <span>
-        Contact Us
-      </span>
-
-    </div>
-
-    <div class="contact-hero-inner">
-
-      <div class="contact-hero-icon">
-        <i class="fa-regular fa-envelope"></i>
+  <div class="page-hero">
+    <div class="page-hero-left">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Contact Us</span>
       </div>
-
-      <div>
-
-        <h1 class="page-title">
-          Get in Touch
-        </h1>
-
-        <p class="page-desc">
-          Have a question, suggestion, or want to contribute a component?
-          We'd love to hear from you.
-        </p>
-
-        <div class="page-meta">
-
-          <span class="meta-badge">
-            <i class="fa-solid fa-clock"></i>
-            Replies within 24h
-          </span>
-
-          <span class="meta-badge">
-            <i class="fa-solid fa-shield-halved"></i>
-            Your data is safe
-          </span>
-
-          <span class="meta-badge">
-            <i class="fa-solid fa-circle-check"></i>
-            Always free to reach out
-          </span>
-
-        </div>
-
+      <h1 class="page-title">Get in Touch</h1>
+      <p class="page-desc">Have a question, suggestion, or want to contribute a component? We'd love to hear from you.</p>
+      <div class="page-meta">
+        <span class="meta-badge"><i class="fa-solid fa-clock"></i> Replies within 24h</span>
+        <span class="meta-badge"><i class="fa-solid fa-shield-halved"></i> Your data is safe</span>
+        <span class="meta-badge"><i class="fa-solid fa-circle-check"></i> Always free to reach out</span>
       </div>
-
     </div>
-
-  </section>
+  </div>
 
   <!-- ================= CONTACT LAYOUT ================= -->
   <div class="contact-layout">
@@ -615,12 +557,9 @@
     <section class="contact-info">
 
       <!-- Email -->
-      <article class="info-card">
+      <article class="info-card info-email">
 
-        <div
-          class="info-icon"
-          style="--ic: rgba(235,104,53,0.12); --icc: #eb6835;"
-        >
+        <div class="info-icon">
           <i class="fa-solid fa-envelope"></i>
         </div>
 
@@ -643,12 +582,9 @@
       </article>
 
       <!-- GitHub -->
-      <article class="info-card">
+      <article class="info-card info-github">
 
-        <div
-          class="info-icon"
-          style="--ic: rgba(108,92,231,0.12); --icc: #6c5ce7;"
-        >
+        <div class="info-icon">
           <i class="fab fa-github"></i>
         </div>
 
@@ -673,12 +609,9 @@
       </article>
 
       <!-- Discord -->
-      <article class="info-card">
+      <article class="info-card info-discord">
 
-        <div
-          class="info-icon"
-          style="--ic: rgba(0,184,148,0.12); --icc: #00b894;"
-        >
+        <div class="info-icon">
           <i class="fab fa-discord"></i>
         </div>
 
@@ -703,12 +636,9 @@
       </article>
 
       <!-- Support -->
-      <article class="info-card">
+      <article class="info-card info-support">
 
-        <div
-          class="info-icon"
-          style="--ic: rgba(0,123,255,0.12); --icc: #007bff;"
-        >
+        <div class="info-icon">
           <i class="fa-solid fa-business-time"></i>
         </div>
 
@@ -770,7 +700,7 @@
                 autocomplete="name"
                 aria-describedby="err-name"
                 required
-              />
+              >
 
             </div>
 
@@ -803,7 +733,7 @@
                 autocomplete="email"
                 aria-describedby="err-email"
                 required
-              />
+              >
 
             </div>
 
@@ -912,7 +842,7 @@
             type="checkbox"
             id="consent"
             required
-          />
+          >
 
           <span class="checkbox-box"></span>
 
@@ -971,7 +901,7 @@
 
   </div>
 
-</main>
+</div>
 
 <!-- Scroll To Top -->
 <button
