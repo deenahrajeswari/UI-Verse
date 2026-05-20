@@ -262,7 +262,10 @@ function toggleAllUserCheckboxes(masterCheckbox) {
 }
 
 function toggleUserRowStatus(btn) {
+  if (!btn) return;
   const tr = btn.closest('tr');
+  if (!tr) return;
+  
   const statusSpan = tr.querySelector('.td-status');
   if (!statusSpan) return;
 
