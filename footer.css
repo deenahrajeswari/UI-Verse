@@ -1,9 +1,19 @@
 /* ===================================================
    FOOTER PAGE
 =================================================== */
+.container{
+  flex-direction: column;
+}
 
 .footer-page-header {
+  width:100%;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #fff 60%, #fff7f4 100%);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
   display: flex;
+  align-items: center;
+  text-align: center;
   flex-direction: column;
   gap: 18px;
 }
@@ -49,6 +59,36 @@
   font-weight: 600;
   border: 1px solid rgba(235,104,53,0.15);
 }
+
+/*Filter Scearch*/
+
+.scearch{
+  display: flex;
+  align-items: center;
+  max-width: 250px;
+  gap: 8px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 40px;
+  padding: 7px 16px;
+  transition: all var(--transition);
+}
+
+.scearch i{
+  font-size: 12px;
+  color: #aaa;
+}
+
+#Scearch{
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-primary);
+  width: 160px;
+}
+
 
 /* GRID */
 
@@ -319,7 +359,6 @@ body.dark-mode .footer-preview {
 
 /* =========================
    GLOBAL RESET (safe use)
-========================= */
 *{
   margin:0;
   padding:0;
@@ -334,7 +373,6 @@ body{
 
 /* =========================
    GRID LAYOUT
-========================= */
 .footer-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
@@ -344,7 +382,6 @@ body{
 
 /* =========================
    FOOTER CARD
-========================= */
 .footer-component-card{
   background:#161622;
   border:1px solid #2a2a3a;
@@ -360,7 +397,6 @@ body{
 
 /* =========================
    CARD HEADER
-========================= */
 .card-top{
   display:flex;
   justify-content:space-between;
@@ -391,7 +427,6 @@ body{
 
 /* =========================
    PREVIEW AREA
-========================= */
 .footer-preview{
   padding:16px;
   min-height:140px;
@@ -402,7 +437,6 @@ body{
 
 /* =========================
    DEMO FOOTERS BASE
-========================= */
 .demo-footer{
   width:100%;
   padding:16px;
@@ -412,7 +446,6 @@ body{
 
 /* =========================
    VARIANTS
-========================= */
 
 /* Startup */
 .startup-footer{
@@ -547,7 +580,6 @@ body{
 
 /* =========================
    ACTIONS
-========================= */
 .actions{
   display:flex;
   justify-content:space-between;
@@ -573,7 +605,6 @@ body{
 
 /* =========================
    FOOTER PAGE HEADER
-========================= */
 .footer-page-header{
   padding:30px 20px;
 }
@@ -589,9 +620,12 @@ body{
 
 /* =========================
    RESPONSIVE
-========================= */
 @media (max-width:768px){
   .footer-grid{
     grid-template-columns:1fr;
   }
+.footer-socials a{
+  position: relative;
+  z-index: 9999;
+  pointer-events: auto;
 }

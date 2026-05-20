@@ -2,1076 +2,375 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms — UIverse</title>
 
-  <title>Forms - UIverse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Fonts + Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  >
-
-  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="forms.css">
-
-  <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
-
-    body{
-      background:#0f172a;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    /* ================= NAVBAR ================= */
-
-    .navbar{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:70px;
-      background:#111827;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 20px;
-      z-index:2000;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    .logo{
-      font-size:24px;
-      font-weight:bold;
-      color:#a29bfe;
-    }
-
-    .search-bar{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      width:40%;
-    }
-
-    .search-bar input{
-      width:100%;
-      padding:10px 14px;
-      border:none;
-      outline:none;
-      border-radius:10px;
-      background:#1f2937;
-      color:white;
-    }
-
-    .search-btn{
-      padding:10px 14px;
-      border:none;
-      border-radius:10px;
-      background:#a29bfe;
-      color:white;
-      cursor:pointer;
-    }
-
-    .nav-right{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .nav-btn,
-    .nav-right button{
-      background:#a29bfe;
-      border:none;
-      color:white;
-      padding:10px 16px;
-      border-radius:10px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .nav-btn:hover,
-    .nav-right button:hover{
-      opacity:0.9;
-    }
-
-    /* ================= SIDEBAR ================= */
-
-    .sidebar{
-      position:fixed;
-      top:70px;
-      left:0;
-      width:260px;
-      height:calc(100vh - 70px);
-      background:#111827;
-      overflow-y:auto;
-      border-right:1px solid rgba(255,255,255,0.08);
-      z-index:1500;
-      transition:0.3s;
-    }
-
-    .sidebar-brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:20px;
-      font-size:22px;
-      font-weight:bold;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    .brand-icon{
-      color:#a29bfe;
-    }
-
-    .sidebar-nav ul{
-      list-style:none;
-      padding:10px;
-    }
-
-    .sidebar-nav li{
-      margin-bottom:8px;
-    }
-
-    .sidebar-nav a{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      text-decoration:none;
-      color:white;
-      padding:12px 16px;
-      border-radius:12px;
-      transition:0.3s;
-    }
-
-    .sidebar-nav a:hover,
-    .sidebar-nav li.active a{
-      background:#a29bfe;
-      color:white;
-    }
-
-    .sidebar-footer{
-      display:flex;
-      gap:16px;
-      padding:20px;
-      border-top:1px solid rgba(255,255,255,0.08);
-    }
-
-    .sidebar-footer a{
-      color:white;
-      font-size:20px;
-    }
-
-    /* ================= MAIN ================= */
-
-    .main{
-      margin-left:260px;
-      margin-top:70px;
-      padding:30px;
-    }
-
-    .page-header{
-      margin-bottom:30px;
-    }
-
-    .page-header h1{
-      font-size:36px;
-      margin-bottom:10px;
-    }
-
-    .page-header p{
-      color:#94a3b8;
-    }
-
-    /* ================= COMPONENTS ================= */
-
-    .button-group{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:24px;
-    }
-
-    .component-card{
-      background:#111827;
-      padding:24px;
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    .component-card h3{
-      margin-bottom:20px;
-      color:#a29bfe;
-    }
-
-    .form-input,
-    .input,
-    textarea,
-    select{
-      width:100%;
-      padding:12px 14px;
-      border:none;
-      outline:none;
-      border-radius:12px;
-      background:#1f2937;
-      color:white;
-      margin-top:8px;
-      margin-bottom:14px;
-    }
-
-    textarea{
-      resize:none;
-      min-height:120px;
-    }
-
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
-    }
-
-    .actions button{
-      background:#a29bfe;
-      color:white;
-      border:none;
-      padding:10px 14px;
-      border-radius:10px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .actions button:hover{
-      opacity:0.9;
-    }
-
-    .code-block{
-      display:none;
-      margin-top:16px;
-      background:#020617;
-      color:#38bdf8;
-      padding:16px;
-      border-radius:12px;
-      overflow-x:auto;
-      white-space:pre-wrap;
-      font-size:14px;
-    }
-
-    /* ================= FOOTER ================= */
-
-    .footer{
-      margin-left:260px;
-      padding:30px;
-    }
-
-    .footer-card{
-      background:#111827;
-      border-radius:20px;
-      padding:30px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:30px;
-    }
-
-    .footer-col{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .footer-col a{
-      color:#cbd5e1;
-      text-decoration:none;
-    }
-
-    .footer-col a:hover{
-      color:#a29bfe;
-    }
-
-    /* ================= MENU TOGGLE ================= */
-
-    .menu-toggle{
-      display:none;
-      position:fixed;
-      top:80px;
-      left:20px;
-      z-index:3000;
-      background:#a29bfe;
-      border:none;
-      color:white;
-      padding:10px 14px;
-      border-radius:10px;
-      cursor:pointer;
-    }
-
-    .sidebar-backdrop{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.5);
-      z-index:1400;
-      display:none;
-    }
-
-    .sidebar.active{
-      transform:translateX(0);
-    }
-
-    .sidebar-backdrop.active{
-      display:block;
-    }
-
-    /* ================= MOBILE ================= */
-
-    @media(max-width:900px){
-
-      .menu-toggle{
-        display:block;
-      }
-
-      .sidebar{
-        transform:translateX(-100%);
-      }
-
-      .main{
-        margin-left:0;
-      }
-
-      .footer{
-        margin-left:0;
-      }
-
-      .search-bar{
-        display:none;
-      }
-    }
-
-  </style>
 </head>
 
 <body>
 
-  <!-- ================= NAVBAR ================= -->
-
-  <nav class="navbar">
-
-    <div class="logo">UIverse</div>
-
-    <div class="search-bar">
-      <input type="text" placeholder="Search Components">
-      <button class="search-btn">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-    </div>
-
-    <div class="nav-right">
-      <button class="nav-btn">Add Component</button>
-      <button onclick="location.href='MyCollection.html'">
-        My Collection
-      </button>
-    </div>
-
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">
+    <span class="brand-icon">⬡</span>
+    <span class="brand-text">UIverse</span>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li><a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+      <li><a href="button.html"><i class="fa-solid fa-hand-pointer"></i><span>Buttons</span></a></li>
+      <li><a href="navbar.html"><i class="fa-solid fa-bars"></i><span>Navbar</span></a></li>
+      <li><a href="cards.html"><i class="fa-solid fa-table-cells-large"></i><span>Cards</span></a></li>
+      <li><a href="inputs.html"><i class="fa-solid fa-keyboard"></i><span>Inputs</span></a></li>
+      <li><a href="contact.html"><i class="fa-regular fa-envelope"></i><span>Contact Us</span></a></li>
+      <li class="active"><a href="forms.html"><i class="fa-brands fa-wpforms"></i><span>Forms</span></a></li>
+      <li><a href="badges.html"><i class="fa-solid fa-award"></i><span>Badges</span></a></li>
+    </ul>
   </nav>
+  <div class="sidebar-footer">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+  </div>
+</aside>
 
-  <!-- ================= MENU BUTTON ================= -->
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
   <button class="menu-toggle" onclick="toggleSidebar()">
-    ☰
+    <i class="fa-solid fa-bars"></i>
   </button>
+  <div class="logo">UIverse</div>
+  <div class="search-bar">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input type="text" placeholder="Search components..." />
+    <kbd class="search-kbd">⌘K</kbd>
+  </div>
+  <div class="nav-right">
+    <button class="nav-btn outline-nav-btn"><i class="fa-solid fa-plus"></i> Add Component</button>
+    <button class="nav-btn primary-nav-btn"><i class="fa-solid fa-bookmark"></i> My Collection</button>
+    <button id="darkModeToggle" class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+  </div>
+</header>
 
-  <!-- ================= SIDEBAR ================= -->
+<!-- MAIN -->
+<main class="main-home">
 
-  <aside class="sidebar" id="sidebar">
-
-    <div class="sidebar-brand">
-      <span class="brand-icon">⬡</span>
-      <span>UIverse</span>
+  <!-- Page Header -->
+  <div class="forms-page-header">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Forms</span>
     </div>
-
-    <nav class="sidebar-nav">
-
-      <ul>
-
-        <li>
-          <a href="index.html">
-            <i class="fa-solid fa-house"></i>
-            <span>Home</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="button.html">
-            <i class="fa-solid fa-hand-pointer"></i>
-            <span>Buttons</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="navbar.html">
-            <i class="fa-solid fa-bars"></i>
-            <span>Navbar</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="cards.html">
-            <i class="fa-solid fa-table-cells-large"></i>
-            <span>Cards</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="inputs.html">
-            <i class="fa-solid fa-keyboard"></i>
-            <span>Inputs</span>
-          </a>
-        </li>
-
-        <li class="active">
-          <a href="forms.html">
-            <i class="fa-brands fa-wpforms"></i>
-            <span>Forms</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="badges.html">
-            <i class="fa-solid fa-award"></i>
-            <span>Badges</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="blog.html">
-            <i class="fa-solid fa-blog"></i>
-            <span>Blog</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="alerts.html">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <span>Alerts</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="dashboard.html">
-            <i class="fa-solid fa-gauge-high"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="pricing.html">
-            <i class="fa-solid fa-tags"></i>
-            <span>Pricing</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="documentation.html">
-            <i class="fa-solid fa-book"></i>
-            <span>Documentation</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="faq.html">
-            <i class="fa-solid fa-circle-question"></i>
-            <span>FAQ</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="contact.html">
-            <i class="fa-solid fa-user"></i>
-            <span>Contact</span>
-          </a>
-        </li>
-
-      </ul>
-
-    </nav>
-
-    <div class="sidebar-footer">
-
-      <a href="#">
-        <i class="fab fa-github"></i>
-      </a>
-
-      <a href="#">
-        <i class="fab fa-linkedin"></i>
-      </a>
-
-      <a href="#">
-        <i class="fab fa-x-twitter"></i>
-      </a>
-
+    <h1>Forms UI</h1>
+    <p>Reusable form components with clean inputs, selects, radios, checkboxes and more.</p>
+    <div class="page-meta">
+      <span class="meta-badge"><i class="fa-solid fa-layer-group"></i> 4 Forms</span>
+      <span class="meta-badge"><i class="fa-solid fa-code"></i> Pure HTML & CSS</span>
     </div>
+  </div>
 
-  </aside>
+  <!-- Forms Grid -->
+  <div class="forms-grid">
 
-  <!-- ================= BACKDROP ================= -->
-
-  <div
-    class="sidebar-backdrop"
-    id="sidebarBackdrop"
-    onclick="toggleSidebar()"
-  ></div>
-
-  <!-- ================= MAIN ================= -->
-
-  <main class="main">
-
-    <div class="page-header">
-      <h1>Forms</h1>
-      <p>Modern reusable and responsive form components</p>
-    </div>
-
-    <div class="button-group">
-
-      <!-- LOGIN -->
-
-      <div class="component-card">
-
-        <h3>Login Form</h3>
-
-        <form>
-
-          <input
-            type="email"
-            placeholder="Email"
-            class="form-input"
-            required
-          >
-
-          <input
-            type="password"
-            placeholder="Password"
-            class="form-input"
-            required
-          >
-
-          <button type="submit" class="nav-btn">
-            Login
-          </button>
-
-        </form>
-
-        <div class="actions">
-
-          <button onclick="toggleCode('f1')">
-            View Code
-          </button>
-
-          <button onclick="copyCode('f1',this)">
-            Copy
-          </button>
-
-          <button onclick="addToCollection('Login Form')">
-            Add to Collection
-          </button>
-
+    <!-- Login Form -->
+    <div class="form-component-card" data-name="login form email password">
+      <div class="card-top">
+        <span class="card-label">Login Form</span>
+        <span class="card-tag tag-popular">Popular</span>
+      </div>
+      <div class="form-preview">
+        <div class="form-card">
+          <h3>Welcome back</h3>
+          <p class="form-sub">Sign in to your account</p>
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" />
+          </div>
+          <div class="form-field">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" />
+          </div>
+          <div class="form-options">
+            <label class="simple-check"><input type="checkbox" /> Remember me</label>
+            <a href="#">Forgot password?</a>
+          </div>
+          <button class="form-btn">Login</button>
         </div>
-
-<pre id="f1" class="code-block">
-&lt;form&gt;
+      </div>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('fc1', this)"><i class="fa-solid fa-code"></i> View Code</button>
+        <button class="action-btn copy-btn" onclick="copyCode('fc1', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      </div>
+      <pre id="fc1" class="code-block"><code>&lt;div class="form-card"&gt;
+  &lt;h3&gt;Welcome back&lt;/h3&gt;
   &lt;input type="email" placeholder="Email"&gt;
   &lt;input type="password" placeholder="Password"&gt;
+  &lt;div class="options"&gt;
+    &lt;label&gt;&lt;input type="checkbox"&gt; Remember me&lt;/label&gt;
+    &lt;a href="#"&gt;Forgot password?&lt;/a&gt;
+  &lt;/div&gt;
   &lt;button&gt;Login&lt;/button&gt;
-&lt;/form&gt;
-</pre>
+&lt;/div&gt;</code></pre>
+    </div>
 
+    <!-- Signup Form -->
+    <div class="form-component-card" data-name="signup register form">
+      <div class="card-top">
+        <span class="card-label">Signup Form</span>
+        <span class="card-tag tag-essential">Essential</span>
       </div>
-
-      <!-- SIGNUP -->
-
-      <div class="component-card">
-
-        <h3>Signup Form</h3>
-
-        <form>
-
-          <input
-            type="text"
-            placeholder="Full Name"
-            class="form-input"
-            required
-          >
-
-          <input
-            type="email"
-            placeholder="Email"
-            class="form-input"
-            required
-          >
-
-          <input
-            type="password"
-            placeholder="Password"
-            class="form-input"
-            required
-          >
-
-          <button type="submit" class="nav-btn">
-            Signup
-          </button>
-
-        </form>
-
-        <div class="actions">
-
-          <button onclick="toggleCode('f2')">
-            View Code
-          </button>
-
-          <button onclick="copyCode('f2',this)">
-            Copy
-          </button>
-
-          <button onclick="addToCollection('Signup Form')">
-            Add to Collection
-          </button>
-
+      <div class="form-preview">
+        <div class="form-card">
+          <h3>Create Account</h3>
+          <p class="form-sub">Join thousands of developers</p>
+          <div class="form-field">
+            <label>Full Name</label>
+            <input type="text" placeholder="John Doe" />
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" />
+          </div>
+          <div class="form-field">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" />
+          </div>
+          <div class="form-field">
+            <label>Confirm Password</label>
+            <input type="password" placeholder="••••••••" />
+          </div>
+          <button class="form-btn">Register</button>
         </div>
-
-<pre id="f2" class="code-block">
-&lt;form&gt;
+      </div>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('fc2', this)"><i class="fa-solid fa-code"></i> View Code</button>
+        <button class="action-btn copy-btn" onclick="copyCode('fc2', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      </div>
+      <pre id="fc2" class="code-block"><code>&lt;div class="form-card"&gt;
+  &lt;h3&gt;Create Account&lt;/h3&gt;
   &lt;input type="text" placeholder="Full Name"&gt;
   &lt;input type="email" placeholder="Email"&gt;
   &lt;input type="password" placeholder="Password"&gt;
-  &lt;button&gt;Signup&lt;/button&gt;
-&lt;/form&gt;
-</pre>
+  &lt;input type="password" placeholder="Confirm Password"&gt;
+  &lt;button&gt;Register&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+    </div>
 
+    <!-- Contact Form -->
+    <div class="form-component-card" data-name="contact form message textarea">
+      <div class="card-top">
+        <span class="card-label">Contact Form</span>
+        <span class="card-tag tag-popular">Popular</span>
       </div>
-      <!-- ================= MODERN FORMS ================= -->
-
-<div class="button-group">
-
-  <!-- GLASS LOGIN FORM -->
-
-  <div class="component-card glass-card">
-
-    <h3>Glassmorphism Login</h3>
-
-    <form class="modern-form">
-
-      <div class="input-box">
-        <i class="fa-solid fa-envelope"></i>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          required
-        >
-      </div>
-
-      <div class="input-box">
-        <i class="fa-solid fa-lock"></i>
-        <input
-          type="password"
-          placeholder="Enter password"
-          required
-        >
-      </div>
-
-      <div class="form-options">
-        <label>
-          <input type="checkbox">
-          Remember Me
-        </label>
-
-        <a href="#">Forgot?</a>
-      </div>
-
-      <button class="gradient-btn">
-        Sign In
-      </button>
-
-    </form>
-
-  </div>
-
-  <!-- FLOATING LABEL FORM -->
-
-  <div class="component-card">
-
-    <h3>Floating Label Form</h3>
-
-    <form class="floating-form">
-
-      <div class="floating-group">
-
-        <input
-          type="text"
-          required
-        >
-
-        <label>Full Name</label>
-
-      </div>
-
-      <div class="floating-group">
-
-        <input
-          type="email"
-          required
-        >
-
-        <label>Email Address</label>
-
-      </div>
-
-      <div class="floating-group">
-
-        <input
-          type="password"
-          required
-        >
-
-        <label>Password</label>
-
-      </div>
-
-      <button class="gradient-btn">
-        Create Account
-      </button>
-
-    </form>
-
-  </div>
-
-  <!-- NEON CONTACT FORM -->
-
-  <div class="component-card neon-card">
-
-    <h3>Neon Contact Form</h3>
-
-    <form class="modern-form">
-
-      <div class="input-box">
-        <i class="fa-solid fa-user"></i>
-        <input
-          type="text"
-          placeholder="Your Name"
-          required
-        >
-      </div>
-
-      <div class="input-box">
-        <i class="fa-solid fa-envelope"></i>
-        <input
-          type="email"
-          placeholder="Your Email"
-          required
-        >
-      </div>
-
-      <div class="input-box textarea-box">
-        <textarea
-          placeholder="Write message..."
-          required
-        ></textarea>
-      </div>
-
-      <button class="neon-btn">
-        Send Message
-      </button>
-
-    </form>
-
-  </div>
-
-  <!-- MULTI STEP FORM -->
-
-  <div class="component-card">
-
-    <h3>Multi Step Form</h3>
-
-    <form class="step-form">
-
-      <div class="progress-bar">
-        <span></span>
-      </div>
-
-      <div class="step active">
-
-        <input
-          type="text"
-          placeholder="First Name"
-          class="form-input"
-        >
-
-        <input
-          type="text"
-          placeholder="Last Name"
-          class="form-input"
-        >
-
-      </div>
-
-      <div class="actions">
-
-        <button type="button" class="gradient-btn">
-          Next Step
-        </button>
-
-      </div>
-
-    </form>
-
-  </div>
-
-  <!-- NEWSLETTER FORM -->
-
-  <div class="component-card newsletter-card">
-
-    <h3>Newsletter Subscribe</h3>
-
-    <form class="newsletter-form">
-
-      <input
-        type="email"
-        placeholder="Enter your email"
-        required
-      >
-
-      <button>
-        Subscribe
-      </button>
-
-    </form>
-
-  </div>
-
-  <!-- SOCIAL LOGIN FORM -->
-
-  <div class="component-card social-card">
-
-    <h3>Social Login</h3>
-
-    <form class="modern-form">
-
-      <div class="input-box">
-        <i class="fa-solid fa-envelope"></i>
-        <input
-          type="email"
-          placeholder="Email Address"
-          required
-        >
-      </div>
-
-      <div class="input-box">
-        <i class="fa-solid fa-lock"></i>
-        <input
-          type="password"
-          placeholder="Password"
-          required
-        >
-      </div>
-
-      <button class="gradient-btn">
-        Login
-      </button>
-
-      <div class="divider">
-        OR CONTINUE WITH
-      </div>
-
-      <div class="social-buttons">
-
-        <button type="button">
-          <i class="fab fa-google"></i>
-        </button>
-
-        <button type="button">
-          <i class="fab fa-github"></i>
-        </button>
-
-        <button type="button">
-          <i class="fab fa-facebook"></i>
-        </button>
-
-      </div>
-
-    </form>
-
-  </div>
-
-</div>
-
-      <!-- CONTACT -->
-
-      <div class="component-card">
-
-        <h3>Contact Form</h3>
-
-        <form>
-
-          <input
-            type="text"
-            placeholder="Name"
-            class="form-input"
-            required
-          >
-
-          <input
-            type="email"
-            placeholder="Email"
-            class="form-input"
-            required
-          >
-
-          <textarea
-            placeholder="Message"
-            class="form-input"
-            required
-          ></textarea>
-
-          <button type="submit" class="nav-btn">
-            Send
-          </button>
-
-        </form>
-
-        <div class="actions">
-
-          <button onclick="toggleCode('f3')">
-            View Code
-          </button>
-
-          <button onclick="copyCode('f3',this)">
-            Copy
-          </button>
-
-          <button onclick="addToCollection('Contact Form')">
-            Add to Collection
-          </button>
-
+      <div class="form-preview">
+        <div class="form-card">
+          <h3>Get in Touch</h3>
+          <p class="form-sub">We'll get back to you soon</p>
+          <div class="form-field">
+            <label>Your Name</label>
+            <input type="text" placeholder="John Doe" />
+          </div>
+          <div class="form-field">
+            <label>Your Email</label>
+            <input type="email" placeholder="you@example.com" />
+          </div>
+          <div class="form-field">
+            <label>Message</label>
+            <textarea placeholder="Write your message here..." rows="4"></textarea>
+          </div>
+          <button class="form-btn">Send Message</button>
         </div>
-
-<pre id="f3" class="code-block">
-&lt;form&gt;
-  &lt;input type="text" placeholder="Name"&gt;
-  &lt;input type="email" placeholder="Email"&gt;
-  &lt;textarea placeholder="Message"&gt;&lt;/textarea&gt;
-  &lt;button&gt;Send&lt;/button&gt;
-&lt;/form&gt;
-</pre>
-
       </div>
-
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('fc3', this)"><i class="fa-solid fa-code"></i> View Code</button>
+        <button class="action-btn copy-btn" onclick="copyCode('fc3', this)"><i class="fa-solid fa-copy"></i> Copy</button>
+      </div>
+      <pre id="fc3" class="code-block"><code>&lt;div class="form-card"&gt;
+  &lt;h3&gt;Get in Touch&lt;/h3&gt;
+  &lt;input type="text" placeholder="Your Name"&gt;
+  &lt;input type="email" placeholder="Your Email"&gt;
+  &lt;textarea placeholder="Your Message"&gt;&lt;/textarea&gt;
+  &lt;button&gt;Send Message&lt;/button&gt;
+&lt;/div&gt;</code></pre>
     </div>
 
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-
-  <footer class="footer">
-
-    <div class="footer-card">
-
-      <div>
-        <h2>UIverse</h2>
-        <p>© 2026 UIverse. All rights reserved.</p>
+    <!-- More Inputs -->
+    <div class="form-component-card" data-name="select dropdown radio checkbox file input">
+      <div class="card-top">
+        <span class="card-label">More Inputs</span>
+        <span class="card-tag tag-essential">Essential</span>
       </div>
-
-      <div class="footer-col">
-        <h3>Pages</h3>
-        <a href="pricing.html">Pricing</a>
-        <a href="alerts.html">Alerts</a>
-        <a href="testimonials.html">Testimonials</a>
+      <div class="form-preview">
+        <div class="form-card">
+          <h3>Extra Inputs</h3>
+          <p class="form-sub">Select, radio, checkbox &amp; file</p>
+          <div class="form-field">
+            <label>Country</label>
+            <select>
+              <option value="" disabled selected>Select Country</option>
+              <option>India</option>
+              <option>USA</option>
+              <option>Germany</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Gender</label>
+            <div class="radio-group">
+              <label class="simple-check"><input type="radio" name="gender2" /> Male</label>
+              <label class="simple-check"><input type="radio" name="gender2" /> Female</label>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Skills</label>
+            <div class="check-group">
+              <label class="simple-check"><input type="checkbox" /> HTML</label>
+              <label class="simple-check"><input type="checkbox" /> CSS</label>
+              <label class="simple-check"><input type="checkbox" /> JavaScript</label>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Upload File</label>
+            <input type="file" />
+          </div>
+          <button class="form-btn">Submit</button>
+        </div>
       </div>
-
-      <div class="footer-col">
-        <h3>Legal</h3>
-        <a href="privacypolicy.html">Privacy Policy</a>
-        <a href="terms.html">Terms</a>
+      <div class="actions">
+        <button class="action-btn view-btn" onclick="toggleCode('fc4', this)"><i class="fa-solid fa-code"></i> View Code</button>
+        <button class="action-btn copy-btn" onclick="copyCode('fc4', this)"><i class="fa-solid fa-copy"></i> Copy</button>
       </div>
+      <pre id="fc4" class="code-block"><code>&lt;select&gt;
+  &lt;option&gt;Select Country&lt;/option&gt;
+  &lt;option&gt;India&lt;/option&gt;
+  &lt;option&gt;USA&lt;/option&gt;
+&lt;/select&gt;
 
+&lt;label&gt;&lt;input type="radio" name="gender"&gt; Male&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" name="gender"&gt; Female&lt;/label&gt;
+
+&lt;label&gt;&lt;input type="checkbox"&gt; HTML&lt;/label&gt;
+&lt;label&gt;&lt;input type="checkbox"&gt; CSS&lt;/label&gt;
+&lt;label&gt;&lt;input type="checkbox"&gt; JavaScript&lt;/label&gt;
+
+&lt;input type="file"&gt;
+&lt;button&gt;Submit&lt;/button&gt;</code></pre>
     </div>
 
-  </footer>
+  </div><!-- /forms-grid -->
 
-  <!-- ================= SCRIPT ================= -->
+</main>
 
-  <script>
+<!-- Scroll to Top -->
+<button id="scrollTopBtn" onclick="scrollToTop()">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
 
-    function toggleSidebar(){
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col brand">
+      <h2 class="footer-logo">⬡ UIverse</h2>
+      <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="button.html">Buttons</a></li>
+        <li><a href="navbar.html">Navbars</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="forms.html">Forms</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-col newsletter">
+      <h3>Stay Updated</h3>
+      <p>Get notified when new components drop.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" />
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
+  </div>
+</footer>
 
-      const sidebar =
-        document.getElementById("sidebar");
+<script>
+  /* Dark Mode */
+  const toggle = document.getElementById('darkModeToggle');
+  const icon = toggle.querySelector('i');
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    icon.className = 'fa-solid fa-sun';
+  }
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
 
-      const backdrop =
-        document.getElementById("sidebarBackdrop");
+  /* Sidebar */
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebarBackdrop').classList.toggle('visible');
+  }
 
-      sidebar.classList.toggle("active");
+  /* Scroll Top */
+  function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  window.addEventListener('scroll', () => {
+    document.getElementById('scrollTopBtn').classList.toggle('visible', window.scrollY > 400);
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
 
-      backdrop.classList.toggle("active");
-    }
+  /* Code Toggle */
+  function toggleCode(id, btn) {
+    const block = document.getElementById(id);
+    const isOpen = block.classList.toggle('open');
+    btn.innerHTML = isOpen
+      ? '<i class="fa-solid fa-eye-slash"></i> Hide Code'
+      : '<i class="fa-solid fa-code"></i> View Code';
+  }
 
-    function toggleCode(id){
+  /* Copy Code */
+  function copyCode(id, btn) {
+    navigator.clipboard.writeText(document.getElementById(id).innerText).then(() => {
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
 
-      const el =
-        document.getElementById(id);
-
-      el.style.display =
-        el.style.display === "block"
-        ? "none"
-        : "block";
-    }
-
-    function copyCode(id,btn){
-
-      const text =
-        document.getElementById(id).innerText;
-
-      navigator.clipboard.writeText(text);
-
-      btn.innerText = "Copied!";
-
-      setTimeout(()=>{
-        btn.innerText = "Copy";
-      },1000);
-    }
-
-    function addToCollection(name){
-
-      let items =
-        JSON.parse(
-          localStorage.getItem("collection")
-        ) || [];
-
-      if(
-        !items.some(item => item.title === name)
-      ){
-
-        items.push({
-          title:name,
-          id:Date.now()
-        });
-
-        localStorage.setItem(
-          "collection",
-          JSON.stringify(items)
-        );
-
-        alert(name + " added!");
-      }
-      else{
-        alert("Already added");
-      }
-    }
-
-  </script>
-
+  /* Scroll Animations */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.form-component-card').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

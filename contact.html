@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
 
   <!-- Viewport -->
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
-  />
+  >
 
   <!-- SEO -->
   <meta
     name="description"
     content="Contact UIverse — Modern reusable UI components built with HTML, CSS, and JavaScript."
-  />
+  >
 
   <meta
     name="keywords"
     content="UI components, HTML, CSS, JavaScript, UIverse, frontend"
-  />
+  >
 
   <meta
     name="theme-color"
     content="#0f172a"
-  />
+  >
 
   <!-- Improved CSP -->
   <meta
@@ -57,7 +57,7 @@
       form-action 'self';
       upgrade-insecure-requests;
     "
-  />
+  >
 
   <title>Contact — UIverse</title>
 
@@ -65,29 +65,31 @@
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
-  />
+  >
 
   <link
     rel="preconnect"
     href="https://fonts.gstatic.com"
     crossorigin
-  />
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
+  >
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="home.css" />
-  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="shared-sidebar.css">
+  <link rel="stylesheet" href="shared-page.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
@@ -100,80 +102,320 @@
 >
 
   <div class="sidebar-brand">
-
-    <span class="brand-icon">
-      <i class="fa-solid fa-cube"></i>
-    </span>
-
-    <span class="brand-text">
-      UIverse
-    </span>
-
+    <span class="brand-icon">⬡</span>
+    <span class="brand-text">UIverse <span class="brand-badge">V2</span></span>
   </div>
 
   <!-- Navigation -->
-  <nav class="sidebar-nav">
-
+          <nav class="sidebar-nav">
     <ul>
-
       <li>
         <a href="index.html">
           <i class="fa-solid fa-house"></i>
           <span>Home</span>
         </a>
       </li>
-
       <li>
         <a href="button.html">
           <i class="fa-solid fa-hand-pointer"></i>
           <span>Buttons</span>
         </a>
       </li>
-
+            <li>
+        <a href="dropdown-components.html">
+          <i class="fa-solid fa-caret-down"></i>
+          <span>Dropdowns</span>
+        </a>
+      </li>
       <li>
+        <a href="profile-components.html">
+          <i class="fa-solid fa-user"></i>
+          <span>Profiles</span>
+        </a>
+      </li>
+<li>
         <a href="navbar.html">
           <i class="fa-solid fa-bars"></i>
           <span>Navbar</span>
         </a>
       </li>
-
       <li>
         <a href="cards.html">
           <i class="fa-solid fa-table-cells-large"></i>
           <span>Cards</span>
         </a>
       </li>
-
+      <li>
+        <a href="flipcards.html">
+          <i class="fa-solid fa-clone"></i>
+          <span>3D Cards</span>
+        </a>
+      </li>
       <li>
         <a href="inputs.html">
           <i class="fa-solid fa-keyboard"></i>
           <span>Inputs</span>
         </a>
       </li>
-
-      <li class="active">
-        <a href="contact.html">
-          <i class="fa-regular fa-envelope"></i>
-          <span>Contact Us</span>
-        </a>
-      </li>
-
       <li>
         <a href="forms.html">
           <i class="fa-brands fa-wpforms"></i>
           <span>Forms</span>
         </a>
       </li>
-
       <li>
         <a href="badges.html">
           <i class="fa-solid fa-award"></i>
           <span>Badges</span>
         </a>
       </li>
-
+      <li>
+        <a href="blog.html">
+          <i class="fa-solid fa-blog"></i>
+          <span>Blog</span>
+        </a>
+      </li>
+      <li>
+        <a href="article.html">
+          <i class="fa-solid fa-newspaper"></i>
+          <span>Articles</span>
+        </a>
+      </li>
+      <li>
+        <a href="alerts.html">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span>Alerts</span>
+        </a>
+      </li>
+      <li>
+        <a href="color.html">
+          <i class="fa-solid fa-palette"></i>
+          <span>Colors</span>
+        </a>
+      </li>
+      <li>
+        <a href="charts.html">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>Charts</span>
+        </a>
+      </li>
+      <li>
+        <a href="dashboard.html">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="div.html">
+          <i class="fa-solid fa-square"></i>
+          <span>DIV</span>
+        </a>
+      </li>
+      <li>
+        <a href="widgets.html">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Widgets</span>
+        </a>
+      </li>
+      <li>
+        <a href="search.html">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Search Bars</span>
+        </a>
+      </li>
+      <li>
+        <a href="hover.html">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Hover Effects</span>
+        </a>
+      </li>
+      <li>
+        <a href="error.html">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span>Error Pages</span>
+        </a>
+      </li>
+      <li>
+        <a href="ecommerce.html">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span>E-commerce</span>
+        </a>
+      </li>
+      <li>
+        <a href="files.html">
+          <i class="fa-solid fa-file-arrow-up"></i>
+          <span>Drag &amp; Drop</span>
+        </a>
+      </li>
+      <li>
+        <a href="hero.html">
+          <i class="fa-solid fa-star"></i>
+          <span>Hero Sections</span>
+        </a>
+      </li>
+      <li>
+        <a href="loaders.html">
+          <i class="fa-solid fa-spinner"></i>
+          <span>Loaders</span>
+        </a>
+      </li>
+      <li>
+        <a href="timeline.html">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>Timeline</span>
+        </a>
+      </li>
+      <li>
+        <a href="map.html">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>Maps</span>
+        </a>
+      </li>
+      <li>
+        <a href="menu.html">
+          <i class="fa-solid fa-bars-staggered"></i>
+          <span>Menu</span>
+        </a>
+      </li>
+      <li>
+        <a href="pricing.html">
+          <i class="fa-solid fa-tags"></i>
+          <span>Pricing</span>
+        </a>
+      </li>
+      <li>
+        <a href="subscription.html">
+          <i class="fa-solid fa-credit-card"></i>
+          <span>Subscription</span>
+        </a>
+      </li>
+      <li>
+        <a href="auth.html">
+          <i class="fa-solid fa-user-shield"></i>
+          <span>Authentication</span>
+        </a>
+      </li>
+        <li>
+          <a href="recovery.html">
+            <i class="fa-solid fa-key" aria-hidden="true"></i>
+            <span>Password Recovery</span>
+          </a>
+        </li>
+      <li>
+        <a href="section.html">
+          <i class="fa-solid fa-rectangle-list"></i>
+          <span>Section</span>
+        </a>
+      </li>
+      <li>
+        <a href="span.html">
+          <i class="fa-solid fa-code"></i>
+          <span>Span</span>
+        </a>
+      </li>
+      <li>
+        <a href="table.html">
+          <i class="fa-solid fa-table"></i>
+          <span>Table</span>
+        </a>
+      </li>
+      <li>
+        <a href="tabs.html">
+          <i class="fa-solid fa-table-columns"></i>
+          <span>Tabs</span>
+        </a>
+      </li>
+      <li>
+        <a href="terms.html">
+          <i class="fa-solid fa-file-contract"></i>
+          <span>Terms</span>
+        </a>
+      </li>
+      <li>
+        <a href="testimonials.html">
+          <i class="fa-solid fa-comments"></i>
+          <span>Testimonials</span>
+        </a>
+      </li>
+      <li>
+        <a href="toggles.html">
+          <i class="fa-solid fa-toggle-on"></i>
+          <span>Toggle</span>
+        </a>
+      </li>
+      <li>
+        <a href="radiobutton.html">
+          <i class="fa-solid fa-circle-dot"></i>
+          <span>Radio Buttons</span>
+        </a>
+      </li>
+      <li>
+        <a href="checkbox.html">
+          <i class="fa-solid fa-square-check"></i>
+          <span>Checkboxes</span>
+        </a>
+      </li>
+      <li>
+        <a href="notifications-premium.html">
+          <i class="fa-solid fa-bell"></i>
+          <span>Notifications V2</span>
+        </a>
+      </li>
+      <li>
+        <a href="step-indicators.html">
+          <i class="fa-solid fa-list-check"></i>
+          <span>Steppers</span>
+        </a>
+      </li>
+      <li>
+        <a href="progress-premium.html">
+          <i class="fa-solid fa-bars-progress"></i>
+          <span>Progress V2</span>
+        </a>
+      </li>
+      <li>
+        <a href="ratings-premium.html">
+          <i class="fa-solid fa-star"></i>
+          <span>Ratings V2</span>
+        </a>
+      </li>
+      <li>
+        <a href="filters-premium.html">
+          <i class="fa-solid fa-sliders"></i>
+          <span>Filters V2</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-panel.html">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Admin Panel V2</span>
+        </a>
+      </li>
+<li>
+        <a href="about.html">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>About</span>
+        </a>
+      </li>
+      <li>
+        <a href="documentation.html">
+          <i class="fa-solid fa-book"></i>
+          <span>Documentation</span>
+        </a>
+      </li>
+      <li>
+        <a href="faq.html">
+          <i class="fa-solid fa-circle-question"></i>
+          <span>Faq</span>
+        </a>
+      </li>
+      <li class="active">
+        <a href="contact.html">
+          <i class="fa-regular fa-envelope"></i>
+          <span>Contact Us</span>
+        </a>
+      </li>
     </ul>
-
   </nav>
 
   <!-- Sidebar Footer -->
@@ -213,12 +455,8 @@
 
 </aside>
 
-<!-- Sidebar Backdrop -->
-<div
-  class="sidebar-backdrop"
-  id="sidebarBackdrop"
-></div>
-
+<!-- ================= SIDEBAR BACKDROP ================= -->
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 <!-- ================= NAVBAR ================= -->
 <header class="navbar" id="navbar">
 
@@ -248,7 +486,7 @@
       type="search"
       placeholder="Search components..."
       aria-label="Search Components"
-    />
+    >
 
     <kbd class="search-kbd">
       ⌘K
@@ -292,66 +530,25 @@
 </header>
 
 <!-- ================= MAIN ================= -->
-<main class="main-home">
+<div class="main-content">
 
   <!-- HERO -->
-  <section class="contact-hero">
-
-    <div class="breadcrumb">
-
-      <a href="index.html">
-        Home
-      </a>
-
-      <i class="fa-solid fa-chevron-right"></i>
-
-      <span>
-        Contact Us
-      </span>
-
-    </div>
-
-    <div class="contact-hero-inner">
-
-      <div class="contact-hero-icon">
-        <i class="fa-regular fa-envelope"></i>
+  <div class="page-hero">
+    <div class="page-hero-left">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Contact Us</span>
       </div>
-
-      <div>
-
-        <h1 class="page-title">
-          Get in Touch
-        </h1>
-
-        <p class="page-desc">
-          Have a question, suggestion, or want to contribute a component?
-          We'd love to hear from you.
-        </p>
-
-        <div class="page-meta">
-
-          <span class="meta-badge">
-            <i class="fa-solid fa-clock"></i>
-            Replies within 24h
-          </span>
-
-          <span class="meta-badge">
-            <i class="fa-solid fa-shield-halved"></i>
-            Your data is safe
-          </span>
-
-          <span class="meta-badge">
-            <i class="fa-solid fa-circle-check"></i>
-            Always free to reach out
-          </span>
-
-        </div>
-
+      <h1 class="page-title">Get in Touch</h1>
+      <p class="page-desc">Have a question, suggestion, or want to contribute a component? We'd love to hear from you.</p>
+      <div class="page-meta">
+        <span class="meta-badge"><i class="fa-solid fa-clock"></i> Replies within 24h</span>
+        <span class="meta-badge"><i class="fa-solid fa-shield-halved"></i> Your data is safe</span>
+        <span class="meta-badge"><i class="fa-solid fa-circle-check"></i> Always free to reach out</span>
       </div>
-
     </div>
-
-  </section>
+  </div>
 
   <!-- ================= CONTACT LAYOUT ================= -->
   <div class="contact-layout">
@@ -360,12 +557,9 @@
     <section class="contact-info">
 
       <!-- Email -->
-      <article class="info-card">
+      <article class="info-card info-email">
 
-        <div
-          class="info-icon"
-          style="--ic: rgba(235,104,53,0.12); --icc: #eb6835;"
-        >
+        <div class="info-icon">
           <i class="fa-solid fa-envelope"></i>
         </div>
 
@@ -388,12 +582,9 @@
       </article>
 
       <!-- GitHub -->
-      <article class="info-card">
+      <article class="info-card info-github">
 
-        <div
-          class="info-icon"
-          style="--ic: rgba(108,92,231,0.12); --icc: #6c5ce7;"
-        >
+        <div class="info-icon">
           <i class="fab fa-github"></i>
         </div>
 
@@ -418,12 +609,9 @@
       </article>
 
       <!-- Discord -->
-      <article class="info-card">
+      <article class="info-card info-discord">
 
-        <div
-          class="info-icon"
-          style="--ic: rgba(0,184,148,0.12); --icc: #00b894;"
-        >
+        <div class="info-icon">
           <i class="fab fa-discord"></i>
         </div>
 
@@ -448,12 +636,9 @@
       </article>
 
       <!-- Support -->
-      <article class="info-card">
+      <article class="info-card info-support">
 
-        <div
-          class="info-icon"
-          style="--ic: rgba(0,123,255,0.12); --icc: #007bff;"
-        >
+        <div class="info-icon">
           <i class="fa-solid fa-business-time"></i>
         </div>
 
@@ -515,7 +700,7 @@
                 autocomplete="name"
                 aria-describedby="err-name"
                 required
-              />
+              >
 
             </div>
 
@@ -548,7 +733,7 @@
                 autocomplete="email"
                 aria-describedby="err-email"
                 required
-              />
+              >
 
             </div>
 
@@ -657,7 +842,7 @@
             type="checkbox"
             id="consent"
             required
-          />
+          >
 
           <span class="checkbox-box"></span>
 
@@ -716,7 +901,7 @@
 
   </div>
 
-</main>
+</div>
 
 <!-- Scroll To Top -->
 <button
@@ -727,66 +912,67 @@
 >
   <i class="fa-solid fa-chevron-up"></i>
 </button>
-
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
+  <div class="footer-container">
 
-  <div class="footer-card">
+    <div class="socials">
+  <a href="https://github.com" target="_blank" title="GitHub">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://linkedin.com" target="_blank" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://twitter.com" target="_blank" title="Twitter">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+</div>
 
-    <!-- Brand -->
-    <div class="footer-brand">
+    <div class="footer-col">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="button.html">Buttons</a></li>
+        <li><a href="navbar.html">Navbars</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="inputs.html">Inputs</a></li>
+        <li><a href="forms.html">Forms</a></li>
+      </ul>
+    </div>
 
-      <h2>UIverse</h2>
+    <div class="footer-col">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li><a href="contribute.html">Contribute</a></li>
+        <li><a href="https://github.com/uiverse/uiverse" target="_blank">GitHub Repo</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </div>
 
-      <p>
-        Build modern, reusable UI components
-        with clean HTML, CSS, and JavaScript.
-      </p>
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="license.html">License</a></li>
+      </ul>
+    </div>
 
-      <div class="footer-socials">
-
-        <a
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <i class="fa-brands fa-github"></i>
-        </a>
-
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-
-        <a
-          href="https://x.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Twitter"
-        >
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-
+    <div class="footer-col newsletter">
+      <h3>Stay Updated</h3>
+      <p>Get notified when new components drop.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" />
+        <button type="button" onclick="subscribe()">Subscribe</button>
       </div>
-
     </div>
 
   </div>
 
   <div class="footer-bottom">
-
-    <p>
-      © 2026 UIverse.
-      Made with ❤️ for developers worldwide.
-    </p>
-
+    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
-
 </footer>
 
 <!-- ================= JS ================= -->
