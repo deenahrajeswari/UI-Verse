@@ -237,7 +237,7 @@
   position: absolute;
   left: 14px;
   font-size: 14px;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   pointer-events: none;
   z-index: 1;
   transition: color var(--transition);
@@ -248,10 +248,10 @@
 .field-wrap textarea {
   width: 100%;
   padding: 12px 16px 12px 42px;
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-sm);
-  background: rgba(10, 10, 15, 0.6);
-  color: var(--text-primary);
+  background: rgba(10, 10, 15, 0.75);
+  color: #ffffff;
   font-family: var(--font-body);
   font-size: 14px;
   outline: none;
@@ -268,7 +268,8 @@
 
 .field-wrap input::placeholder,
 .field-wrap textarea::placeholder {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.65);
+  opacity: 1;
 }
 
 /* Input Focus Glows */
