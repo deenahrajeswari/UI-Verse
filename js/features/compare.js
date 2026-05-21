@@ -32,11 +32,12 @@
     const all = getCardElements();
     const idx = all.indexOf(cardEl);
 
-    const raw = name ? `${name}__${cat}` : `card__${idx}`;
+    const metaKey = [name, cat].filter(Boolean).join('__');
+    const raw = metaKey || `card__${idx}`;
     const safe = raw.replace(/[^a-zA-Z0-9_-]/g, '_').slice(0, 80);
 
     // Keep metadata-backed IDs stable across DOM re-renders.
-    const id = name ? safe : `${safe}__${idx}`;
+    const id = metaKey ? safe : `${safe}__${idx}`;
 
     cardEl.setAttribute(CARD_ID_ATTR, id);
     return id;
