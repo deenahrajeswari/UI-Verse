@@ -1177,20 +1177,27 @@ MAIN
    FOOTER
    ============================================================ */
 .footer {
-  margin-left: var(--sidebar-w);
+  position: relative;
+  width: 100%;              /* span full width */
+  margin: 0;                /* remove sidebar offset */
   background: #111;
   color: #aaa;
-  padding: 0;
   margin-top: 60px;
+  padding: 0;
+  clear: both;              /* ensures it sits below floated elements */
+  z-index: 5;               /* keeps it layered correctly */
 }
+
 
 .footer-container {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
   gap: 40px;
   padding: 56px 48px 40px;
-  max-width: 100%;
+  max-width: 1300px;         /* limit width */
+  margin: auto;              /* center it */
 }
+
 
 .footer-logo {
   font-family: var(--font-heading);
@@ -1258,38 +1265,30 @@ MAIN
   width: 100%;
 }
 
-.socials a {
-  transition: all 0.3s ease;
-}
-
-.socials a:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 12px rgba(235, 104, 53, 0.35);
-}
-
-.socials {
+.footer-socials {
   display: flex;
   gap: 12px;
+  margin-top: 1rem;
+  flex-wrap: wrap; 
 }
 
-.socials a {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: #1e1e1e;
+.footer-socials a {
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #888;
-  text-decoration: none;
-  font-size: 14px;
-  transition: all var(--transition);
+
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  color: white;
+
+  transition: 0.3s ease;
 }
 
-.socials a:hover {
-  background: var(--accent);
-  color: #fff;
-  transform: translateY(-2px);
+.footer-socials a:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
 }
 
 .newsletter-form {
@@ -1383,4 +1382,8 @@ MAIN
     flex-direction:column;
   }
 
+}
+
+body {
+  padding-bottom: 120px; /* give space equal to footer height */
 }
