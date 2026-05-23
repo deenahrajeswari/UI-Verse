@@ -186,7 +186,7 @@
         </section>
 
         <!-- COMPONENTS GRID -->
-        <section class="components-section">
+        <section class="components-section" aria-label="Command palette components">
           <div class="section-header">
             <h2>Palette Component Library</h2>
             <p>Premium command palette templates ready for styling and interaction.</p>
@@ -200,14 +200,25 @@
                 <span class="tag">Productivity</span>
               </div>
               <div class="card-preview card-preview-terminal">
-                <div class="preview-title">Command menu</div>
-                <ul>
-                  <li><i class="fa-solid fa-magnifying-glass"></i> Go to file</li>
-                  <li><i class="fa-solid fa-bolt"></i> Run extension</li>
-                  <li><i class="fa-solid fa-cog"></i> Open settings</li>
-                </ul>
+                <div class="preview-search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="search" placeholder="Search commands..." aria-label="VS Code command menu search" />
+                </div>
+                <div class="preview-group">
+                  <span class="group-title">Navigation</span>
+                  <ul>
+                    <li class="command-row active"><i class="fa-solid fa-file-lines"></i> Open file <kbd>Ctrl+P</kbd></li>
+                    <li class="command-row"><i class="fa-solid fa-cube"></i> Go to symbol <kbd>Ctrl+Shift+O</kbd></li>
+                  </ul>
+                </div>
+                <div class="preview-group">
+                  <span class="group-title">Workspace</span>
+                  <ul>
+                    <li class="command-row"><i class="fa-solid fa-gear"></i> Open settings <kbd>Ctrl+,</kbd></li>
+                  </ul>
+                </div>
               </div>
-              <p>Classic palette layout with grouped command items, quick navigation, and keyboard hints.</p>
+              <p>Classic palette layout with grouped command rows, active selection, and keyboard shortcuts.</p>
               <div class="card-actions">
                 <button type="button">Preview</button>
                 <button type="button">Use pattern</button>
@@ -216,15 +227,32 @@
 
             <article class="component-card">
               <div class="card-meta">
-                <span class="card-label">AI search assistant palette</span>
+                <span class="card-label">AI assistant search palette</span>
                 <span class="tag">AI</span>
               </div>
               <div class="card-preview card-preview-ai">
-                <div class="preview-title">AI assistant</div>
-                <div class="preview-chip">Summarize</div>
-                <div class="preview-chip">Translate</div>
+                <div class="preview-search">
+                  <i class="fa-solid fa-robot"></i>
+                  <input type="search" placeholder="Ask your assistant..." aria-label="AI assistant search" />
+                </div>
+                <div class="preview-suggestions">
+                  <div class="ai-suggestion active">
+                    <span class="suggestion-icon"><i class="fa-solid fa-brain"></i></span>
+                    <div>
+                      <p class="suggestion-title">Summarize meeting notes</p>
+                      <p class="suggestion-subtitle">AI suggestion based on recent docs.</p>
+                    </div>
+                  </div>
+                  <div class="ai-suggestion">
+                    <span class="suggestion-icon"><i class="fa-solid fa-language"></i></span>
+                    <div>
+                      <p class="suggestion-title">Translate to Spanish</p>
+                      <p class="suggestion-subtitle">Instant language support.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p>AI-first palette with assistant suggestions, contextual prompts, and smart action cards.</p>
+              <p>AI-first palette with intelligent suggestions, grouped prompts, and quick action previews.</p>
               <div class="card-actions">
                 <button type="button">Preview</button>
                 <button type="button">Copy code</button>
@@ -233,14 +261,24 @@
 
             <article class="component-card">
               <div class="card-meta">
-                <span class="card-label">Spotlight search modal</span>
+                <span class="card-label">Spotlight search overlay</span>
                 <span class="tag">Spotlight</span>
               </div>
               <div class="card-preview card-preview-spotlight">
-                <div class="preview-title">Spotlight</div>
-                <p>Search across apps, commands, and docs.</p>
+                <div class="preview-overlay-header">
+                  <span>Spotlight search</span>
+                  <kbd>⌘</kbd><kbd>Space</kbd>
+                </div>
+                <div class="preview-search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="search" placeholder="Search apps, commands, or docs" aria-label="Spotlight search" />
+                </div>
+                <ul class="preview-results">
+                  <li class="command-row active"><i class="fa-solid fa-folder-open"></i> Open project settings</li>
+                  <li class="command-row"><i class="fa-solid fa-comments"></i> Show chat history</li>
+                </ul>
               </div>
-              <p>Minimal modal experience with instant search, categories, and keyboard navigation states.</p>
+              <p>Minimal overlay with instant search, grouped results, and highlighted active items.</p>
               <div class="card-actions">
                 <button type="button">Preview</button>
                 <button type="button">Details</button>
@@ -249,14 +287,23 @@
 
             <article class="component-card">
               <div class="card-meta">
-                <span class="card-label">Floating command launcher</span>
+                <span class="card-label">Floating quick launcher</span>
                 <span class="tag">Launcher</span>
               </div>
               <div class="card-preview card-preview-float">
-                <span class="preview-icon"><i class="fa-solid fa-meteor"></i></span>
-                <p>Floating, centered launcher with quick actions and keyboard hints.</p>
+                <div class="preview-floating-panel">
+                  <div class="preview-search">
+                    <i class="fa-solid fa-meteor"></i>
+                    <input type="search" placeholder="Launch action..." aria-label="Floating launcher search" />
+                  </div>
+                  <div class="quick-actions">
+                    <button type="button">New tab</button>
+                    <button type="button">Create note</button>
+                    <button type="button">Search files</button>
+                  </div>
+                </div>
               </div>
-              <p>A lightweight floating palette for instant access to actions and workspace shortcuts.</p>
+              <p>Floating palette with quick action buttons, compact search, and an effortless launcher layout.</p>
               <div class="card-actions">
                 <button type="button">Preview</button>
                 <button type="button">Copy code</button>
@@ -265,18 +312,26 @@
 
             <article class="component-card">
               <div class="card-meta">
-                <span class="card-label">Recent search dropdown</span>
+                <span class="card-label">Recent searches dropdown</span>
                 <span class="tag">History</span>
               </div>
               <div class="card-preview card-preview-history">
-                <div class="preview-title">Recent searches</div>
-                <ol>
-                  <li>Open project roadmap</li>
-                  <li>Switch workspace</li>
-                  <li>Launch preview mode</li>
-                </ol>
+                <div class="preview-search">
+                  <i class="fa-solid fa-clock-rotate-left"></i>
+                  <input type="search" placeholder="Search history..." aria-label="Recent search history" />
+                </div>
+                <div class="dropdown-list">
+                  <div class="dropdown-group">
+                    <span class="group-title">Recent</span>
+                    <ul>
+                      <li class="command-row">Open roadmap</li>
+                      <li class="command-row">Switch workspace</li>
+                      <li class="command-row">Run deploy</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <p>Recent commands and search history surfaced in a compact dropdown format.</p>
+              <p>Recent history dropdown with searchable items and fast access to past commands.</p>
               <div class="card-actions">
                 <button type="button">Preview</button>
                 <button type="button">Use pattern</button>
@@ -285,18 +340,24 @@
 
             <article class="component-card">
               <div class="card-meta">
-                <span class="card-label">Keyboard shortcuts palette</span>
+                <span class="card-label">Keyboard shortcuts panel</span>
                 <span class="tag">Workflow</span>
               </div>
               <div class="card-preview card-preview-shortcuts">
-                <div class="preview-keyboard">
-                  <kbd>⌘</kbd><kbd>K</kbd> Search
+                <div class="shortcut-row">
+                  <span><i class="fa-solid fa-magnifying-glass"></i> Search command</span>
+                  <kbd>⌘</kbd><kbd>K</kbd>
                 </div>
-                <div class="preview-keyboard">
-                  <kbd>⌘</kbd><kbd>P</kbd> Palette
+                <div class="shortcut-row">
+                  <span><i class="fa-solid fa-file-code"></i> Find file</span>
+                  <kbd>⌘</kbd><kbd>P</kbd>
+                </div>
+                <div class="shortcut-row">
+                  <span><i class="fa-solid fa-bolt"></i> Run action</span>
+                  <kbd>⌘</kbd><kbd>R</kbd>
                 </div>
               </div>
-              <p>Keyboard-driven palette with shortcut labels, quick actions, and accessible commands.</p>
+              <p>Keyboard-focused panel with shortcut badges, command labels, and quick key guidance.</p>
               <div class="card-actions">
                 <button type="button">Preview</button>
                 <button type="button">Details</button>
@@ -305,14 +366,21 @@
 
             <article class="component-card">
               <div class="card-meta">
-                <span class="card-label">File finder palette</span>
+                <span class="card-label">File finder command menu</span>
                 <span class="tag">Files</span>
               </div>
               <div class="card-preview card-preview-files">
-                <div class="preview-title">Find file</div>
-                <p>src/components/command-palette.js</p>
+                <div class="preview-search">
+                  <i class="fa-solid fa-file-circle-plus"></i>
+                  <input type="search" placeholder="Type file name..." aria-label="File finder search" />
+                </div>
+                <ul>
+                  <li class="command-row active"><i class="fa-solid fa-file-code"></i> src/app/main.js <span class="file-path">/src/app</span></li>
+                  <li class="command-row"><i class="fa-solid fa-file-alt"></i> README.md <span class="file-path">/docs</span></li>
+                  <li class="command-row"><i class="fa-solid fa-file-lines"></i> package.json <span class="file-path">/</span></li>
+                </ul>
               </div>
-              <p>Fast file search interface for opening assets, components, and documentation instantly.</p>
+              <p>File finder menu with instant search, file previews, and grouped file commands.</p>
               <div class="card-actions">
                 <button type="button">Preview</button>
                 <button type="button">Copy code</button>
@@ -325,9 +393,20 @@
                 <span class="tag">Glass</span>
               </div>
               <div class="card-preview card-preview-glass">
-                <div class="preview-copy">Glass search overlay with blurred background.</div>
+                <div class="preview-overlay-header">
+                  <span>Glass overlay</span>
+                  <span class="tag sm">Blur</span>
+                </div>
+                <div class="preview-search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="search" placeholder="Search commands" aria-label="Glass command overlay search" />
+                </div>
+                <div class="preview-actions">
+                  <button type="button">Recent</button>
+                  <button type="button">Favorites</button>
+                </div>
               </div>
-              <p>Modern overlay design with translucent layers, search focus, and subtle motion hints.</p>
+              <p>Translucent glass palette with blurred background, pill actions, and soft focus.</p>
               <div class="card-actions">
                 <button type="button">Preview</button>
                 <button type="button">Details</button>
@@ -336,13 +415,20 @@
 
             <article class="component-card">
               <div class="card-meta">
-                <span class="card-label">Minimal command menu</span>
+                <span class="card-label">Minimal command palette</span>
                 <span class="tag">Minimal</span>
               </div>
               <div class="card-preview card-preview-minimal">
-                <p>Clean command menu with stripped interface and essential actions only.</p>
+                <div class="preview-search">
+                  <input type="search" placeholder="Type command..." aria-label="Minimal command palette search" />
+                </div>
+                <ul>
+                  <li class="command-row active">Open command palette</li>
+                  <li class="command-row">Toggle sidebar</li>
+                  <li class="command-row">Run workflow</li>
+                </ul>
               </div>
-              <p>Minimal aesthetic for focused command entry and distraction-free interaction.</p>
+              <p>Minimal interface for fast command entry, understated visuals, and essential actions.</p>
               <div class="card-actions">
                 <button type="button">Preview</button>
                 <button type="button">Copy code</button>
@@ -351,14 +437,21 @@
 
             <article class="component-card">
               <div class="card-meta">
-                <span class="card-label">Dark premium command panel</span>
+                <span class="card-label">Dark premium search panel</span>
                 <span class="tag">Dark</span>
               </div>
               <div class="card-preview card-preview-dark">
-                <div class="preview-title">Dark panel</div>
-                <p>Deep UI panel with neon accents and active command highlights.</p>
+                <div class="preview-search dark-mode">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="search" placeholder="Search premium commands" aria-label="Dark command panel search" />
+                </div>
+                <ul>
+                  <li class="command-row active"><i class="fa-solid fa-star"></i> Open premium dashboard</li>
+                  <li class="command-row"><i class="fa-solid fa-shield-alt"></i> Security scan</li>
+                  <li class="command-row"><i class="fa-solid fa-sun"></i> Theme settings</li>
+                </ul>
               </div>
-              <p>Dark mode command palette ready for premium interfaces and night mode workflows.</p>
+              <p>Premium dark palette with neon highlights, command groups, and active item emphasis.</p>
               <div class="card-actions">
                 <button type="button">Preview</button>
                 <button type="button">Details</button>
@@ -411,14 +504,14 @@
       </main>
 
       <!-- FOOTER -->
-      <footer class="footer">
+      <footer class="footer" aria-labelledby="footerHeading">
         <div class="footer-inner">
           <div class="footer-brand">
             <span class="footer-logo">⬡ UIverse</span>
             <p>Explore premium component UI patterns built for designers and developers.</p>
           </div>
 
-          <div class="footer-links">
+          <div class="footer-links" role="navigation" aria-label="Footer navigation">
             <div>
               <h4>Navigation</h4>
               <ul>
@@ -449,13 +542,22 @@
 
           <div class="footer-newsletter">
             <h4>Newsletter</h4>
-            <p>Get featured UI patterns and component updates every week.</p>
+            <p>Subscribe for premium UI updates, new palette drafts, and design toolkit releases.</p>
             <form class="newsletter-form">
               <label for="newsletterEmail" class="sr-only">Email address</label>
-              <input id="newsletterEmail" type="email" placeholder="you@example.com" />
+              <input id="newsletterEmail" type="email" placeholder="you@example.com" aria-label="Newsletter email address" />
               <button type="submit">Subscribe</button>
             </form>
           </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 UIverse. Crafted for modern design systems and premium interface libraries.</p>
+          <nav class="footer-legal" aria-label="Footer legal links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+          </nav>
         </div>
       </footer>
     </div>
