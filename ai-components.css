@@ -1618,6 +1618,7 @@
 .socials a {
   width: 36px;
   height: 36px;
+  margin-right: 12px;
   border-radius: 50%;
   background: rgba(0, 212, 255, 0.1);
   border: 1px solid rgba(0, 212, 255, 0.2);
@@ -1625,12 +1626,13 @@
   align-items: center;
   justify-content: center;
   color: var(--neon-blue);
-  transition: all var(--transition-fast);
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .socials a:hover {
   background: var(--neon-blue);
   color: #000;
+  transform: scale(1.1);
   box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
 }
 
