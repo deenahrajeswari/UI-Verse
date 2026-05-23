@@ -13,24 +13,39 @@
   --radius-lg: 20px;
   --radius-md: 14px;
   --radius-sm: 8px;
+
+  /* Cards */
   --card-bg: #ffffff;
   --card-border: #ebebeb;
+
+  /* Backgrounds */
   --body-bg: #f5f4f2;
+  --bg-color: var(--body-bg);   /* ✅ unify background */
+
+  /* Text */
   --text-primary: #111;
   --text-secondary: #666;
+
+  /* Fonts */
   --font-heading: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
+
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark mode vars */
 body.dark-mode {
   --card-bg: #1a1a1e;
   --card-border: #2a2a30;
+
+  /* Backgrounds */
   --body-bg: #0f0f12;
+  --bg-color: var(--body-bg);   /* ✅ unify background */
+
+  /* Text */
   --text-primary: #f0f0f0;
   --text-secondary: #999;
 }
+
 
 /* ---------- BASE RESET ---------- */
 *, *::before, *::after {

@@ -1412,7 +1412,22 @@ MAIN
   box-shadow: 0 0 12px rgba(235, 104, 53, 0.35);
 }
 
-.socials {
+.footer-col ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.footer-col ul li a:hover::after {
+  width: 100%;
+}
+
+.footer-socials {
   display: flex;
   gap: 12px;
   margin-top: 1rem;

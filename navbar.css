@@ -7,16 +7,9 @@
    PAGE HERO
    ============================================================ */
 .page-hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  background: var(--card-bg);
+  background: var(--bg-color);   /* flips correctly */
   border: 1px solid var(--card-border);
-  border-radius: var(--radius-lg);
-  padding: 48px 56px;
-  overflow: hidden;
-  position: relative;
+  color: var(--text-primary);
 }
 
 .page-hero::before {
@@ -76,11 +69,10 @@
 /* Hero right preview */
 .page-hero-right { flex-shrink: 0; min-width: 280px; }
 
+
 .hero-nav-preview {
-  background: var(--body-bg);
+  background: var(--body-bg);    /* flips correctly */
   border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
-  padding: 20px;
 }
 
 .mini-nav {
@@ -2619,16 +2611,15 @@ body.dark-mode .dashboard-search input {
 }
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 270px;
-  height: 100vh;
-  overflow-y: auto;
-  z-index: 1200;
-  background: #fff;
-  border-right: 1px solid #e5e7eb;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
 
 .main-home {
   margin-left: 270px;
