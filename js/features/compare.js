@@ -17,6 +17,7 @@
   let reconcileQueued = false;
   let pendingActiveCell = undefined;
   let syncRetryQueued = false;
+  let keyDownBound = false;
 
   function getCardElements() {
     return Array.from(document.querySelectorAll(CARD_SELECTOR));
@@ -264,7 +265,7 @@
 
       closeBtn.addEventListener('click', () => closeOverlayKeepSelection());
 
-      document.addEventListener('keydown', onKeyDown);
+      bindOverlayKeydown();
     }
 
     const grid = document.getElementById(OVERLAY_GRID_ID);
@@ -292,9 +293,25 @@
     }
   }
 
+  function bindOverlayKeydown() {
+    if (keyDownBound) return;
+    document.addEventListener('keydown', onKeyDown);
+    keyDownBound = true;
+  }
+
+  function unbindOverlayKeydown() {
+    if (!keyDownBound) return;
+    document.removeEventListener('keydown', onKeyDown);
+    keyDownBound = false;
+  }
+
   function closeOverlayKeepSelection() {
+    unbindOverlayKeydown();
     const overlay = document.getElementById(OVERLAY_ID);
-    if (!overlay) return;
+    if (!overlay) {
+      state.overlayOpen = false;
+      return;
+    }
     syncActive(null);
     overlay.classList.remove('uiverse-compare-overlay--open');
     state.overlayOpen = false;
