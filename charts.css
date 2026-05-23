@@ -864,3 +864,229 @@ body.dark-mode .component-card .card-desc,
     text-align: center;
     font-weight: 500;
 }
+
+/* ===============================
+   11. Candlestick Chart
+================================= */
+
+.candlestick-chart{
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:1rem;
+  height:220px;
+  padding-top:2rem;
+}
+
+.candle{
+  width:24px;
+  border-radius:8px;
+  position:relative;
+  animation:floatUp .8s ease;
+}
+
+.candle .wick{
+  position:absolute;
+  width:2px;
+  background:white;
+  left:50%;
+  transform:translateX(-50%);
+  top:-25px;
+  height:140%;
+  opacity:.5;
+}
+
+.candle.positive{
+  background:linear-gradient(180deg,#10b981,#34d399);
+}
+
+.candle.negative{
+  background:linear-gradient(180deg,#ef4444,#f87171);
+}
+
+/* ===============================
+   12. Radial KPI Ring
+================================= */
+
+.radial-card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.radial-progress{
+  position:relative;
+  width:180px;
+  height:180px;
+}
+
+.radial-progress svg{
+  width:100%;
+  height:100%;
+  transform:rotate(-90deg);
+}
+
+.ring-bg{
+  fill:none;
+  stroke:rgba(255,255,255,.08);
+  stroke-width:10;
+}
+
+.ring-progress{
+  fill:none;
+  stroke:var(--ch-cyan);
+  stroke-width:10;
+  stroke-linecap:round;
+}
+
+.radial-center{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.radial-center h2{
+  font-size:2rem;
+}
+
+/* ===============================
+   13. Floating Wave
+================================= */
+
+.wave-card{
+  overflow:hidden;
+  position:relative;
+  min-height:220px;
+}
+
+.wave-top{
+  position:absolute;
+  z-index:2;
+  top:2rem;
+  left:2rem;
+}
+
+.wave-svg{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+}
+
+.wave-path{
+  fill:rgba(6,182,212,.35);
+  animation:waveMove 6s linear infinite;
+}
+
+/* ===============================
+   14. Neon Timeline
+================================= */
+
+.neon-timeline-card{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  min-height:160px;
+  padding:2rem;
+}
+
+.timeline-line{
+  position:absolute;
+  left:5%;
+  right:5%;
+  height:4px;
+  background:linear-gradient(90deg,
+    var(--ch-purple),
+    var(--ch-cyan));
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.timeline-node{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#181818;
+  border:2px solid rgba(255,255,255,.1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:2;
+  transition:.4s;
+}
+
+.timeline-node.active{
+  border-color:var(--ch-cyan);
+  box-shadow:0 0 20px rgba(6,182,212,.7);
+}
+
+/* ===============================
+   15. Split Revenue Chart
+================================= */
+
+.split-chart-card{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:2rem;
+  min-height:260px;
+}
+
+.split-bar-group{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+}
+
+.split-bars{
+  display:flex;
+  align-items:flex-end;
+  gap:.5rem;
+}
+
+.split-bar{
+  width:26px;
+  border-radius:12px 12px 0 0;
+}
+
+.split-bar.purple{
+  background:linear-gradient(180deg,
+  #8b5cf6,
+  #6d28d9);
+}
+
+.split-bar.cyan{
+  background:linear-gradient(180deg,
+  #06b6d4,
+  #0891b2);
+}
+
+/* ===============================
+   Animations
+================================= */
+
+@keyframes waveMove{
+  0%{
+    transform:translateX(0);
+  }
+  100%{
+    transform:translateX(-20px);
+  }
+}
+
+@keyframes floatUp{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
