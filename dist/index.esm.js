@@ -7,7 +7,7 @@ class UVSample extends HTMLElement {
         shadow.appendChild(root);
     }
 }
-export function registerComponents() {
+function registerComponents() {
     if (typeof customElements !== 'undefined' && !customElements.get('uv-sample')) {
         customElements.define('uv-sample', UVSample);
     }
@@ -16,4 +16,6 @@ export function registerComponents() {
 if (typeof window !== 'undefined') {
     registerComponents();
 }
-export default UVSample;
+
+export { UVSample as default, registerComponents };
+//# sourceMappingURL=index.esm.js.map

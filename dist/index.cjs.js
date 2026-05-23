@@ -1,3 +1,7 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
 class UVSample extends HTMLElement {
     constructor() {
         super();
@@ -7,7 +11,7 @@ class UVSample extends HTMLElement {
         shadow.appendChild(root);
     }
 }
-export function registerComponents() {
+function registerComponents() {
     if (typeof customElements !== 'undefined' && !customElements.get('uv-sample')) {
         customElements.define('uv-sample', UVSample);
     }
@@ -16,4 +20,7 @@ export function registerComponents() {
 if (typeof window !== 'undefined') {
     registerComponents();
 }
-export default UVSample;
+
+exports.default = UVSample;
+exports.registerComponents = registerComponents;
+//# sourceMappingURL=index.cjs.js.map
