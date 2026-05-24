@@ -83,9 +83,11 @@
         "state:test": "playwright test tests/state --reporter=list",
         "i18n:extract": "node scripts/i18n-extract.js",
         "i18n:validate": "node scripts/i18n-validate.js",
-        "build": "npm run build:ts && npm run build:rollup",
+        "build": "npm run build:ts && npm run build:rollup && npm run i18n:sync",
         "build:ts": "tsc -p tsconfig.json",
         "build:rollup": "rollup -c",
+        "i18n:sync": "node scripts/i18n-sync.js",
+        "i18n:sync:check": "node scripts/i18n-sync.js --check",
         "prepare": "npm run build"
     },
     "bench": "node bench/bench.js",
