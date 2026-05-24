@@ -59,6 +59,14 @@ jobs:
         run: |
           npm run test:registry:check
 
+      - name: i18n locale validation
+        run: |
+          npm run i18n:validate
+
+      - name: i18n dist sync check
+        run: |
+          npm run i18n:sync:check
+
       - name: Component discovery ranking tests
         run: |
           npm run test:search:rank
