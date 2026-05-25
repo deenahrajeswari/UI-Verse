@@ -532,19 +532,8 @@
     const link = document.createElement('link');
     link.id = 'uiverse-compare-styles';
     link.rel = 'stylesheet';
-
-    const scriptSource = (() => {
-      if (document.currentScript && document.currentScript.src) {
-        return document.currentScript.src;
-      }
-
-      const scriptEl = document.querySelector('script[src*="js/features/compare.js"]');
-      return scriptEl ? scriptEl.src : '';
-    })();
-
-    link.href = scriptSource
-      ? new URL('../../compare.css', scriptSource).href
-      : 'compare.css';
+    // compare.css is a root-level asset; resolve it from the current document, not the script URL.
+    link.href = new URL('compare.css', document.baseURI).href;
 
     document.head.appendChild(link);
   }
