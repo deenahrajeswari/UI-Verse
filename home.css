@@ -246,10 +246,10 @@ body.dark-mode .navbar {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
+  background: #ffffffbe;
   border: 1px solid var(--card-border);
   border-radius: 40px;
-  padding: 8px 16px;
+  padding: 2px 16px;
   margin: 0 auto;
   box-shadow: none;
   transition: all var(--transition);
@@ -344,7 +344,7 @@ body.dark-mode .search-kbd {
 }
 
 .theme-toggle {
-  background: none;
+  background: #ffffffbe;
   border: 1px solid var(--card-border);
   width: 36px;
   height: 36px;
@@ -464,6 +464,7 @@ body.dark-mode .hero {
   text-decoration: none;
   transition: all var(--transition);
   box-shadow: 0 4px 16px rgba(235,104,53,0.25);
+  margin-top: 2rem;
 }
 
 .btn-primary:hover {
@@ -642,9 +643,9 @@ body.dark-mode .feature-card:hover {
 }
 
 .feature-icon-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 64px;
+  height: 64px;
+  border-radius: 22px;
   background: color-mix(in srgb, var(--icon-color) 15%, transparent);
   display: flex;
   align-items: center;
@@ -941,7 +942,7 @@ body.dark-mode .feature-card:hover {
 
 .footer-container {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+  grid-template-columns: 2fr 2fr 2fr;
   gap: 40px;
   padding: 56px 48px 40px;
   max-width: 100%;
@@ -1055,9 +1056,18 @@ body.dark-mode .feature-card:hover {
   width: 100%;
 }
 
+.footer-links {
+  display: flex;
+  gap: 6rem;
+  align-items: start;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
 .socials {
   margin-top: 12px;
   display: flex;
+  justify-content: center;
   gap: 12px;
 }
 

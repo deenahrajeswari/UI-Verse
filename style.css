@@ -134,7 +134,6 @@ nav a:hover {
   top: 0;
   left: 0;
   z-index: 1050;
-  border-radius: 0 10px 10px 0;
 }
 
 .sidebar h2 {

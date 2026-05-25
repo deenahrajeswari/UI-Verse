@@ -370,10 +370,6 @@
     <kbd class="search-kbd">⌘K</kbd>
   </div>
 
-  <div id="searchDropdown" class="search-dropdown hidden">
-    <ul id="searchDropdownResults" class="search-dropdown-results"></ul>
-  </div>
-
   <div class="nav-right">
     <button class="nav-btn outline-nav-btn">
       <i class="fa-solid fa-plus"></i> Add Component
@@ -731,35 +727,36 @@
   </div>
 </div>
 
-
-    <div class="footer-col">
-      <h3>Explore</h3>
-      <ul>
-        <li><a href="button.html">Buttons</a></li>
-        <li><a href="navbar.html">Navbars</a></li>
-        <li><a href="cards.html">Cards</a></li>
-        <li><a href="inputs.html">Inputs</a></li>
-        <li><a href="forms.html">Forms</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3>Resources</h3>
-      <ul>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">Contribute</a></li>
-        <li><a href="#">GitHub Repo</a></li>
-        <li><a href="#">Community</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3>Legal</h3>
-      <ul>
-        <li><a href="privacypolicy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="#">License</a></li>
-      </ul>
+    <div class="footer-col footer-links">
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="button.html">Buttons</a></li>
+          <li><a href="navbar.html">Navbars</a></li>
+          <li><a href="cards.html">Cards</a></li>
+          <li><a href="inputs.html">Inputs</a></li>
+          <li><a href="forms.html">Forms</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Contribute</a></li>
+          <li><a href="#">GitHub Repo</a></li>
+          <li><a href="#">Community</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="privacypolicy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="#">License</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="footer-col newsletter">
@@ -860,6 +857,36 @@
       input.value = '';
     }
   }
+
+(function () {
+  const searchBar   = document.querySelector('.search-bar');
+  const searchIcon  = document.querySelector('.search-icon');
+  const searchInput = document.getElementById('searchInput');
+  if (!searchBar) return;
+ 
+  function isMobile() { return window.innerWidth <= 900; }
+ 
+  searchBar.addEventListener('click', function (e) {
+    if (!isMobile()) return;
+    if (!searchBar.classList.contains('expanded')) {
+      searchBar.classList.add('expanded');
+      if (searchInput) searchInput.focus();
+      e.stopPropagation();
+    }
+  });
+ 
+  document.addEventListener('click', function (e) {
+    if (!isMobile()) return;
+    if (!searchBar.contains(e.target)) {
+      searchBar.classList.remove('expanded');
+    }
+  });
+ 
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') searchBar.classList.remove('expanded');
+  });
+})();
+
 </script>
 </body>
 </html>
