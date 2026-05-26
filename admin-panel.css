@@ -28,6 +28,15 @@
   --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+body.light-mode {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --card-bg: rgb(255 255 255 / 80%);
+  --card-border: rgb(0 0 0 / 8%);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+}
+
 * {
   margin: 0;
   padding: 0;
