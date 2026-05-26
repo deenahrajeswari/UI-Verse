@@ -967,6 +967,35 @@
     }
 
     initToolbar();
+
+    // Dynamic history & action handlers for preview error page buttons
+    const previewArea = document.querySelector('.error-grid');
+    if (previewArea) {
+      previewArea.addEventListener('click', (e) => {
+        const btn = e.target.closest('.error-btn');
+        if (!btn) return;
+        
+        const btnText = btn.textContent.trim().toLowerCase();
+        
+        // Prevent default action
+        e.preventDefault();
+        
+        if (btnText.includes('go back home')) {
+          if (document.referrer) {
+            window.location.href = document.referrer;
+          } else {
+            window.location.href = 'index.html';
+          }
+        } else if (btnText.includes('try again') || btnText.includes('retry')) {
+          window.location.reload();
+        } else if (btnText.includes('go back')) {
+          window.history.back();
+        } else {
+          // Toast or alert to mock other actions like "Request Access", "Enable Location"
+          alert(`Simulated Action: "${btn.textContent.trim()}" successfully triggered.`);
+        }
+      });
+    }
   });
 </script>
 
