@@ -497,6 +497,7 @@
   border-radius: 8px;
   border: none;
   background: rgba(255,255,255,0.25);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   color: #fff;
   font-size: 13px;
@@ -509,6 +510,74 @@
 
 .swatch-actions button:hover {
   background: rgba(255,255,255,0.45);
+}
+
+.swatch-actions button {
+  position: relative;
+}
+
+.swatch-actions button::after {
+  content: attr(aria-label);
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #111111a8;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 6px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.swatch-actions button::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 3px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  border: 5px solid transparent;
+  border-top-color: transparent;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.swatch-actions button:hover::after,
+.swatch-actions button:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+body.dark-mode .swatch-actions button::after {
+  background: #f0f0f0a8;
+  color: #111;
+}
+
+body.dark-mode .swatch-actions button::before {
+  border-top-color: transparent;
+}
+
+.swatch-actions button:last-child::after {
+  left: auto;
+  right: 0;
+  transform: translateY(4px);
+}
+
+.swatch-actions button:last-child::before {
+  left: auto;
+  right: 12px;
+  transform: translateY(4px);
+}
+
+.swatch-actions button:last-child:hover::after,
+.swatch-actions button:last-child:hover::before {
+  transform: translateY(0);
 }
 
 .color-info {
