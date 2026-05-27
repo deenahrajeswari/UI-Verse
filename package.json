@@ -43,6 +43,7 @@
         "a11y:remediation:check": "node scripts/a11y-remediation-check.js",
         "test:a11y:remediation:check": "node --test tests/a11y/a11y-remediation-check.test.js",
         "test:visual": "playwright test",
+        "test:visual:core": "playwright test tests/visual/core-pages.spec.ts",
         "test:visual:ui": "playwright test --ui",
         "test:visual:update": "playwright test --update-snapshots",
         "test:visual:debug": "playwright test --debug",
