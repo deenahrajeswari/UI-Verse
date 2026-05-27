@@ -68,6 +68,7 @@
         "visual:scale:summary": "node scripts/visual-results-summary.js",
         "docs:generate": "node scripts/documentation-generator.js",
         "docs:generate:check": "node scripts/documentation-generator-check.js",
+        "generate:legacy-redirects": "node scripts/generate-legacy-redirects.js",
         "theme:test": "playwright test tests/theme --config=playwright.theme.config.ts --reporter=list",
         "theme:demo": "node -e \"console.log('Open components/Theme/demo-theme.html in a browser served from the static server')\"",
         "search:test": "playwright test tests/search --config=playwright.search.config.ts --reporter=list",
