@@ -657,6 +657,16 @@
   </section>
 
   <!-- ===== WHY UIVERSE ===== -->
+  <!-- ===== DISCOVERY INSIGHTS ===== -->
+  <section class="section insights-section">
+    <div class="section-header">
+      <span class="section-tag">Community Insights</span>
+      <h2 class="section-title">📊 Component Analytics</h2>
+      <p class="section-subtitle">Popular, trending, and hidden gem components based on real usage</p>
+    </div>
+    <div class="trending-section"></div>
+  </section>
+
   <section class="section why-section">
     <div class="section-header">
       <span class="section-tag">Why choose us</span>
@@ -840,6 +850,11 @@
   document.querySelectorAll('.feature-card, .cat-card, .why-card').forEach(el => {
     homeObserver.observe(el);
   });
+
+  // Boot analytics insights
+  if (window.TrendingComponents && window.ComponentAnalytics) {
+    TrendingComponents.init('.trending-section');
+  }
 
   function subscribe() {
     const input = document.querySelector('.newsletter-form input');
