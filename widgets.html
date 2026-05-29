@@ -597,6 +597,219 @@
       </div>
     </div>
 
+    # Additional Developer Widget Components for `widgets.html`
+
+Add these components inside your existing `<section class="widgets-grid">...</section>`.
+
+---
+
+## 11. LIVE DEPLOYMENT STATUS WIDGET
+
+```html
+<!-- 11. LIVE DEPLOYMENT STATUS WIDGET -->
+<div class="widget-wrapper">
+  <div class="widget-info">
+    <h2>Deployment Status</h2>
+    <p>Track recent production deployments and environments.</p>
+  </div>
+
+  <div class="deploy-widget">
+    <div class="deploy-top">
+      <div>
+        <h3>Production Deploy</h3>
+        <span class="deploy-version">v2.4.1</span>
+      </div>
+      <span class="deploy-badge success">Successful</span>
+    </div>
+
+    <div class="deploy-timeline">
+      <div class="deploy-step completed">
+        <i class="fa-solid fa-check"></i>
+        <span>Build</span>
+      </div>
+      <div class="deploy-step completed">
+        <i class="fa-solid fa-check"></i>
+        <span>Tests</span>
+      </div>
+      <div class="deploy-step completed">
+        <i class="fa-solid fa-check"></i>
+        <span>Deploy</span>
+      </div>
+      <div class="deploy-step active">
+        <i class="fa-solid fa-rocket"></i>
+        <span>Monitoring</span>
+      </div>
+    </div>
+
+    <div class="deploy-footer">
+      <span><i class="fa-regular fa-clock"></i> 2 mins ago</span>
+      <span><i class="fa-solid fa-server"></i> AWS eu-central</span>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## 12. TEAM CHAT WIDGET
+
+```html
+<!-- 12. TEAM CHAT WIDGET -->
+<div class="widget-wrapper">
+  <div class="widget-info">
+    <h2>Team Chat</h2>
+    <p>Compact developer collaboration widget.</p>
+  </div>
+
+  <div class="team-chat-widget">
+    <div class="chat-header">
+      <h3>#frontend-team</h3>
+      <span class="online-count">12 online</span>
+    </div>
+
+    <div class="chat-messages">
+      <div class="chat-msg">
+        <img src="https://i.pravatar.cc/40?img=12" alt="User">
+        <div>
+          <strong>Lena</strong>
+          <p>Pushed the responsive navbar fix.</p>
+        </div>
+      </div>
+
+      <div class="chat-msg">
+        <img src="https://i.pravatar.cc/40?img=32" alt="User">
+        <div>
+          <strong>Ryan</strong>
+          <p>Dark mode animations look smooth ✨</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-wrap">
+      <input type="text" placeholder="Send message...">
+      <button type="button">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## 13. AI ASSISTANT WIDGET
+
+```html
+<!-- 13. AI ASSISTANT WIDGET -->
+<div class="widget-wrapper">
+  <div class="widget-info">
+    <h2>AI Assistant</h2>
+    <p>Modern assistant panel for developer tooling.</p>
+  </div>
+
+  <div class="ai-widget">
+    <div class="ai-header">
+      <div class="ai-avatar">AI</div>
+      <div>
+        <h3>UIverse Copilot</h3>
+        <span>Online</span>
+      </div>
+    </div>
+
+    <div class="ai-response">
+      <p>
+        Suggested improvement:
+        <br>
+        Convert repeated button styles into reusable utility classes.
+      </p>
+    </div>
+
+    <div class="ai-actions">
+      <button type="button">Accept</button>
+      <button type="button" class="outline">Ignore</button>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## 14. ANALYTICS OVERVIEW WIDGET
+
+```html
+<!-- 14. ANALYTICS OVERVIEW WIDGET -->
+<div class="widget-wrapper">
+  <div class="widget-info">
+    <h2>Analytics Overview</h2>
+    <p>Mini analytics dashboard with trends.</p>
+  </div>
+
+  <div class="analytics-widget">
+    <div class="analytics-top">
+      <div>
+        <span class="analytics-label">Visitors</span>
+        <h2>128.4k</h2>
+      </div>
+      <span class="analytics-growth">
+        <i class="fa-solid fa-arrow-trend-up"></i> +18%
+      </span>
+    </div>
+
+    <div class="analytics-bars">
+      <div class="bar" style="height: 40%"></div>
+      <div class="bar" style="height: 65%"></div>
+      <div class="bar" style="height: 55%"></div>
+      <div class="bar" style="height: 85%"></div>
+      <div class="bar" style="height: 100%"></div>
+      <div class="bar" style="height: 72%"></div>
+      <div class="bar" style="height: 90%"></div>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## 15. SECURITY ALERT WIDGET
+
+```html
+<!-- 15. SECURITY ALERT WIDGET -->
+<div class="widget-wrapper">
+  <div class="widget-info">
+    <h2>Security Alert</h2>
+    <p>Security monitoring and vulnerability checks.</p>
+  </div>
+
+  <div class="security-widget">
+    <div class="security-header">
+      <div class="security-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+
+      <div>
+        <h3>2 Vulnerabilities Found</h3>
+        <span>Last scan 4 minutes ago</span>
+      </div>
+    </div>
+
+    <div class="security-list">
+      <div class="security-item warning">
+        <span>Outdated dependency detected</span>
+        <span>Medium</span>
+      </div>
+
+      <div class="security-item danger">
+        <span>JWT secret exposed in logs</span>
+        <span>Critical</span>
+      </div>
+    </div>
+
+    <button type="button" class="security-btn">
+      Resolve Issues
+    </button>
+  </div>
+</div>
+
     <!-- 8. INTERACTIVE SQL CONSOLE WIDGET -->
     <div class="widget-wrapper">
       <div class="widget-info">
