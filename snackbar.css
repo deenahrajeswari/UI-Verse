@@ -747,3 +747,124 @@ body{
     transform: scaleX(0);
   }
 }
+
+/* =====================================================
+ADVANCED SNACKBAR CARDS
+===================================================== */
+
+.advanced-snackbar-grid {
+  margin-top: 3rem;
+}
+
+.premium-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.08),
+      transparent
+    );
+  pointer-events: none;
+}
+
+.dark-card {
+  background:
+    linear-gradient(
+      145deg,
+      #121826,
+      #1b2335
+    );
+}
+
+/* =====================================================
+ICON COLORS
+===================================================== */
+
+.orange {
+  background: rgba(255, 166, 0, 0.15);
+  color: #ffb347;
+}
+
+.purple {
+  background: rgba(140, 82, 255, 0.15);
+  color: #a78bfa;
+}
+
+.cyan {
+  background: rgba(0, 217, 255, 0.15);
+  color: #67e8f9;
+}
+
+.pink {
+  background: rgba(255, 0, 140, 0.15);
+  color: #ff6bd6;
+}
+
+.gold {
+  background: rgba(255, 196, 0, 0.15);
+  color: #ffd95e;
+}
+
+.teal {
+  background: rgba(0, 255, 200, 0.15);
+  color: #5eead4;
+}
+
+/* =====================================================
+BUTTON COLORS
+===================================================== */
+
+.warning-btn {
+  background: linear-gradient(
+    135deg,
+    #ffb347,
+    #ff8c42
+  );
+}
+
+.dark-btn {
+  background: linear-gradient(
+    135deg,
+    #2a324a,
+    #0f172a
+  );
+}
+
+.upload-btn {
+  background: linear-gradient(
+    135deg,
+    #06b6d4,
+    #3b82f6
+  );
+}
+
+.message-btn {
+  background: linear-gradient(
+    135deg,
+    #ff4ecd,
+    #ff0080
+  );
+}
+
+.security-btn {
+  background: linear-gradient(
+    135deg,
+    #facc15,
+    #eab308
+  );
+}
+
+.network-btn {
+  background: linear-gradient(
+    135deg,
+    #14b8a6,
+    #06b6d4
+  );
+}

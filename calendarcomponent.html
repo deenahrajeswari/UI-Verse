@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+  <link rel="stylesheet" href="dist/shared.css">
   <meta charset="UTF-8" />
 
   <meta
@@ -28,28 +28,24 @@
   <link rel="stylesheet" href="calendarcomponent.css" />
 
 
-  <link rel="stylesheet" href="shared-sidebar.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="home.css">
-
-  <link rel="stylesheet" href="shared-page.css">
-  <link rel="stylesheet" href="cards.css">
   <link rel="stylesheet" href="playground.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
 <!-- =========================================================
    NAVBAR
 ========================================================= -->
 
 <header class="navbar" id="navbar">
-  <button type="button" class="menu-toggle" onclick="toggleSidebar()" aria-label="menu toggle">
+  <button type="button" class="menu-toggle" onclick="toggleSidebar()" aria-label="menu toggle" data-a11y-remediation="button-label-needed">
     <i class="fa-solid fa-bars"></i>
   </button>
   <div class="logo">UIverse</div>
   <div class="search-bar">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input type="text" id="searchInput" placeholder="Search components..." oninput="liveFilter(this.value)" />
+    <input type="text" id="searchInput" placeholder="Search components..." oninput="liveFilter(this.value)" / data-a11y-remediation="label-needed">
     <kbd class="search-kbd">⌘K</kbd>
   </div>
   <div class="nav-right">
@@ -449,7 +445,322 @@
   </section>
 
     <!-- =========================================
+     MONTHLY AGENDA
+<div class="component-card">
+
+  <div class="card-top">
+
+    <span class="card-label">
+      Monthly Agenda
+    </span>
+
+    <span class="card-tag tag-modern">
+      Planner
+    </span>
+
+  </div>
+
+  <div class="card-preview">
+
+    <div class="monthly-agenda">
+
+      <div class="agenda-top">
+        <h4>September</h4>
+        <span>12 Events</span>
+      </div>
+
+      <div class="agenda-grid">
+
+        <span>1</span>
+        <span>2</span>
+        <span class="agenda-active">3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="card-desc">
+    Monthly agenda calendar with
+    premium productivity styling.
+  </p>
+
+</div>
+
+<!-- =========================================
+     VACATION PLANNER
+<div class="component-card">
+
+  <div class="card-top">
+
+    <span class="card-label">
+      Vacation Planner
+    </span>
+
+    <span class="card-tag tag-popular">
+      Travel
+    </span>
+
+  </div>
+
+  <div class="card-preview dark-preview">
+
+    <div class="vacation-planner">
+
+      <div class="vacation-top">
+
+        <div>
+          <h4>Paris Trip</h4>
+          <span>Aug 10 - Aug 18</span>
+        </div>
+
+        <i class="fa-solid fa-plane"></i>
+
+      </div>
+
+      <div class="vacation-progress">
+        <span></span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="card-desc">
+    Stylish vacation planning card
+    for travel booking platforms.
+  </p>
+
+</div>
+
+<!-- =========================================
+     HABIT TRACKER
+<div class="component-card">
+
+  <div class="card-top">
+
+    <span class="card-label">
+      Habit Tracker
+    </span>
+
+    <span class="card-tag tag-essential">
+      Tracking
+    </span>
+
+  </div>
+
+  <div class="card-preview">
+
+    <div class="habit-tracker">
+
+      <div class="habit-top">
+        <h4>Workout Goal</h4>
+        <span>5/7 Days</span>
+      </div>
+
+      <div class="habit-days">
+
+        <span class="done"></span>
+        <span class="done"></span>
+        <span class="done"></span>
+        <span class="done"></span>
+        <span class="done"></span>
+        <span></span>
+        <span></span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="card-desc">
+    Habit tracking calendar widget
+    with clean modern visuals.
+  </p>
+
+</div>
+
+<!-- =========================================
+     DEADLINE ALERT
+<div class="component-card">
+
+  <div class="card-top">
+
+    <span class="card-label">
+      Deadline Alert
+    </span>
+
+    <span class="card-tag tag-trending">
+      Alert
+    </span>
+
+  </div>
+
+  <div class="card-preview dark-preview">
+
+    <div class="deadline-alert">
+
+      <div class="alert-icon">
+        <i class="fa-solid fa-hourglass-half"></i>
+      </div>
+
+      <div>
+        <h4>Project Submission</h4>
+        <p>Due in 12 Hours</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="card-desc">
+    Deadline warning component for
+    productivity dashboards.
+  </p>
+
+</div>
+
+<!-- =========================================
+     CLASS SCHEDULE
+<div class="component-card">
+
+  <div class="card-top">
+
+    <span class="card-label">
+      Class Schedule
+    </span>
+
+    <span class="card-tag tag-modern">
+      Education
+    </span>
+
+  </div>
+
+  <div class="card-preview">
+
+    <div class="class-schedule">
+
+      <div class="class-item">
+
+        <span>09:00</span>
+
+        <p>Computer Networks</p>
+
+      </div>
+
+      <div class="class-item active-class">
+
+        <span>11:00</span>
+
+        <p>Compiler Design</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="card-desc">
+    Educational schedule layout for
+    student management systems.
+  </p>
+
+</div>
+
+<!-- =========================================
+     FITNESS CALENDAR
+<div class="component-card">
+
+  <div class="card-top">
+
+    <span class="card-label">
+      Fitness Calendar
+    </span>
+
+    <span class="card-tag tag-popular">
+      Fitness
+    </span>
+
+  </div>
+
+  <div class="card-preview dark-preview">
+
+    <div class="fitness-calendar">
+
+      <div class="fitness-top">
+
+        <div>
+          <h4>Calories Burned</h4>
+          <span>This Week</span>
+        </div>
+
+        <i class="fa-solid fa-fire"></i>
+
+      </div>
+
+      <h2>2,480</h2>
+
+    </div>
+
+  </div>
+
+  <p class="card-desc">
+    Fitness tracking calendar card
+    with premium dashboard UI.
+  </p>
+
+</div>
+
+<!-- =========================================
+     CONTENT PLANNER
+<div class="component-card">
+
+  <div class="card-top">
+
+    <span class="card-label">
+      Content Planner
+    </span>
+
+    <span class="card-tag tag-essential">
+      Marketing
+    </span>
+
+  </div>
+
+  <div class="card-preview">
+
+    <div class="content-planner">
+
+      <div class="content-row">
+        <span>YouTube Upload</span>
+        <p>Monday</p>
+      </div>
+
+      <div class="content-row">
+        <span>Instagram Reel</span>
+        <p>Wednesday</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="card-desc">
+    Content scheduling widget for
+    creators and marketing teams.
+  </p>
+
+</div>
+
+    <!-- =========================================
      PROJECT MANAGEMENT CALENDAR
+     PROJECT MANAGEMENT CALENDAR -->
 <div class="component-card">
 
   <div class="card-top">
@@ -504,7 +815,7 @@
 </div>
 
 <!-- =========================================
-     MEETING ROOM BOOKING
+     MEETING ROOM BOOKING -->
 <div class="component-card">
 
   <div class="card-top">
@@ -548,7 +859,7 @@
 </div>
 
 <!-- =========================================
-     DARK EVENT SCHEDULER
+     DARK EVENT SCHEDULER -->
 <div class="component-card">
 
   <div class="card-top">
@@ -609,7 +920,7 @@
 </div>
 
 <!-- =========================================
-     MINIMAL DAY PLANNER
+     MINIMAL DAY PLANNER -->
 <div class="component-card">
 
   <div class="card-top">
@@ -664,7 +975,7 @@
 </div>
 
 <!-- =========================================
-     AI SMART ASSISTANT
+     AI SMART ASSISTANT -->
 <div class="component-card">
 
   <div class="card-top">
@@ -712,7 +1023,7 @@
 </div>
 
 <!-- =========================================
-     DEADLINE TRACKER
+     DEADLINE TRACKER -->
 <div class="component-card">
 
   <div class="card-top">
@@ -1951,17 +2262,21 @@
 <footer class="footer">
   <div class="footer-container">
 
-    <div class="socials">
-  <a href="https://github.com" target="_blank" title="GitHub">
-    <i class="fab fa-github"></i>
-  </a>
-  <a href="https://linkedin.com" target="_blank" title="LinkedIn">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a href="https://twitter.com" target="_blank" title="Twitter">
-    <i class="fab fa-x-twitter"></i>
-  </a>
-</div>
+    <div class="footer-col brand">
+      <h2 class="footer-logo">⬡ UIverse</h2>
+      <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
+      <div class="socials">
+        <a href="#" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" title="Twitter">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
 
     <div class="footer-col">
       <h3>Explore</h3>
@@ -1977,11 +2292,10 @@
     <div class="footer-col">
       <h3>Resources</h3>
       <ul>
-        <li><a href="documentation.html">Documentation</a></li>
-        <li><a href="contribute.html">Contribute</a></li>
-        <li><a href="https://github.com/uiverse/uiverse" target="_blank">GitHub Repo</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="support.html">Support</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Contribute</a></li>
+        <li><a href="#">GitHub Repo</a></li>
+        <li><a href="#">Community</a></li>
       </ul>
     </div>
 
@@ -1990,7 +2304,7 @@
       <ul>
         <li><a href="privacypolicy.html">Privacy Policy</a></li>
         <li><a href="terms.html">Terms of Service</a></li>
-        <li><a href="license.html">License</a></li>
+        <li><a href="#">License</a></li>
       </ul>
     </div>
 
@@ -2012,5 +2326,6 @@
 
 <script src="calendarcomponent.js"></script>
 
+    <script src="dist/shared.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="dist/shared.css">
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; connect-src 'self' https:; img-src 'self' data: https:; font-src 'self' data: https:; script-src 'self' https: 'unsafe-hashes' sha256-4idOpfcVGcf1JIcDr6s5pmLauAMO9auB0wLw0b1hd9Y= sha256-CJLmHsFNKFyLE4WkvZTkcWuAlwE+cWi6XCPaOHHsmRs= sha256-S6d4FNO/1iV0V0FnzHkAQYcUblCxiNQaYtiR4SI0iEg= sha256-ZSwevDjx4JYKRPyZr4Fy5ODN1zCghPnMJ4DiCbdB3/k= sha256-awZC1gR1Ud9aisSi3fnOTOfLd1OWCGiT1EG6rP0+LqM=; script-src-attr 'unsafe-hashes' sha256-4idOpfcVGcf1JIcDr6s5pmLauAMO9auB0wLw0b1hd9Y= sha256-CJLmHsFNKFyLE4WkvZTkcWuAlwE+cWi6XCPaOHHsmRs= sha256-S6d4FNO/1iV0V0FnzHkAQYcUblCxiNQaYtiR4SI0iEg= sha256-ZSwevDjx4JYKRPyZr4Fy5ODN1zCghPnMJ4DiCbdB3/k= sha256-awZC1gR1Ud9aisSi3fnOTOfLd1OWCGiT1EG6rP0+LqM=; style-src 'self' https: 'unsafe-hashes'; style-src-attr 'unsafe-hashes'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,12 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- <link rel="stylesheet" href="style.css"> -->
+  <!-- -->
   <link rel="stylesheet" href="testimonials.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="shared-sidebar.css">
-</head>
+  </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
     <span class="brand-icon">⬡</span>
@@ -326,7 +327,7 @@
   <div class="logo">UIverse</div>
   <div class="search-bar">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input type="text" id="searchInput" placeholder="Search components..." onkeydown="handleSearch(event)" />
+    <input type="text" id="searchInput" placeholder="Search components..." onkeydown="handleSearch(event)" / data-a11y-remediation="label-needed">
     <kbd class="search-kbd">⌘K</kbd>
   </div>
   <div class="nav-right">
@@ -454,6 +455,231 @@
 &lt;/div&gt;</pre>
     </div>
 
+
+    <!-- ============================= -->
+<!-- Aurora Glow Card -->
+<!-- ============================= -->
+
+<div class="component-card">
+  <h3>Aurora Glow Card</h3>
+
+  <div class="t-card-aurora">
+    <div class="t-aurora-bg"></div>
+
+    <div class="t-quote-mark">❝</div>
+
+    <div class="t-rating">
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+    </div>
+
+    <p class="t-text">
+      The visual consistency and polished interactions completely transformed
+      the quality of our design system.
+    </p>
+
+    <div class="t-user">
+      <div class="t-avatar">
+        <img src="https://i.pravatar.cc/100?img=63" alt="Liam Foster" />
+      </div>
+
+      <div class="t-info">
+        <strong class="t-name">Liam Foster</strong>
+        <span class="t-role">Design Systems Engineer</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= -->
+<!-- Cyberpunk Card -->
+<!-- ============================= -->
+
+<div class="component-card">
+  <h3>Cyberpunk Edge Card</h3>
+
+  <div class="t-card-cyber">
+    <div class="t-cyber-line"></div>
+
+    <div class="t-quote-mark">❝</div>
+
+    <p class="t-text">
+      Every component feels futuristic and thoughtfully engineered for modern
+      applications and startups.
+    </p>
+
+    <div class="t-rating">
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+    </div>
+
+    <div class="t-user">
+      <div class="t-avatar">
+        <img src="https://i.pravatar.cc/100?img=28" alt="Nathan Drake" />
+      </div>
+
+      <div class="t-info">
+        <strong class="t-name">Nathan Drake</strong>
+        <span class="t-role">Creative Technologist</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= -->
+<!-- Soft UI Card -->
+<!-- ============================= -->
+
+<div class="component-card">
+  <h3>Soft UI Card</h3>
+
+  <div class="t-card-soft">
+    <div class="t-quote-mark">❝</div>
+
+    <p class="t-text">
+      Soft shadows, premium typography, and reusable layouts made our
+      dashboard experience feel incredibly refined.
+    </p>
+
+    <div class="t-rating">
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+    </div>
+
+    <div class="t-user">
+      <div class="t-avatar">
+        <img src="https://i.pravatar.cc/100?img=8" alt="Ariana Blake" />
+      </div>
+
+      <div class="t-info">
+        <strong class="t-name">Ariana Blake</strong>
+        <span class="t-role">UX Strategist</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= -->
+<!-- Animated Border Card -->
+<!-- ============================= -->
+
+<div class="component-card">
+  <h3>Animated Border Card</h3>
+
+  <div class="t-card-border">
+    <span class="t-border-line"></span>
+
+    <div class="t-quote-mark">❝</div>
+
+    <div class="t-rating">
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+    </div>
+
+    <p class="t-text">
+      Clean architecture and premium micro-interactions helped our product
+      stand out instantly.
+    </p>
+
+    <div class="t-user">
+      <div class="t-avatar">
+        <img src="https://i.pravatar.cc/100?img=39" alt="Jason Miller" />
+      </div>
+
+      <div class="t-info">
+        <strong class="t-name">Jason Miller</strong>
+        <span class="t-role">Frontend Architect</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= -->
+<!-- Tilt Hover Card -->
+<!-- ============================= -->
+
+<div class="component-card">
+  <h3>Tilt Hover Card</h3>
+
+  <div class="t-card-tilt">
+    <div class="t-quote-mark">❝</div>
+
+    <p class="t-text">
+      The hover animations and smooth transitions made our UI feel alive and
+      highly interactive.
+    </p>
+
+    <div class="t-rating">
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star-empty">☆</span>
+    </div>
+
+    <div class="t-user">
+      <div class="t-avatar">
+        <img src="https://i.pravatar.cc/100?img=48" alt="Chloe Bennett" />
+      </div>
+
+      <div class="t-info">
+        <strong class="t-name">Chloe Bennett</strong>
+        <span class="t-role">Motion Designer</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= -->
+<!-- Premium Gradient Mesh -->
+<!-- ============================= -->
+
+<div class="component-card">
+  <h3>Gradient Mesh Card</h3>
+
+  <div class="t-card-mesh">
+    <div class="t-mesh-blur one"></div>
+    <div class="t-mesh-blur two"></div>
+
+    <div class="t-quote-mark">❝</div>
+
+    <p class="t-text">
+      UIverse delivered beautiful production-ready patterns that helped us
+      accelerate design delivery dramatically.
+    </p>
+
+    <div class="t-rating">
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+      <span class="t-star">★</span>
+    </div>
+
+    <div class="t-user">
+      <div class="t-avatar">
+        <img src="https://i.pravatar.cc/100?img=25" alt="Emily Stone" />
+      </div>
+
+      <div class="t-info">
+        <strong class="t-name">Emily Stone</strong>
+        <span class="t-role">Visual Designer</span>
+      </div>
+    </div>
+  </div>
+</div>
 
     <div class="component-card">
       <h3>Neo-Brutalist Card</h3>
@@ -1029,13 +1255,11 @@
     <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
   </div>
 </footer>
-<script src="js/core/utils.js"></script>
 <script src="js/features/toast.js"></script>
 <script src="js/features/popup.js"></script>
 <script src="js/registry.js"></script>
 <script src="js/features/code-tools.js"></script>
 <script src="js/features/sidebar.js"></script>
-<script src="js/features/search.js"></script>
 <script src="js/features/theme.js"></script>
 <script src="js/features/scroll.js"></script>
 <script src="js/features/alerts.js"></script>
@@ -1045,5 +1269,6 @@
 <script src="js/features/download.js"></script>
 <script src="js/features/accessibility.js"></script>
 <script src="js/bootstrap.js"></script>
+    <script src="dist/shared.js"></script>
 </body>
 </html>

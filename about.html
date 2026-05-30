@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="dist/shared.css">
   <meta charset="UTF-8" />
 
   <meta
@@ -24,6 +25,7 @@
     "
   />
 
+  <meta name="description" content="Learn more about UIverse, a curated library of reusable, clean, and beautiful UI components built using HTML, CSS, and JavaScript.">
   <title>About | UIverse</title>
 
   <!-- Fonts -->
@@ -37,62 +39,31 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
-
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="shared-sidebar.css">
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="home.css" />
   <link rel="stylesheet" href="about.css" />
-  <link rel="stylesheet" href="shared-sidebar.css" />
-</head>
+  </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <!-- =========================================================
+   SIDEBAR
+========================================================= -->
 
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar" id="sidebar">
+<aside class="sidebar">
 
-    <div class="sidebar-brand">
-      <span class="brand-icon">⬡</span>
-      <span class="brand-text">UIverse</span>
-    </div>
-
-    <nav class="sidebar-nav">
-      <ul>
-        <li>
-          <a href="index.html">
-            <i class="fa-solid fa-house"></i>
-            <span>Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="button.html">
-            <i class="fa-solid fa-hand-pointer"></i>
-            <span>Buttons</span>
-          </a>
-        </li>
-        <li>
-          <a href="dropdown-components.html">
-            <i class="fa-solid fa-caret-down"></i>
-            <span>Dropdowns</span>
-          </a>
-        </li>
-        <li>
-          <a href="cards.html">
-            <i class="fa-solid fa-table-cells-large"></i>
-            <span>Cards</span>
-          </a>
-        </li>
-        <li>
-          <a href="inputs.html">
-            <i class="fa-solid fa-keyboard"></i>
-            <span>Inputs</span>
-          </a>
-        </li>
-
-        <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
+
     <span class="brand-icon">⬡</span>
-    <span class="brand-text">UIverse</span>
+
+    <span class="brand-text">
+      UIverse
+    </span>
+
   </div>
+
           <nav class="sidebar-nav">
     <ul>
       <li>
@@ -129,6 +100,18 @@
         <a href="cards.html">
           <i class="fa-solid fa-table-cells-large"></i>
           <span>Cards</span>
+        </a>
+      </li>
+      <li>
+        <a href="notes-components.html">
+          <i class="fas fa-sticky-note"></i>
+          <span>Notes</span>
+        </a>
+      </li>
+      <li>
+        <a href="range-slider.html">
+          <i class="fas fa-sliders-h"></i>
+          <span>Range Slider</span>
         </a>
       </li>
       <li>
@@ -275,7 +258,7 @@
           <span>Subscription</span>
         </a>
       </li>
-      <li  class="active">
+      <li>
         <a href="auth.html">
           <i class="fa-solid fa-user-shield"></i>
           <span>Authentication</span>
@@ -403,43 +386,10 @@
       </li>
     </ul>
   </nav>
-  <div class="sidebar-footer">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
-  </div>
 </aside>
 
-<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
-        <li>
-          <a href="forms.html">
-            <i class="fa-brands fa-wpforms"></i>
-            <span>Forms</span>
-          </a>
-        </li>
-        <li class="active">
-          <a href="about.html">
-            <i class="fa-solid fa-circle-info"></i>
-            <span>About</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="sidebar-footer">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-    </div>
-
-  </aside>
-
   <!-- Sidebar Backdrop -->
-  <div
-    class="sidebar-backdrop"
-    id="sidebarBackdrop"
-    onclick="toggleSidebar()"
-  ></div>
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
 
   <!-- ================= NAVBAR ================= -->
   <header class="navbar" id="navbar">
@@ -460,7 +410,7 @@
       <input
         type="text"
         placeholder="Search components..."
-      />
+      / data-a11y-remediation="label-needed">
 
       <kbd class="search-kbd">⌘K</kbd>
     </div>
@@ -708,6 +658,161 @@
         </div>
 
       </section>
+      <section class="values-section">
+
+  <div class="section-title">
+    <h2>Our Values</h2>
+  </div>
+
+  <div class="values-grid">
+
+    <div class="value-card">
+      <i class="fa-solid fa-lightbulb"></i>
+      <h3>Innovation</h3>
+      <p>Always exploring fresh UI ideas.</p>
+    </div>
+
+    <div class="value-card">
+      <i class="fa-solid fa-heart"></i>
+      <h3>Simplicity</h3>
+      <p>Clean and easy-to-use components.</p>
+    </div>
+
+    <div class="value-card">
+      <i class="fa-solid fa-users"></i>
+      <h3>Community</h3>
+      <p>Built for designers and developers.</p>
+    </div>
+
+  </div>
+
+</section>
+<section class="tech-section">
+
+  <div class="section-title">
+    <h2>Built With Modern Technologies</h2>
+  </div>
+
+  <div class="tech-grid">
+
+    <div class="tech-pill">HTML5</div>
+    <div class="tech-pill">CSS3</div>
+    <div class="tech-pill">JavaScript</div>
+    
+    <div class="tech-pill">Font Awesome</div>
+    <div class="tech-pill">Responsive Design</div>
+
+  </div>
+
+</section>
+<section class="faq-section">
+
+  <div class="section-title">
+    <h2>Frequently Asked Questions</h2>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-btn">
+      Is UIverse free to use?
+    </button>
+    <div class="faq-content">
+      Yes, all showcased UI components are free to explore.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-btn">
+      Can I use these components commercially?
+    </button>
+    <div class="faq-content">
+      Yes, unless otherwise specified.
+    </div>
+  </div>
+
+</section>
+<div class="insight-card">
+
+  <div class="insight-header">
+
+    <div class="insight-icon">
+      <i class="fa-solid fa-sparkles"></i>
+    </div>
+
+    <span class="insight-badge">
+      AI Powered
+    </span>
+
+  </div>
+
+  <h3>Engagement Growth</h3>
+
+  <p>
+    Your product engagement increased by
+    <strong>18.6%</strong> compared to last month.
+  </p>
+
+  <div class="insight-chart">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </div>
+
+</div>
+<div class="kpi-card">
+
+  <div class="kpi-top">
+
+    <span>Total Revenue</span>
+
+    <button>
+      <i class="fa-solid fa-ellipsis"></i>
+    </button>
+
+  </div>
+
+  <h2>$48,920</h2>
+
+  <div class="kpi-change positive">
+    <i class="fa-solid fa-arrow-trend-up"></i>
+    +12.4%
+  </div>
+
+</div>
+
+
+<section class="about-cta">
+
+  <div class="cta-content">
+
+    <span class="cta-badge">
+      ✨ Join Thousands of Developers
+    </span>
+
+    <h2>Start Building Beautiful Interfaces Today</h2>
+
+    <p>
+      Explore modern UI components, layouts,
+      animations, and design inspiration.
+    </p>
+
+    <div class="cta-actions">
+      <a href="#" class="cta-btn primary">
+        Explore Components
+      </a>
+
+      <a href="#" class="cta-btn secondary">
+        View Collections
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
 
     </section>
 
@@ -722,31 +827,65 @@
     <i class="fa-solid fa-chevron-up"></i>
   </button>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
+ <!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-container">
 
-    <div class="footer-container">
-
-      <div class="footer-col brand">
-
-        <h2 class="footer-logo">⬡ UIverse</h2>
-
-        <p>
-          Build modern reusable UI components with clean
-          HTML, CSS, and JavaScript.
-        </p>
-
-        <div class="socials">
-          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-        </div>
-
+    <div class="footer-col brand">
+      <h2 class="footer-logo">⬡ UIverse</h2>
+      <p>Build modern, reusable UI components with clean HTML, CSS, and JavaScript.</p>
+      <div class="socials">
+        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
       </div>
-
     </div>
 
-  </footer>
+    <div class="footer-col">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="button.html">Buttons</a></li>
+        <li><a href="navbar.html">Navbars</a></li>
+        <li><a href="cards.html">Cards</a></li>
+        <li><a href="inputs.html">Inputs</a></li>
+        <li><a href="forms.html">Forms</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Contribute</a></li>
+        <li><a href="#">GitHub Repo</a></li>
+        <li><a href="#">Community</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="#">License</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col newsletter">
+      <h3>Stay Updated</h3>
+      <p>Get notified when new components drop.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="your@email.com" />
+        <button type="button" onclick="subscribe()">Subscribe</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 UIverse. Made with ❤️ for developers worldwide.</p>
+  </div>
+</footer>
 
   <!-- ================= JS ================= -->
   <script>
@@ -864,5 +1003,6 @@
 
   </script>
 
+    <script src="dist/shared.js"></script>
 </body>
 </html>

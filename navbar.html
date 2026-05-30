@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="dist/shared.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cards — UIverse</title>
+  <title>Navbar Components — UIverse</title>
 
   <!-- Fonts -->
   <link
@@ -14,14 +15,12 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="navbar.css">
-  <link rel="stylesheet" href="cards.css">
-  <link rel="stylesheet" href="command-palette.css">
-</head>
+  </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
 
   <!-- ================= SIDEBAR ================= -->
   <aside class="sidebar" id="sidebar">
@@ -348,9 +347,9 @@
     </ul>
   </nav>
   <div class="sidebar-footer">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
   </div>
 </aside>
 
@@ -359,15 +358,15 @@
   <!-- ================= NAVBAR ================= -->
   <header class="navbar" id="navbar" role="navigation" aria-label="Top navigation">
     <button class="menu-toggle" onclick="toggleSidebar()" aria-controls="sidebar" aria-expanded="false"
-      aria-label="Toggle sidebar">
+      aria-label="Toggle sidebar" data-a11y-remediation="button-label-needed">
       <i class="fa-solid fa-bars"></i>
     </button>
     <div class="logo">UIverse</div>
     <div class="search-bar">
       <i class="fa-solid fa-magnifying-glass search-icon"></i>
-      <input type="text" id="searchInput" placeholder="Search components..." oninput="liveFilter(this.value)"
-        aria-label="Search components" />
-      <kbd class="search-kbd">G��K</kbd>
+      <input type="text" id="searchInput" placeholder="Search navbars..." oninput="liveFilter(this.value)"
+        aria-label="Search components" / data-a11y-remediation="label-needed">
+      <kbd class="search-kbd">Ctrl K</kbd>
       <kbd class="search-kbd">⌘K</kbd>
     </div>
     <div id="searchDropdown" class="search-dropdown hidden">
@@ -430,8 +429,9 @@
       <button class="filter-btn" onclick="filterCards('advanced', this)">Advanced</button>
       <div class="filter-search">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Filter navbars..." oninput="liveFilter(this.value)" />
+        <input type="text" id="filterSearchInput" placeholder="Filter navbars..." oninput="liveFilter(this.value)" />
       </div>
+      <p class="filter-summary" id="filterSummary" aria-live="polite"></p>
     </div>
 
     <!-- Navbars Grid -->
@@ -2216,7 +2216,6 @@
   </div>
 </footer>
 
-<script src="js/features/search.js"></script>
 <script src="js/features/command-palette.js"></script>
 
 <script>
@@ -2236,8 +2235,14 @@
 
   /* Sidebar */
   function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-    document.getElementById('sidebarBackdrop').classList.toggle('visible');
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    const toggleBtn = document.querySelector('.menu-toggle');
+    const isOpen = sidebar.classList.toggle('open');
+    backdrop.classList.toggle('visible', isOpen);
+    if (toggleBtn) {
+      toggleBtn.setAttribute('aria-expanded', String(isOpen));
+    }
   }
 
   /* Code Toggle */
@@ -2261,24 +2266,111 @@
     });
   }
 
+  /* Scroll animations */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.component-card').forEach(el => observer.observe(el));
+
+
+  // Filter by category
+  function filterCards(category, btn) {
+    const cards = document.querySelectorAll('.component-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    // Reset active state
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Show/hide cards
+    cards.forEach(card => {
+      const cardCat = card.dataset.cat; // must exist in HTML
+      if (category === 'all' || cardCat === category) {
+        card.style.display = 'block';   // force visible
+      } else {
+        card.style.display = 'none';    // hide
+      }
+    });
+  }
+
+  // Live search filter
+  function liveFilter(query) {
+    const cards = document.querySelectorAll('.component-card');
+    query = query.toLowerCase();
+
+    cards.forEach(card => {
+      const name = card.dataset.name?.toLowerCase() || '';
+      const label = card.querySelector('.card-label')?.textContent.toLowerCase() || '';
+      if (name.includes(query) || label.includes(query)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+  const cards = Array.from(document.querySelectorAll('.component-card'));
+  let activeCategory = 'all';
+  let activeQuery = '';
+
+  function updateFilterSummary(visibleCount) {
+    const summary = document.getElementById('filterSummary');
+    if (!summary) return;
+    summary.textContent = `${visibleCount} navbar${visibleCount === 1 ? '' : 's'} shown`;
+  }
+
+  function applyFilters() {
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const name = (card.dataset.name || '').toLowerCase();
+      const label = (card.querySelector('.card-label')?.textContent || '').toLowerCase();
+      const matchesCategory = activeCategory === 'all' || card.dataset.cat === activeCategory;
+      const matchesQuery = !activeQuery || name.includes(activeQuery) || label.includes(activeQuery);
+      const shouldShow = matchesCategory && matchesQuery;
+
+      card.style.display = shouldShow ? '' : 'none';
+      if (shouldShow) visibleCount += 1;
+    });
+
+    updateFilterSummary(visibleCount);
+  }
+
   /* Filter */
   function filterCards(cat, btn) {
+    activeCategory = cat;
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('.component-card').forEach(card => {
-      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
-    });
+    applyFilters();
   }
 
   /* Live search */
   function liveFilter(val) {
-    const q = val.toLowerCase();
-    document.querySelectorAll('.component-card').forEach(card => {
-      const match = card.dataset.name.toLowerCase().includes(q) ||
-        card.querySelector('.card-label')?.textContent.toLowerCase().includes(q);
-      card.style.display = match ? '' : 'none';
-    });
+    activeQuery = (val || '').trim().toLowerCase();
+
+    const searchInput = document.getElementById('searchInput');
+    const filterInput = document.getElementById('filterSearchInput');
+    if (searchInput && searchInput.value !== val) searchInput.value = val;
+    if (filterInput && filterInput.value !== val) filterInput.value = val;
+
+    applyFilters();
   }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault();
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.select();
+      }
+    }
+  });
+
+  applyFilters();
 
   /* Scroll animations */
   const observer = new IntersectionObserver(entries => {
@@ -2286,5 +2378,6 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.component-card').forEach(el => observer.observe(el));
 </script>
+    <script src="dist/shared.js"></script>
 </body>
 </html>

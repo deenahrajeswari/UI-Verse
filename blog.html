@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="dist/shared.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog — UIverse</title>
@@ -8,13 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="home.css">
-  <link rel="stylesheet" href="shared-page.css">
   <link rel="stylesheet" href="blog.css">
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-brand">
@@ -87,7 +87,7 @@
 <section class="trending-section">
 
   <div class="section-heading">
-    <span class="section-badge">🔥 Trending Now</span>
+    <span class="section-badge"><i class="fa-solid fa-fire"></i> Trending Now</span>
     <h2>Most Popular This Week</h2>
   </div>
 
@@ -139,6 +139,287 @@
 
 </section>
 
+
+<!-- ========================= -->
+<!-- FEATURED SPLIT BLOG CARD -->
+<!-- ========================= -->
+
+<section class="split-blog-section">
+
+  <div class="split-blog-card">
+
+    <div class="split-blog-image split-img-1"></div>
+
+    <div class="split-blog-content">
+
+      <span class="split-badge">
+        Featured Story
+      </span>
+
+      <h2>
+        Designing Interfaces That Feel Human
+      </h2>
+
+      <p>
+        Explore emotional design systems, micro interactions,
+        motion psychology and modern UX strategies used by top startups.
+      </p>
+
+      <div class="split-meta">
+
+        <div class="split-author">
+          <div class="split-avatar">UX</div>
+
+          <div>
+            <strong>UIverse Studio</strong>
+            <span>14 May 2026</span>
+          </div>
+        </div>
+
+        <a href="#" class="split-btn">
+          Read More
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- HORIZONTAL BLOG CARDS -->
+<!-- ========================= -->
+
+<section class="horizontal-blog-list">
+
+  <article class="horizontal-blog-card">
+
+    <div class="horizontal-thumb thumb-dev"></div>
+
+    <div class="horizontal-content">
+
+      <span class="horizontal-tag">
+        Development
+      </span>
+
+      <h3>
+        Building Scalable CSS Architecture
+      </h3>
+
+      <p>
+        Learn BEM, utility-first systems and token-driven
+        styling approaches for enterprise applications.
+      </p>
+
+      <div class="horizontal-footer">
+
+        <span>
+          <i class="fa-regular fa-clock"></i>
+          7 min read
+        </span>
+
+        <span>
+          <i class="fa-regular fa-eye"></i>
+          18k Views
+        </span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+  <article class="horizontal-blog-card">
+
+    <div class="horizontal-thumb thumb-ai"></div>
+
+    <div class="horizontal-content">
+
+      <span class="horizontal-tag ai-tag">
+        AI & UI
+      </span>
+
+      <h3>
+        AI Assisted Design Is Changing Frontend
+      </h3>
+
+      <p>
+        Discover how modern AI tools accelerate prototyping,
+        accessibility improvements and responsive workflows.
+      </p>
+
+      <div class="horizontal-footer">
+
+        <span>
+          <i class="fa-regular fa-clock"></i>
+          5 min read
+        </span>
+
+        <span>
+          <i class="fa-regular fa-eye"></i>
+          11k Views
+        </span>
+
+      </div>
+
+    </div>
+
+  </article>
+
+</section>
+
+<!-- ========================= -->
+<!-- MAGAZINE GRID -->
+<!-- ========================= -->
+
+<section class="magazine-layout">
+
+  <div class="magazine-main">
+
+    <div class="magazine-overlay"></div>
+
+    <div class="magazine-content">
+
+      <span class="magazine-badge">
+        Editorial
+      </span>
+
+      <h2>
+        Minimal UI Is Dominating Modern Products
+      </h2>
+
+      <p>
+        Why leading brands are moving toward cleaner,
+        calmer and distraction-free interfaces.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="magazine-side">
+
+    <article class="mini-mag-card">
+
+      <div class="mini-mag-thumb thumb-mobile"></div>
+
+      <div>
+
+        <span>Mobile UI</span>
+
+        <h4>
+          Designing Better Bottom Navigation
+        </h4>
+
+      </div>
+
+    </article>
+
+    <article class="mini-mag-card">
+
+      <div class="mini-mag-thumb thumb-dashboard"></div>
+
+      <div>
+
+        <span>Dashboards</span>
+
+        <h4>
+          Data Visualization Trends In 2026
+        </h4>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- AUTHOR FEATURE -->
+<!-- ========================= -->
+
+<section class="author-feature-card">
+
+  <div class="author-feature-avatar">
+    UI
+  </div>
+
+  <div class="author-feature-content">
+
+    <span class="author-label">
+      Featured Author
+    </span>
+
+    <h3>
+      Meet The UIverse Editorial Team
+    </h3>
+
+    <p>
+      Creating premium frontend tutorials,
+      modern UI systems and design resources
+      used by thousands of developers worldwide.
+    </p>
+
+    <div class="author-socials">
+
+      <a href="#">
+        <i class="fab fa-github"></i>
+      </a>
+
+      <a href="#">
+        <i class="fab fa-linkedin"></i>
+      </a>
+
+      <a href="#">
+        <i class="fab fa-x-twitter"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- NEWSLETTER PREMIUM -->
+<!-- ========================= -->
+
+<section class="premium-newsletter">
+
+  <div class="premium-newsletter-content">
+
+    <span class="premium-badge">
+      Weekly UI Digest
+    </span>
+
+    <h2>
+      Get Premium Frontend Resources
+    </h2>
+
+    <p>
+      Receive curated UI inspiration, coding techniques,
+      accessibility guides and exclusive components every Friday.
+    </p>
+
+  </div>
+
+  <form class="premium-newsletter-form">
+
+    <input
+      type="email"
+      placeholder="Enter your email"
+    >
+
+    <button type="submit">
+      Subscribe Now
+    </button>
+
+  </form>
+
+</section>
 <!-- EDITORIAL FEATURE -->
 <section class="editorial-feature">
 
@@ -207,7 +488,7 @@
         9 min read
       </span>
 
-      <button>
+      <button data-a11y-remediation="button-label-needed">
         Explore
       </button>
 
@@ -220,7 +501,7 @@
 <!-- BLOG STATS -->
 <section class="blog-stats">
 
-  <div class="stat-box">
+  <div class="stat-box" role="status">
     <h2>250+</h2>
     <p>Published Articles</p>
   </div>
@@ -301,7 +582,7 @@
 
     <div class="search-bar">
       <i class="fa-solid fa-magnifying-glass search-icon"></i>
-      <input type="text" id="searchInput" placeholder="Search articles..." oninput="searchPosts(this.value)" />
+      <input type="text" id="searchInput" placeholder="Search articles..." oninput="searchPosts(this.value)" / data-a11y-remediation="label-needed">
       <kbd class="search-kbd">⌘K</kbd>
     </div>
 
@@ -563,7 +844,7 @@
       <!-- Sidebar -->
       <aside class="blog-sidebar">
         <div class="bs-card bs-newsletter">
-          <div class="bs-newsletter-icon">✉</div>
+          <div class="bs-newsletter-icon"><i class="fa-solid fa-envelope"></i></div>
           <h3>Stay in the loop</h3>
           <p>Get new articles and component drops delivered to your inbox every week.</p>
           <form class="bs-newsletter-form" onsubmit="return false;">
@@ -574,7 +855,7 @@
         </div>
 
         <div class="bs-card">
-          <div class="bs-heading"><span>▢</span> Popular Posts</div>
+          <div class="bs-heading"><span><i class="fa-solid fa-square"></i></span> Popular Posts</div>
           <div class="bs-popular-list">
             <a href="#" class="bs-popular-item">
               <div class="bs-popular-num">01</div>
@@ -601,7 +882,7 @@
         </div>
 
         <div class="bs-card">
-          <div class="bs-heading"><span>▢</span> Browse Topics</div>
+          <div class="bs-heading"><span><i class="fa-solid fa-square"></i></span> Browse Topics</div>
           <div class="bs-topics">
             <button type="button" onclick="filterPosts('tutorial', null)" class="bs-topic-tag">Tutorials</button>
             <button type="button" onclick="filterPosts('tips', null)" class="bs-topic-tag">Tips & Tricks</button>
@@ -613,7 +894,7 @@
         </div>
 
         <div class="bs-card">
-          <div class="bs-heading"><span>▢</span> Authors</div>
+          <div class="bs-heading"><span><i class="fa-solid fa-square"></i></span> Authors</div>
           <div class="bs-authors">
             <div class="bs-author-item">
               <div class="blog-avatar blog-avatar-purple">CN</div>
@@ -712,7 +993,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 UIverse. Made with ❤ for developers worldwide.</p>
+      <p>© 2026 UIverse. Made with <i class="fa-solid fa-heart" style="color: #ff4757;"></i> for developers worldwide.</p>
     </div>
   </footer>
 
@@ -833,5 +1114,6 @@
     // initial state
     filterPosts('all', document.querySelector('.blog-cat-btn'));
   </script>
+    <script src="dist/shared.js"></script>
 </body>
 </html>
