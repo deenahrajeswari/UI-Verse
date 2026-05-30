@@ -62,3 +62,25 @@ resetBtn.addEventListener("click", () => {
   updateTimer();
 
 });
+
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".file-card");
+
+search.addEventListener("input", () => {
+
+  const term = search.value.toLowerCase();
+
+  cards.forEach(card => {
+
+    const fileName =
+      card.querySelector("h3")
+      .textContent
+      .toLowerCase();
+
+    card.style.display =
+      fileName.includes(term)
+      ? "block"
+      : "none";
+  });
+
+});
