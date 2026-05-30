@@ -567,73 +567,54 @@ function toggleCode(id) {
 
 }
 
+// Writes text to the clipboard.
+// Primary path: navigator.clipboard (requires HTTPS or localhost).
+// Fallback path: execCommand('copy') via a temporary textarea
+//   for plain HTTP or browsers that don't expose the Clipboard API.
 async function copyCode(id) {
 
-  const pre =
-    document.getElementById(id);
-
+  const pre = document.getElementById(id);
   if (!pre) return;
 
-  const code =
-    pre.querySelector('code');
-
+  const code = pre.querySelector('code');
   if (!code) {
-    showLiveToast(
-      'Code block not found.',
-      'error'
-    );
+    showLiveToast('Code block not found.', 'error');
     return;
   }
 
-  try {
+  const rawCode = code.textContent;
 
-    await navigator.clipboard.writeText(
-      code.textContent
-    );
+  if (navigator.clipboard?.writeText) {
 
-    showLiveToast(
-      'Source code copied to clipboard!',
-      'success'
-    );
+    // Modern async Clipboard API
+    try {
+      await navigator.clipboard.writeText(rawCode);
+      showLiveToast('Source code copied to clipboard!', 'success');
+    } catch {
+      showLiveToast('Copy failed, please retry.', 'error');
+    }
 
-  } catch (error) {
-
-    showLiveToast(
-      'Copy failed, please retry.',
-      'error'
-    );
-
-  }
-
-  const rawCode = pre.querySelector('code').textContent;
-  
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(rawCode).then(() => {
-      if (typeof showLiveToast === 'function') showLiveToast('Source code copied to clipboard!', 'success');
-    }).catch(() => {
-      if (typeof showLiveToast === 'function') showLiveToast('Copy failed, please retry.', 'error');
-    });
   } else {
-    // Fallback for non-secure HTTP contexts
+
+    // Legacy execCommand fallback (non-secure contexts)
     try {
       const textarea = document.createElement('textarea');
       textarea.value = rawCode;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
+      textarea.style.cssText = 'position:fixed;opacity:0;pointer-events:none;';
       document.body.appendChild(textarea);
       textarea.select();
-      const successful = document.execCommand('copy');
+      const ok = document.execCommand('copy');
       document.body.removeChild(textarea);
-      
-      if (successful) {
-        if (typeof showLiveToast === 'function') showLiveToast('Source code copied to clipboard!', 'success');
-      } else {
-        if (typeof showLiveToast === 'function') showLiveToast('Copy failed, please retry.', 'error');
-      }
-    } catch (err) {
-      if (typeof showLiveToast === 'function') showLiveToast('Copy failed, please retry.', 'error');
+      showLiveToast(
+        ok ? 'Source code copied to clipboard!' : 'Copy failed, please retry.',
+        ok ? 'success' : 'error'
+      );
+    } catch {
+      showLiveToast('Copy failed, please retry.', 'error');
     }
+
   }
+
 }
 
 /* ==========================================
@@ -772,4 +753,4 @@ function resetAllPanels() {
     'success'
   );
 
-}       
+}
